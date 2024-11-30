@@ -1,0 +1,11 @@
+{
+  "printWidth": 120,
+  "bracketSameLine": true,
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-packagejson",
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false,
+  "tailwindConfig": "./tailwind.config.js"
+}

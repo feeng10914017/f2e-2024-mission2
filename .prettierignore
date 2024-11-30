@@ -1,0 +1,51 @@
+# 編譯輸出目錄
+/dist
+/tmp
+/out-tsc
+
+# 依賴目錄
+/node_modules
+
+# IDEs 和編輯器
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# 雜項
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# 系統文件
+.DS_Store
+Thumbs.db
+
+# Angular 特定文件
+*.spec.ts
+/e2e
+src/environments/*.ts
+
+# 其他前端資源
+*.min.css
+*.min.js
+
+# 生成的文件
+src/assets/*
+!src/assets/*.json
+src/assets/i18n/*.json
