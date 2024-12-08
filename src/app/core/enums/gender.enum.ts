@@ -1,3 +1,4 @@
+/** 性別 */
 export enum GENDER {
   /** 男性 */
   MALE = '男',

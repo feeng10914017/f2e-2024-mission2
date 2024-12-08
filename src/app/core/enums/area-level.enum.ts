@@ -1,3 +1,4 @@
+/** 區域等級 */
 export enum AREA_LEVEL {
   /** 國家 */
   COUNTRY = 'COUNTRY',
