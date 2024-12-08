@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ZhTwMapComponent } from './components/zh-tw-map/zh-tw-map.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ZhTwMapComponent],
   template: `
-    <h1>Welcome to {{ title }}!</h1>
-
+    <app-zh-tw-map class="block h-screen" />
     <router-outlet />
   `,
   styles: [],
