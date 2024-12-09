@@ -2,3 +2,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+svg path.d3-county {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 0.5;
+}
+
+svg path.d3-county:hover {
+  fill: #ff7f50;
+}
+
+svg path.d3-township {
+  fill: #ddd;
+  stroke: #fff;
+  stroke-width: 0.2;
+}
+
+svg path.d3-township:hover {
+  fill: #ff7f50;
+}
+
+@layer components {
+  .cmp-dropdown {
+    @apply relative flex h-8 cursor-pointer items-center justify-between rounded-full bg-gray-200 xl:h-10;
+  }
+
+  .cmp-dropdown input[type="text"] {
+    @apply h-full w-full cursor-pointer bg-transparent py-1 pe-8 ps-4 text-sm font-normal text-dark outline-none xl:py-2 xl:text-base;
+  }
+
+  .cmp-dropdown input[type="text"]::placeholder {
+    @apply text-sm font-normal text-gray-600 xl:text-base;
+  }
+
+  .cmp-dropdown div {
+    @apply pointer-events-none absolute right-3 flex h-5 w-5 items-center justify-center;
+  }
+
+  .cmp-dropdown ul {
+    @apply absolute bottom-[-1px] left-0 z-10 mt-1 max-h-[496px] w-full translate-y-full rounded-lg border border-solid border-gray-300 bg-white py-2;
+  }
+
+  .cmp-dropdown li {
+    @apply block h-[40px] cursor-pointer px-4 py-2 text-base font-normal text-dark hover:bg-gray-100;
+  }
+}
