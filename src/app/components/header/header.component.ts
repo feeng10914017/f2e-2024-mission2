@@ -11,103 +11,106 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
   selector: 'app-header',
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="flex flex-col justify-center xl:flex-row xl:items-center xl:justify-between xl:gap-x-4">
-      <div class="flex items-center justify-between px-4 py-2 xl:justify-start xl:gap-x-6 xl:p-0">
-        <a [routerLink]="['/portal']">
-          <h1>
-            <img src="/images/logo.png" alt="logo" class="h-[28px] xl:h-[40px]" />
-          </h1>
-        </a>
+    <div class="sticky top-[-48px] z-50 shadow xl:top-0">
+      <div class="border-b-[1px] border-solid border-gray-300 bg-white xl:px-6 xl:py-3">
+        <div class="flex flex-col justify-center xl:flex-row xl:items-center xl:justify-between xl:gap-x-4">
+          <div class="flex items-center justify-between px-4 py-2 xl:justify-start xl:gap-x-6 xl:p-0">
+            <a [routerLink]="['/portal']">
+              <h1>
+                <img src="/images/logo.png" alt="logo" class="h-[28px] xl:h-[40px]" />
+              </h1>
+            </a>
 
-        <div class="flex items-center gap-x-3">
-          <div class="hidden text-base font-bold text-dark xl:block">選擇年份</div>
-          <div class="cmp-dropdown w-[118px]">
-            <input
-              type="text"
-              readonly
-              placeholder="請選擇"
-              [value]="adYearLabel"
-              (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
-            <div>
-              <img src="/images/expand_more.png" alt="expand_more" />
-            </div>
-            @if (isAdYearSelectOpen) {
-              <ul>
-                @for (option of adYearOptions; track option.value) {
-                  <li (click)="onYearChange(option.label, option.value)">
-                    {{ option.label }}
-                  </li>
+            <div class="flex items-center gap-x-3">
+              <div class="hidden text-base font-bold text-dark xl:block">選擇年份</div>
+              <div class="cmp-dropdown w-[118px]">
+                <input
+                  type="text"
+                  readonly
+                  placeholder="請選擇"
+                  [value]="adYearLabel"
+                  (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
+                <div>
+                  <img src="/images/expand_more.png" alt="expand_more" />
+                </div>
+                @if (isAdYearSelectOpen) {
+                  <ul>
+                    @for (option of adYearOptions; track option.value) {
+                      <li (click)="onYearChange(option.label, option.value)">
+                        {{ option.label }}
+                      </li>
+                    }
+                  </ul>
                 }
-              </ul>
-            }
-          </div>
-        </div>
-      </div>
-
-      <div class="px-4 py-2 xl:static xl:flex xl:grow xl:items-center xl:justify-between xl:p-0">
-        <div class="flex items-center rounded-full bg-gray-200">
-          <img src="/images/search.png" alt="search" class="ml-3 hidden xl:block" />
-
-          <div class="cmp-dropdown w-1/2 xl:w-[194px]">
-            <input
-              type="text"
-              readonly
-              placeholder="選擇縣市"
-              [value]="regionLabel"
-              (click)="$event.stopPropagation(); closeAllSelects(); isRegionSelectOpen = true" />
-            <div>
-              <img src="/images/expand_more.png" alt="expand_more" />
+              </div>
             </div>
-            @if (isRegionSelectOpen) {
-              <ul>
-                @for (option of regionOptions; track option.value) {
-                  <li (click)="onRegionChange(option.label, option.value)">{{ option.label }}</li>
-                }
-              </ul>
-            }
           </div>
 
-          <div class="h-4 border-s border-solid border-gray-400"></div>
+          <div class="px-4 py-2 xl:static xl:flex xl:grow xl:items-center xl:justify-between xl:p-0">
+            <div class="flex items-center rounded-full bg-gray-200">
+              <img src="/images/search.png" alt="search" class="ml-3 hidden xl:block" />
 
-          <div class="cmp-dropdown w-1/2 xl:w-[194px]">
-            <input
-              type="text"
-              readonly
-              placeholder="選擇區域"
-              [value]="districtLabel"
-              (click)="$event.stopPropagation(); closeAllSelects(); isDistrictSelectOpen = true" />
-            <div>
-              <img src="/images/expand_more.png" alt="expand_more" />
-            </div>
-            @if (isDistrictSelectOpen) {
-              <ul>
-                @for (option of districtOptions; track option.value) {
-                  <li (click)="onDistrictChange(option.label, option.value)">{{ option.label }}</li>
+              <div class="cmp-dropdown w-1/2 xl:w-[194px]">
+                <input
+                  type="text"
+                  readonly
+                  placeholder="選擇縣市"
+                  [value]="regionLabel"
+                  (click)="$event.stopPropagation(); closeAllSelects(); isRegionSelectOpen = true" />
+                <div>
+                  <img src="/images/expand_more.png" alt="expand_more" />
+                </div>
+                @if (isRegionSelectOpen) {
+                  <ul>
+                    @for (option of regionOptions; track option.value) {
+                      <li (click)="onRegionChange(option.label, option.value)">{{ option.label }}</li>
+                    }
+                  </ul>
                 }
-              </ul>
-            }
+              </div>
+
+              <div class="h-4 border-s border-solid border-gray-400"></div>
+
+              <div class="cmp-dropdown w-1/2 xl:w-[194px]">
+                <input
+                  type="text"
+                  readonly
+                  placeholder="選擇區域"
+                  [value]="districtLabel"
+                  (click)="$event.stopPropagation(); closeAllSelects(); isDistrictSelectOpen = true" />
+                <div>
+                  <img src="/images/expand_more.png" alt="expand_more" />
+                </div>
+                @if (isDistrictSelectOpen) {
+                  <ul>
+                    @for (option of districtOptions; track option.value) {
+                      <li (click)="onDistrictChange(option.label, option.value)">{{ option.label }}</li>
+                    }
+                  </ul>
+                }
+              </div>
+            </div>
+
+            <div class="hidden grow items-center justify-end gap-x-4 xl:flex">
+              <div class="text-base font-normal text-dark">分享</div>
+
+              <a href="http://www.facebook.com">
+                <img src="/images/facebook-icon.png" alt="facebook-icon" class="h-6" />
+              </a>
+
+              <a href="http://www.instagram.com">
+                <img src="/images/instagram-icon.png" alt="instagram-icon" class="h-6" />
+              </a>
+
+              <a href="http://www.youtube.com">
+                <img src="/images/youtube-icon.png" alt="youtube-icon" class="h-6" />
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div class="hidden grow items-center justify-end gap-x-4 xl:flex">
-          <div class="text-base font-normal text-dark">分享</div>
-
-          <a href="http://www.facebook.com">
-            <img src="/images/facebook-icon.png" alt="facebook-icon" class="h-6" />
-          </a>
-
-          <a href="http://www.instagram.com">
-            <img src="/images/instagram-icon.png" alt="instagram-icon" class="h-6" />
-          </a>
-
-          <a href="http://www.youtube.com">
-            <img src="/images/youtube-icon.png" alt="youtube-icon" class="h-6" />
-          </a>
         </div>
       </div>
     </div>
   `,
-  host: { class: 'sticky top-[-48px] border-b-[1px] border-solid border-gray-300 bg-white xl:top-0 xl:px-6 xl:py-3' },
   styles: ``,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
