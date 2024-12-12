@@ -5,6 +5,7 @@ import { debounceTime, distinctUntilChanged, fromEvent, map, merge, Subject, tak
 import { DISTRICT_CODE } from '../../core/enums/district-code.enum';
 import { REGION_CODE } from '../../core/enums/region-code.enum';
 import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interface';
+import { DropdownService } from '../../core/services/dropdown.service';
 import { HistoryManagerService } from '../../core/services/history-manager.service';
 
 @Component({
@@ -31,7 +32,7 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="adYearLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
                 <div>
-                  <img src="/images/expand_more.png" alt="expand_more" />
+                  <img src="/images/icons/expand_more.png" alt="expand_more" />
                 </div>
                 @if (isAdYearSelectOpen) {
                   <ul>
@@ -48,7 +49,7 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
 
           <div class="px-4 py-2 xl:static xl:flex xl:grow xl:items-center xl:justify-between xl:p-0">
             <div class="flex items-center rounded-full bg-gray-200">
-              <img src="/images/search.png" alt="search" class="ml-3 hidden xl:block" />
+              <img src="/images/icons/search.png" alt="search" class="ml-3 hidden xl:block" />
 
               <div class="cmp-dropdown w-1/2 xl:w-[194px]">
                 <input
@@ -58,7 +59,7 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="regionLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isRegionSelectOpen = true" />
                 <div>
-                  <img src="/images/expand_more.png" alt="expand_more" />
+                  <img src="/images/icons/expand_more.png" alt="expand_more" />
                 </div>
                 @if (isRegionSelectOpen) {
                   <ul>
@@ -79,7 +80,7 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="districtLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isDistrictSelectOpen = true" />
                 <div>
-                  <img src="/images/expand_more.png" alt="expand_more" />
+                  <img src="/images/icons/expand_more.png" alt="expand_more" />
                 </div>
                 @if (isDistrictSelectOpen) {
                   <ul>
@@ -95,15 +96,15 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
               <div class="text-base font-normal text-dark">分享</div>
 
               <a href="http://www.facebook.com">
-                <img src="/images/facebook-icon.png" alt="facebook-icon" class="h-6" />
+                <img src="/images/icons/facebook-icon.png" alt="facebook-icon" class="h-6" />
               </a>
 
               <a href="http://www.instagram.com">
-                <img src="/images/instagram-icon.png" alt="instagram-icon" class="h-6" />
+                <img src="/images/icons/instagram-icon.png" alt="instagram-icon" class="h-6" />
               </a>
 
               <a href="http://www.youtube.com">
-                <img src="/images/youtube-icon.png" alt="youtube-icon" class="h-6" />
+                <img src="/images/icons/youtube-icon.png" alt="youtube-icon" class="h-6" />
               </a>
             </div>
           </div>
@@ -130,9 +131,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   protected isDistrictSelectOpen = false;
   protected districtOptions: IDropdownOption<DISTRICT_CODE>[] = [];
 
-  constructor(private _historyManagerService: HistoryManagerService) {
-    const adYearArr = ['1996', '2000', '2004', '2008', '2012', '2016', '2020', '2024'];
-    this.adYearOptions = adYearArr.map((item) => ({ label: item, value: item }));
+  constructor(
+    private dropdownService: DropdownService,
+    private historyManagerService: HistoryManagerService,
+  ) {
+    this.adYearOptions = this.dropdownService.getYearList();
     this.regionOptions = [{ label: '全部縣市', value: REGION_CODE.ALL }];
     this.districtOptions = [{ label: '全部鄉鎮市區', value: DISTRICT_CODE.ALL }];
   }
@@ -142,7 +145,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this._destroy), debounceTime(0))
       .subscribe(() => this.closeAllSelects());
 
-    this._historyManagerService.adYear$
+    this.historyManagerService.adYear$
       .pipe(
         takeUntil(this._destroy),
         distinctUntilChanged(),
@@ -151,7 +154,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe((label) => (this.adYearLabel = label));
 
-    this._historyManagerService.region$
+    this.historyManagerService.region$
       .pipe(
         takeUntil(this._destroy),
         distinctUntilChanged(),
@@ -160,7 +163,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe((label) => (this.regionLabel = label));
 
-    this._historyManagerService.district$
+    this.historyManagerService.district$
       .pipe(
         takeUntil(this._destroy),
         distinctUntilChanged(),
@@ -184,18 +187,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   protected onYearChange(label: string, adYear: string): void {
     this.adYearLabel = label;
     this.isAdYearSelectOpen = !this.isAdYearSelectOpen;
-    this._historyManagerService.adYear$.next(adYear);
+    this.historyManagerService.adYear$.next(adYear);
   }
 
   protected onRegionChange(label: string, region: REGION_CODE): void {
     this.regionLabel = label;
     this.isRegionSelectOpen = !this.isRegionSelectOpen;
-    this._historyManagerService.region$.next(region);
+    this.historyManagerService.region$.next(region);
   }
 
   protected onDistrictChange(label: string, district: DISTRICT_CODE): void {
     this.districtLabel = label;
     this.isDistrictSelectOpen = !this.isDistrictSelectOpen;
-    this._historyManagerService.district$.next(district);
+    this.historyManagerService.district$.next(district);
   }
 }
