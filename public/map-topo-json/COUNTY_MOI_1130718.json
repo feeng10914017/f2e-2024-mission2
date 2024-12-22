@@ -71558,7 +71558,6 @@
         },
         {
           "arcs": [
-            [[187]],
             [[188]],
             [[189]],
             [[190]],
@@ -71591,9 +71590,7 @@
             [[217]],
             [[218]],
             [[219]],
-            [[220]],
-            [[221]],
-            [[222]]
+            [[220]]
           ],
           "type": "MultiPolygon",
           "properties": { "COUNTYID": "W", "COUNTYCODE": "09020", "COUNTYNAME": "金門縣", "COUNTYENG": "Kinmen County" }
