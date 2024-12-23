@@ -71463,7 +71463,7 @@
           }
         },
         {
-          "arcs": [[[100, 101, 102, 103, 104, 105]]],
+          "arcs": [[[99]], [[100, 101, 102, 103, 104, 105]]],
           "type": "MultiPolygon",
           "properties": { "COUNTYID": "G", "COUNTYCODE": "10002", "COUNTYNAME": "宜蘭縣", "COUNTYENG": "Yilan County" }
         },
@@ -71488,7 +71488,7 @@
           "properties": { "COUNTYID": "P", "COUNTYCODE": "10009", "COUNTYNAME": "雲林縣", "COUNTYENG": "Yunlin County" }
         },
         {
-          "arcs": [[[150, 151, 152]]],
+          "arcs": [[[143]], [[144]], [[145]], [[146]], [[147]], [[148]], [[149]], [[150, 151, 152]]],
           "type": "MultiPolygon",
           "properties": {
             "COUNTYID": "T",
