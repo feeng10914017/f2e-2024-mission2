@@ -9,9 +9,9 @@ import { REGION_CODE } from '../enums/region-code.enum';
 export class HistoryManagerService {
   adYear$ = new BehaviorSubject<string | null>(null);
 
-  region$ = new BehaviorSubject<REGION_CODE | null>(null);
+  region$ = new BehaviorSubject<REGION_CODE>(REGION_CODE.ALL);
 
-  district$ = new BehaviorSubject<DISTRICT_CODE | null>(null);
+  district$ = new BehaviorSubject<DISTRICT_CODE>(DISTRICT_CODE.ALL);
 
   constructor() {}
 }

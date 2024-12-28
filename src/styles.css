@@ -3,24 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
-svg path.d3-county {
-  fill: #ccc;
-  stroke: #fff;
-  stroke-width: 0.5;
+svg path.d3-county-path {
+  fill: #f4a76f;
+  stroke: transparent;
+  stroke-width: 0;
 }
 
-svg path.d3-county:hover {
-  fill: #ff7f50;
-}
-
-svg path.d3-township {
+svg path.d3-township-path {
   fill: #ddd;
   stroke: #fff;
   stroke-width: 0.2;
 }
 
-svg path.d3-township:hover {
-  fill: #ff7f50;
+svg text {
+  @apply pointer-events-none font-bold text-white;
+  fill: #fff;
+  text-anchor: middle;
+  text-shadow:
+    -1px -1px 0 #334155,
+    1px -1px 0 #334155,
+    -1px 1px 0 #334155,
+    1px 1px 0 #334155;
 }
 
 @layer components {
