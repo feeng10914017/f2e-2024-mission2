@@ -44,7 +44,7 @@ svg text {
   }
 
   .cmp-dropdown ul {
-    @apply absolute bottom-[-1px] left-0 z-10 mt-1 max-h-[496px] w-full translate-y-full rounded-lg border border-solid border-gray-300 bg-white py-2;
+    @apply absolute -bottom-1 left-0 z-10 max-h-[496px] w-full translate-y-full rounded-lg border border-solid border-gray-300 bg-white py-2;
   }
 
   .cmp-dropdown li {

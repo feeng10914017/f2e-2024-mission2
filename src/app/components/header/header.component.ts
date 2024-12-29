@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -32,7 +33,10 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="adYearLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
                 <div>
-                  <img src="/images/icons/expand_more.png" alt="expand_more" />
+                  <img
+                    src="/images/icons/expand_more.png"
+                    alt="expand_more"
+                    [@iconOpenClose]="isAdYearSelectOpen ? 'open' : 'closed'" />
                 </div>
                 @if (isAdYearSelectOpen) {
                   <ul>
@@ -59,7 +63,10 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="regionLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isRegionSelectOpen = true" />
                 <div>
-                  <img src="/images/icons/expand_more.png" alt="expand_more" />
+                  <img
+                    src="/images/icons/expand_more.png"
+                    alt="expand_more"
+                    [@iconOpenClose]="isRegionSelectOpen ? 'open' : 'closed'" />
                 </div>
                 @if (isRegionSelectOpen) {
                   <ul>
@@ -80,7 +87,10 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
                   [value]="districtLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isDistrictSelectOpen = true" />
                 <div>
-                  <img src="/images/icons/expand_more.png" alt="expand_more" />
+                  <img
+                    src="/images/icons/expand_more.png"
+                    alt="expand_more"
+                    [@iconOpenClose]="isDistrictSelectOpen ? 'open' : 'closed'" />
                 </div>
                 @if (isDistrictSelectOpen) {
                   <ul>
@@ -113,6 +123,14 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
     </div>
   `,
   styles: ``,
+  animations: [
+    trigger('iconOpenClose', [
+      state('open', style({ transform: 'rotate(180deg)' })),
+      state('closed', style({ transform: 'rotate(0deg)' })),
+      transition('open => closed', [animate('0.15s')]),
+      transition('closed => open', [animate('0.15s')]),
+    ]),
+  ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private readonly _destroy = new Subject<void>();
