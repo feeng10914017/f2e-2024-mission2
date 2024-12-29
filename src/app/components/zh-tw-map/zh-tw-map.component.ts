@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, inject, OnDestroy } from '@angular/core';
 import * as d3 from 'd3';
 import { Feature, FeatureCollection, Geometry } from 'geojson';
-import { distinctUntilChanged, forkJoin, map, Subject, takeUntil, throttleTime } from 'rxjs';
+import { delay, distinctUntilChanged, forkJoin, map, Subject, takeUntil, throttleTime } from 'rxjs';
 import * as topojson from 'topojson';
 import { D3ClassName } from '../../core/enums/d3-class.enum';
 import { DISTRICT_CODE } from '../../core/enums/district-code.enum';
@@ -56,8 +56,8 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this._commonService
       .createResizeObservable(this._elementRef.nativeElement)
-      .pipe(takeUntil(this._destroy), throttleTime(50))
-      .subscribe((d) => this._rerenderMap());
+      .pipe(takeUntil(this._destroy), throttleTime(50), delay(0))
+      .subscribe(() => this._rerenderMap());
 
     this._initializeMap();
     this._initializeMapData();
@@ -70,12 +70,12 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
 
         if (regionCode === REGION_CODE.ALL) {
           this._toggleOuterIslandRectFocusRender(false);
-          await this.zoomToAllCounty();
+          await this.zoomToAllCounty().end();
           this._container.selectAll(`.${D3ClassName.COUNTY_NAME}`).style('opacity', '1').raise();
         } else {
           const isOuterIsland = !!this._outerIslandCountySettings.find((item) => item.code === regionCode);
           this._toggleOuterIslandRectFocusRender(isOuterIsland);
-          await this._zoomToCounty(regionCode);
+          await this._zoomToCounty(regionCode)?.end();
         }
         this._renderTownshipLayer(regionCode);
       });
@@ -86,33 +86,45 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
     this._destroy.complete();
   }
 
-  /** 更新 host container 尺寸 */
-  private _updateContainerDimensions(): void {
+  /** 更新 svg 尺寸，取得最新的寬高值 */
+  private _updateSvgDimensions(): void {
     this._width = this._elementRef.nativeElement.clientWidth;
     this._height = this._elementRef.nativeElement.clientHeight;
   }
 
-  /** 更新地圖相關設置 */
+  /** 更新地圖相關設置，包含 svg 尺寸和投影設定 */
   private _updateMapLayout(): void {
-    this._updateContainerDimensions();
-    this._svg.attr('width', this._width).attr('height', this._height);
+    this._updateSvgDimensions();
     this._projection.translate([this._width / 2, this._height / 2]);
     this._path = d3.geoPath().projection(this._projection);
   }
 
-  /** 重新繪製地圖 */
+  /** 重新繪製地圖，與縮放定位 */
   private _rerenderMap(): void {
     if (!this._svg || !this._projection || !this._path) return;
 
     this._updateMapLayout();
-    this._svg.selectAll('path').attr('d', this._path as any);
+    this._container
+      .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
+      .attr('d', (d) => this._getTargetPath(this._getRegionCode(d))(d));
+    this._container
+      .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
+      .attr('d', (d) => this._getTargetPath(this._getRegionCode(d))(d));
+    this._container
+      .selectAll<SVGTextElement, GeoFeature>(`.${D3ClassName.INFO_TEXT}`)
+      .attr('x', (d) => `${this._getPathCentroid(d)[0]}`)
+      .attr('y', (d) => `${this._getPathCentroid(d)[1]}`)
+      .attr('transform', (d) => this._getTextTransform(d));
+    this._zoomToCounty(this._historyManagerService.region$.getValue());
   }
 
-  /** 初始化地圖 */
+  /** 初始化地圖的 SVG 和基本 D3 設置 */
   private _initializeMap(): void {
     this._svg = d3
       .select(this._elementRef.nativeElement)
       .append('svg')
+      .style('width', '100%')
+      .style('height', '100%')
       .on('click', (e) => {
         if (e.target.tagName === 'path' || e.target.tagName === 'rect') return;
         this._historyManagerService.region$.next(REGION_CODE.ALL);
@@ -122,7 +134,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
     this._updateMapLayout();
   }
 
-  /** 初始化地圖資料 */
+  /** 初始化地圖數據(加載和處理 GeoJSON 文件)，並設置初始地圖 */
   private _initializeMapData(): void {
     const MAP_FILE_PATHS = { COUNTY_JSON_PATH: PUBLIC_FILE.COUNTY, TOWNSHIP_JSON_PATH: PUBLIC_FILE.TOWNSHIP };
 
@@ -150,7 +162,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       });
   }
 
-  /** 渲染 hover 區域 */
+  /** 在鼠標懸停於地圖區域時渲染高亮效果 */
   private _renderHighlight(feature: GeoFeature | null, path: d3.GeoPath<any, d3.GeoPermissibleObjects>) {
     this._container
       .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.HIGHLIGHT_PATH}`)
@@ -175,16 +187,10 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       );
   }
 
-  /** 渲染縣、市圖層 */
+  /** 渲染地圖的縣、市圖層 */
   private _renderCountyLayer(features: GeoFeature[]): void {
-    const outerIslandConfig = { spacing: 8, marginTop: 16, marginLeft: 16 };
-
-    // 本島的處理
-    features
-      .filter((feature) => !this._countiesCode.includes(feature.properties.COUNTYCODE as REGION_CODE))
-      .forEach((feature) => this._drawMainIslandCountry(feature));
-
     // 離島設定檔的處理
+    const outerIslandConfig = { spacing: 8, marginTop: 16, marginLeft: 16 };
     this._countiesCode.forEach((code, index) => {
       const feature = features.find((feature) => feature.properties.COUNTYCODE === code);
       if (!feature) return;
@@ -208,120 +214,86 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       this._outerIslandCountySettings.push({ code, x, y, boxWidth, boxHeight, projection, path, transform });
     });
 
-    // 離島的處理
-    features
-      .filter((feature) => this._countiesCode.includes(feature.properties.COUNTYCODE as REGION_CODE))
-      .forEach((feature) => this._drawOuterIslandCountry(feature));
+    this._container
+      .selectAll<SVGGElement, GeoFeature>(`.${D3ClassName.REGION_ITEM}`)
+      .data(features)
+      .join('g')
+      .attr('class', (d) => `${D3ClassName.REGION_ITEM} ${D3ClassName.REGION_UID_PREFIX + this._getRegionCode(d)}`)
+      .call((g) => {
+        this._drawMainIslandCountry(g.filter((d) => !this._countiesCode.includes(this._getRegionCode(d))));
+        this._drawOuterIslandCountry(g.filter((d) => this._countiesCode.includes(this._getRegionCode(d))));
+        return g;
+      });
+
+    this._renderPlaceNameLayer(features, D3ClassName.COUNTY_NAME);
   }
 
-  /** 繪製主島 */
-  private _drawMainIslandCountry(feature: GeoFeature): void {
-    const regionCode = feature.properties.COUNTYCODE as REGION_CODE;
-    this._container
-      .append('g')
-      .attr('class', D3ClassName.REGION_UID_PREFIX + regionCode)
-      .append('path')
-      .attr('class', `${D3ClassName.COUNTY_PATH} ${D3ClassName.PATH_UID_PREFIX + regionCode}`)
-      .attr('d', () => this._path(feature))
-      .on('mouseenter', (e: MouseEvent) => this._renderHighlight(feature, this._path))
+  /** 繪製本島縣市 */
+  private _drawMainIslandCountry(g: d3.Selection<SVGGElement, GeoFeature, SVGGElement, unknown>): void {
+    g.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
+      .data((d) => [d])
+      .join('path')
+      .attr('class', (d) => `${D3ClassName.COUNTY_PATH} ${D3ClassName.PATH_UID_PREFIX + this._getRegionCode(d)}`)
+      .attr('d', this._path)
+      .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, this._path))
       .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._path))
-      .on('click', (e: MouseEvent) => this._historyManagerService.region$.next(regionCode));
-
-    const fontSize = 16 / this._currentZoom;
-    const centroid = this._path.centroid(feature).map((item, i) => item + (i * fontSize) / 2);
-    const translate = () => {
-      let x = 0;
-      let y = 0;
-      switch (regionCode) {
-        case REGION_CODE.C:
-          return [x + 30, y + -15];
-        case REGION_CODE.A:
-          return [x + 5, y + 10];
-        case REGION_CODE.F:
-          return [x - 5, y + 20];
-        case REGION_CODE.H:
-          return [x - 15, y - 25];
-        case REGION_CODE.O:
-          return [x + 35, y - 10];
-        case REGION_CODE.J:
-          return [x + 5, y + 5];
-        case REGION_CODE.K:
-          return [x - 5, y];
-        case REGION_CODE.B:
-          return [x - 20, y + 5];
-        case REGION_CODE.P:
-          return [x, y - 10];
-        case REGION_CODE.I:
-          return [x, y + 10];
-        case REGION_CODE.Q:
-          return [x + 40, y];
-        case REGION_CODE.E:
-          return [x + 10, y];
-        case REGION_CODE.T:
-          return [x - 15, y - 30];
-        case REGION_CODE.U:
-          return [x + 5, y];
-        default:
-          return [x, y];
-      }
-    };
-    this._container
-      .append('text')
-      .attr('class', `${D3ClassName.INFO_TEXT} ${D3ClassName.COUNTY_NAME}`)
-      .attr('font-size', `${fontSize}px`)
-      .attr('x', (d) => String(centroid[0]))
-      .attr('y', (d) => String(centroid[1]))
-      .attr('transform', (d) => `translate(${translate()[0]},${translate()[1]})`)
-      .text(feature.properties.COUNTYNAME)
-      .raise();
+      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.region$.next(this._getRegionCode(d)));
   }
 
-  /** 繪製離島 */
-  private _drawOuterIslandCountry(feature: GeoFeature): void {
-    const regionCode = feature.properties.COUNTYCODE as REGION_CODE;
-    const targetIndex = this._outerIslandCountySettings.findIndex((item) => item.code === regionCode);
-    if (targetIndex === undefined) return;
+  /** 繪製離島縣市 */
+  private _drawOuterIslandCountry(g: d3.Selection<SVGGElement, GeoFeature, SVGGElement, unknown>): void {
+    const setting = (feature: GeoFeature) => {
+      const index = this._outerIslandCountySettings.findIndex((item) => item.code === this._getRegionCode(feature));
+      return this._outerIslandCountySettings[index];
+    };
 
-    const setting = this._outerIslandCountySettings[targetIndex];
-    const selection = this._container.append('g').attr('class', D3ClassName.REGION_UID_PREFIX + regionCode);
-
-    selection
-      .append('rect')
-      .attr('class', 'island-box')
-      .attr('x', setting.x)
-      .attr('y', setting.y)
+    g.selectAll<SVGPathElement, GeoFeature>(`rect`)
+      .data((d) => [d])
+      .join('rect')
+      .attr('x', (d) => setting(d).x)
+      .attr('y', (d) => setting(d).y)
       .attr('rx', 8)
       .attr('ry', 8)
-      .attr('width', setting.boxWidth)
-      .attr('height', setting.boxHeight)
+      .attr('width', (d) => setting(d).boxWidth)
+      .attr('height', (d) => setting(d).boxHeight)
       .attr('fill', 'white')
-      .on('mouseenter', (e: MouseEvent) => this._renderHighlight(feature, setting.path))
-      .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, setting.path))
-      .on('click', (e: MouseEvent) => this._historyManagerService.region$.next(regionCode));
+      .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, setting(d).path))
+      .on('mouseleave', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(null, setting(d).path))
+      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.region$.next(this._getRegionCode(d)));
 
-    selection
-      .datum((d) => d)
-      .append('path')
-      .attr('class', `${D3ClassName.COUNTY_PATH} ${D3ClassName.PATH_UID_PREFIX + regionCode}`)
-      .attr('d', setting.path(feature))
+    g.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
+      .data((d) => [d])
+      .join('path')
+      .attr('class', (d) => `${D3ClassName.COUNTY_PATH} ${D3ClassName.PATH_UID_PREFIX + this._getRegionCode(d)}`)
+      .attr('d', (d) => setting(d).path(d))
       .attr('pointer-events', 'none');
-
-    const convertText = (text: string) => (text === '連江' ? '馬祖' : text);
-    selection
-      .append('text')
-      .attr('class', `${D3ClassName.INFO_TEXT} ${D3ClassName.COUNTY_NAME}`)
-      .attr('font-size', '16px')
-      .attr('x', setting.x + setting.boxWidth / 2)
-      .attr('y', setting.y + setting.boxHeight - 12)
-      .text(convertText(feature.properties.COUNTYNAME.replace('縣', '')))
-      .raise();
   }
 
-  private _getTargetPath(regionCode: REGION_CODE): d3.GeoPath<any, d3.GeoPermissibleObjects> {
-    const outerIslandSetting = this._outerIslandCountySettings.find((item) => item.code === regionCode);
-    return !!outerIslandSetting ? outerIslandSetting.path : this._path;
+  /** 渲染地圖的鄉、鎮、市、區圖層 */
+  private _renderTownshipLayer(regionCode: REGION_CODE): void {
+    this._container.selectAll<SVGTextElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_NAME}`).remove();
+    this._container.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`).remove();
+    if (regionCode === REGION_CODE.ALL || !regionCode) return;
+
+    const townshipCode = (feature: GeoFeature) => feature.properties.TOWNCODE as DISTRICT_CODE;
+    const filteredFeatures = this._cachedTownshipFeatures.filter(
+      (feature) => feature.properties.COUNTYCODE === regionCode,
+    );
+    this._container
+      .select<SVGGElement>(`.${D3ClassName.REGION_UID_PREFIX + regionCode}`)
+      .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
+      .data(filteredFeatures)
+      .join('path')
+      .attr('class', (d) => `${D3ClassName.TOWNSHIP_PATH} ${D3ClassName.PATH_UID_PREFIX + townshipCode(d)}`)
+      .attr('d', (d) => this._getTargetPath(this._getRegionCode(d))(d))
+      .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, this._getTargetPath(regionCode)))
+      .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._getTargetPath(regionCode)))
+      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.district$.next(townshipCode(d)));
+
+    this._renderPlaceNameLayer(filteredFeatures, D3ClassName.TOWNSHIP_NAME);
   }
 
+  /** 切換離島矩形的可見性和互動性 */
   private _toggleOuterIslandRectFocusRender(isOuterIsland: boolean): void {
     this._container
       .selectAll('rect')
@@ -329,45 +301,121 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .style('pointer-events', isOuterIsland ? 'none' : 'auto');
   }
 
-  /** 渲染鄉、鎮、市、區圖層 */
-  private _renderTownshipLayer(regionCode: REGION_CODE): void {
-    this._container.selectAll<SVGTextElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_NAME}`).remove();
-    this._container.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`).remove();
-    if (regionCode === REGION_CODE.ALL || !regionCode) return;
-
-    const regionUidClassName = D3ClassName.REGION_UID_PREFIX + regionCode;
-    const targetRegion = this._container.select<SVGGElement>(`.${regionUidClassName}`);
-    const targetPath = this._getTargetPath(regionCode);
-    const fontSize = 16 / this._currentZoom;
-
-    targetRegion.raise();
-    this._cachedTownshipFeatures
-      .filter((item) => item.properties.COUNTYCODE === regionCode)
-      .forEach((feature) => {
-        const districtCode = feature.properties.TOWNCODE as DISTRICT_CODE;
-        targetRegion
-          .append('path')
-          .attr('d', targetPath(feature))
-          .attr('class', D3ClassName.TOWNSHIP_PATH)
-          .on('mouseenter', (e: MouseEvent) => this._renderHighlight(feature, this._getTargetPath(regionCode)))
-          .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._getTargetPath(regionCode)))
-          .on('click', (e: MouseEvent) => this._historyManagerService.district$.next(districtCode));
-
-        const centroid = targetPath.centroid(feature).map((item, i) => item + (i * fontSize) / 2);
-        this._container
-          .append('text')
-          .attr('class', `${D3ClassName.INFO_TEXT} ${D3ClassName.TOWNSHIP_NAME}`)
-          .attr('font-size', `${fontSize}px`)
-          .attr('x', (d) => String(centroid[0]))
-          .attr('y', (d) => String(centroid[1]))
-          .text(feature.properties.TOWNNAME)
-          .raise();
-      });
+  /** 獲取指定區域的區域代碼 */
+  private _getRegionCode(feature: GeoFeature): REGION_CODE {
+    return feature.properties.COUNTYCODE as REGION_CODE;
   }
 
-  private async _zoomToCounty(regionCode: REGION_CODE): Promise<void> {
+  /** 獲取指定區域的 D3 路徑生成器 */
+  private _getTargetPath(regionCode: REGION_CODE): d3.GeoPath<any, d3.GeoPermissibleObjects> {
+    const outerIslandSetting = this._outerIslandCountySettings.find((item) => item.code === regionCode);
+    return !!outerIslandSetting ? outerIslandSetting.path : this._path;
+  }
+
+  /** 獲取指定區域的中心點位置 */
+  private _getPathCentroid(feature: GeoFeature): [number, number] {
+    const index = this._outerIslandCountySettings.findIndex((item) => item.code === this._getRegionCode(feature));
+    const isOusterIslandCountyName = feature.properties.COUNTYCODE && !feature.properties.TOWNCODE;
+    if (index !== -1 && isOusterIslandCountyName) {
+      return [
+        this._outerIslandCountySettings[index].x + this._outerIslandCountySettings[index].boxWidth / 2,
+        this._outerIslandCountySettings[index].y + this._outerIslandCountySettings[index].boxHeight - 12,
+      ];
+    }
+
+    return this._getTargetPath(this._getRegionCode(feature))
+      .centroid(feature)
+      .map((item, i) => item + (i * this._getTextFontSize()) / 2) as [number, number];
+  }
+
+  /** 獲取指定區域的文字大小 */
+  private _getTextFontSize(): number {
+    return 16 / this._currentZoom;
+  }
+
+  /** 獲取指定區域的文字特殊偏移量 */
+  private _getTextTransform(feature: GeoFeature): string {
+    const isCounty = !feature.properties.TOWNCODE;
+    const translate = (regionCode: REGION_CODE, isCounty: boolean) => {
+      if (!isCounty) return { x: 0, y: 0 };
+
+      switch (regionCode) {
+        case REGION_CODE.C:
+          return { x: 30, y: -15 };
+        case REGION_CODE.A:
+          return { x: 5, y: 10 };
+        case REGION_CODE.F:
+          return { x: -5, y: 20 };
+        case REGION_CODE.H:
+          return { x: -15, y: -25 };
+        case REGION_CODE.O:
+          return { x: 35, y: -10 };
+        case REGION_CODE.J:
+          return { x: 5, y: 5 };
+        case REGION_CODE.K:
+          return { x: -5, y: 0 };
+        case REGION_CODE.B:
+          return { x: -20, y: 5 };
+        case REGION_CODE.P:
+          return { x: 0, y: -10 };
+        case REGION_CODE.I:
+          return { x: 0, y: 10 };
+        case REGION_CODE.Q:
+          return { x: 40, y: 0 };
+        case REGION_CODE.E:
+          return { x: 10, y: 0 };
+        case REGION_CODE.T:
+          return { x: -15, y: -30 };
+        case REGION_CODE.U:
+          return { x: 5, y: 0 };
+        default:
+          return { x: 0, y: 0 };
+      }
+    };
+    const { x, y } = translate(this._getRegionCode(feature), isCounty);
+    return `translate(${x}, ${y})`;
+  }
+
+  /** 獲取指定區域的文字內容 */
+  private _getTextContent(feature: GeoFeature): string {
+    if (!feature.properties.TOWNCODE) {
+      if (this._countiesCode.includes(this._getRegionCode(feature))) {
+        const convertText = (text: string) => (text === '連江' ? '馬祖' : text);
+        return convertText(feature.properties.COUNTYNAME.replace('縣', ''));
+      } else {
+        return feature.properties.COUNTYNAME;
+      }
+    } else {
+      return feature.properties.TOWNNAME;
+    }
+  }
+
+  /** 渲染地名標籤圖層 */
+  private _renderPlaceNameLayer(features: GeoFeature[], className: D3ClassName) {
+    let section = this._container;
+    if (className === D3ClassName.TOWNSHIP_NAME) {
+      const regionCode = this._getRegionCode(features[0]);
+      const index = this._outerIslandCountySettings.findIndex((item) => item.code === regionCode);
+      if (index !== -1) section = section.select(`.${D3ClassName.REGION_UID_PREFIX + regionCode}`);
+    }
+
+    section
+      .selectAll<SVGTextElement, GeoFeature>(`.${className}`)
+      .data(features)
+      .join('text')
+      .attr('class', `${D3ClassName.INFO_TEXT} ${className}`)
+      .attr('font-size', `${this._getTextFontSize()}px`)
+      .attr('x', (d) => `${this._getPathCentroid(d)[0]}`)
+      .attr('y', (d) => `${this._getPathCentroid(d)[1]}`)
+      .attr('transform', (d) => this._getTextTransform(d))
+      .text((d) => this._getTextContent(d))
+      .raise();
+  }
+
+  /** 聚焦到特定縣市 */
+  private _zoomToCounty(regionCode: REGION_CODE): d3.Transition<SVGGElement, unknown, null, undefined> | undefined {
     const feature = this._cachedCountyFeatures.find((f) => f.properties.COUNTYCODE === regionCode);
-    if (feature === undefined) return new Promise<void>((resolve, reject) => resolve());
+    if (feature === undefined) return;
 
     const targetPath = this._getTargetPath(regionCode);
     const bounds = targetPath.bounds(feature);
@@ -380,14 +428,15 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
     this._currentZoom = scale;
 
     return this._container
+      .interrupt()
       .transition()
       .duration(500)
-      .attr('transform', `translate(${translate[0]},${translate[1]}) scale(${scale})`)
-      .end();
+      .attr('transform', `translate(${translate[0]},${translate[1]}) scale(${scale})`);
   }
 
-  protected async zoomToAllCounty(): Promise<void> {
+  /** 聚焦到全部 */
+  protected zoomToAllCounty(): d3.Transition<SVGGElement, unknown, null, undefined> {
     this._currentZoom = 1;
-    return this._container.transition().duration(500).attr('transform', `translate(0, 0) scale(1)`).end();
+    return this._container.interrupt().transition().duration(500).attr('transform', `translate(0, 0) scale(1)`);
   }
 }
