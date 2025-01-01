@@ -1,19 +1,23 @@
-import { AfterViewInit, Component, ElementRef, inject, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import * as d3 from 'd3';
-import { Feature, FeatureCollection, Geometry } from 'geojson';
-import { delay, distinctUntilChanged, forkJoin, map, Subject, takeUntil, throttleTime } from 'rxjs';
-import * as topojson from 'topojson';
+import { delay, Subject, takeUntil, throttleTime } from 'rxjs';
 import { D3ClassName } from '../../core/enums/d3-class.enum';
 import { DISTRICT_CODE } from '../../core/enums/district-code.enum';
-import { PUBLIC_FILE } from '../../core/enums/public-file.enum';
 import { REGION_CODE } from '../../core/enums/region-code.enum';
-import { LocationInfo } from '../../core/models/location-info.model';
-import { ApiService } from '../../core/services/api.service';
 import { CommonService } from '../../core/services/common.service';
-import { HistoryManagerService } from '../../core/services/history-manager.service';
+import { GeoFeature } from '../../core/types/geo-feature.type';
 
-type Geometries = FeatureCollection<Geometry, LocationInfo>;
-type GeoFeature = Feature<Geometry, LocationInfo>;
 type OuterIslandCountySetting = {
   code: REGION_CODE;
   x: number;
@@ -31,14 +35,18 @@ type OuterIslandCountySetting = {
   template: ``,
   styles: ``,
 })
-export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
-  private readonly _elementRef = inject(ElementRef);
-  private readonly _apiService = inject(ApiService);
-  private readonly _commonService = inject(CommonService);
-  private readonly _historyManagerService = inject(HistoryManagerService);
+export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
+  @Input({ required: true }) countyFeatures: GeoFeature[] = [];
+  @Input({ required: true }) townshipFeatures: GeoFeature[] = [];
 
-  private _cachedCountyFeatures: GeoFeature[] = [];
-  private _cachedTownshipFeatures: GeoFeature[] = [];
+  @Input({ required: true }) regionCode!: REGION_CODE;
+  @Output() regionCodeChange = new EventEmitter<REGION_CODE>();
+
+  @Input({ required: true }) districtCode!: DISTRICT_CODE;
+  @Output() districtCodeChange = new EventEmitter<DISTRICT_CODE>();
+
+  private readonly _elementRef = inject(ElementRef);
+  private readonly _commonService = inject(CommonService);
 
   private _width = 800;
   private _height = 600;
@@ -53,6 +61,13 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
   private readonly _outerIslandCountySettings: OuterIslandCountySetting[] = [];
   private readonly _destroy = new Subject<null>();
 
+  async ngOnChanges(changes: SimpleChanges): Promise<void> {
+    const { regionCode } = changes;
+    if (!regionCode) return;
+
+    this._handleRegionCodeChange(regionCode.currentValue);
+  }
+
   ngAfterViewInit(): void {
     this._commonService
       .createResizeObservable(this._elementRef.nativeElement)
@@ -60,30 +75,30 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .subscribe(() => this._rerenderMap());
 
     this._initializeMap();
-    this._initializeMapData();
-
-    this._historyManagerService.region$
-      .pipe(takeUntil(this._destroy), distinctUntilChanged())
-      .subscribe(async (regionCode) => {
-        this._container.selectAll(`.${D3ClassName.COUNTY_NAME}`).style('opacity', '0');
-        this._renderTownshipLayer(REGION_CODE.ALL);
-
-        if (regionCode === REGION_CODE.ALL) {
-          this._toggleOuterIslandRectFocusRender(false);
-          await this.zoomToAllCounty().end();
-          this._container.selectAll(`.${D3ClassName.COUNTY_NAME}`).style('opacity', '1').raise();
-        } else {
-          const isOuterIsland = !!this._outerIslandCountySettings.find((item) => item.code === regionCode);
-          this._toggleOuterIslandRectFocusRender(isOuterIsland);
-          await this._zoomToCounty(regionCode)?.end();
-        }
-        this._renderTownshipLayer(regionCode);
-      });
+    this._renderCountyLayer(this.countyFeatures);
   }
 
   ngOnDestroy(): void {
     this._destroy.next(null);
     this._destroy.complete();
+  }
+
+  private async _handleRegionCodeChange(regionCode: REGION_CODE): Promise<void> {
+    if (!this._svg || !this._projection || !this._path) return;
+
+    this._container.selectAll(`.${D3ClassName.COUNTY_NAME}`).style('opacity', '0');
+    this._renderTownshipLayer(REGION_CODE.ALL);
+
+    if (regionCode === REGION_CODE.ALL) {
+      this._toggleOuterIslandRectFocusRender(false);
+      await this.zoomToAllCounty().end();
+      this._container.selectAll(`.${D3ClassName.COUNTY_NAME}`).style('opacity', '1').raise();
+    } else {
+      const isOuterIsland = !!this._outerIslandCountySettings.find((item) => item.code === regionCode);
+      this._toggleOuterIslandRectFocusRender(isOuterIsland);
+      await this._zoomToCounty(regionCode)?.end();
+    }
+    this._renderTownshipLayer(regionCode);
   }
 
   /** 更新 svg 尺寸，取得最新的寬高值 */
@@ -115,7 +130,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .attr('x', (d) => `${this._getPathCentroid(d)[0]}`)
       .attr('y', (d) => `${this._getPathCentroid(d)[1]}`)
       .attr('transform', (d) => this._getTextTransform(d));
-    this._zoomToCounty(this._historyManagerService.region$.getValue());
+    this._zoomToCounty(this.regionCode);
   }
 
   /** 初始化地圖的 SVG 和基本 D3 設置 */
@@ -127,39 +142,11 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .style('height', '100%')
       .on('click', (e) => {
         if (e.target.tagName === 'path' || e.target.tagName === 'rect') return;
-        this._historyManagerService.region$.next(REGION_CODE.ALL);
+        this.regionCodeChange.emit(REGION_CODE.ALL);
       });
     this._container = this._svg.append('g');
     this._projection = d3.geoMercator().center([120.95, 23.6]).scale(12500);
     this._updateMapLayout();
-  }
-
-  /** 初始化地圖數據(加載和處理 GeoJSON 文件)，並設置初始地圖 */
-  private _initializeMapData(): void {
-    const MAP_FILE_PATHS = { COUNTY_JSON_PATH: PUBLIC_FILE.COUNTY, TOWNSHIP_JSON_PATH: PUBLIC_FILE.TOWNSHIP };
-
-    /** 將 TopoJSON 轉換為 GeoJSON Features */
-    const convertTopoToFeatures = (topoJson: TopoJSON.Topology, objectName: string): Geometries => {
-      return topojson.feature(topoJson, topoJson.objects[objectName]) as Geometries;
-    };
-
-    /** 處理地理特徵的屬性資料 */
-    const processFeatureProperties = (features: GeoJSON.Feature[]): void => {
-      features.forEach((feature) => (feature.properties = new LocationInfo(feature.properties)));
-    };
-
-    forkJoin([this._apiService.fetchCountyGeoJson(), this._apiService.fetchTownshipGeoJson()])
-      .pipe(map((responses) => responses.map((data) => data as TopoJSON.Topology)))
-      .subscribe(([countyTopoJson, townshipTopoJson]) => {
-        const countyFeatureCollection = convertTopoToFeatures(countyTopoJson, MAP_FILE_PATHS.COUNTY_JSON_PATH);
-        processFeatureProperties(countyFeatureCollection.features);
-        this._renderCountyLayer(countyFeatureCollection.features);
-        this._cachedCountyFeatures = countyFeatureCollection.features;
-
-        const townshipFeatureCollection = convertTopoToFeatures(townshipTopoJson, MAP_FILE_PATHS.TOWNSHIP_JSON_PATH);
-        processFeatureProperties(townshipFeatureCollection.features);
-        this._cachedTownshipFeatures = townshipFeatureCollection.features;
-      });
   }
 
   /** 在鼠標懸停於地圖區域時渲染高亮效果 */
@@ -237,7 +224,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .attr('d', this._path)
       .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, this._path))
       .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._path))
-      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.region$.next(this._getRegionCode(d)));
+      .on('click', (e: MouseEvent, d: GeoFeature) => this.regionCodeChange.emit(this._getRegionCode(d)));
   }
 
   /** 繪製離島縣市 */
@@ -259,7 +246,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .attr('fill', 'white')
       .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, setting(d).path))
       .on('mouseleave', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(null, setting(d).path))
-      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.region$.next(this._getRegionCode(d)));
+      .on('click', (e: MouseEvent, d: GeoFeature) => this.regionCodeChange.emit(this._getRegionCode(d)));
 
     g.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
       .data((d) => [d])
@@ -276,9 +263,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
     if (regionCode === REGION_CODE.ALL || !regionCode) return;
 
     const townshipCode = (feature: GeoFeature) => feature.properties.TOWNCODE as DISTRICT_CODE;
-    const filteredFeatures = this._cachedTownshipFeatures.filter(
-      (feature) => feature.properties.COUNTYCODE === regionCode,
-    );
+    const filteredFeatures = this.townshipFeatures.filter((feature) => feature.properties.COUNTYCODE === regionCode);
     this._container
       .select<SVGGElement>(`.${D3ClassName.REGION_UID_PREFIX + regionCode}`)
       .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
@@ -288,7 +273,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
       .attr('d', (d) => this._getTargetPath(this._getRegionCode(d))(d))
       .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, this._getTargetPath(regionCode)))
       .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._getTargetPath(regionCode)))
-      .on('click', (e: MouseEvent, d: GeoFeature) => this._historyManagerService.district$.next(townshipCode(d)));
+      .on('click', (e: MouseEvent, d: GeoFeature) => this.districtCodeChange.emit(townshipCode(d)));
 
     this._renderPlaceNameLayer(filteredFeatures, D3ClassName.TOWNSHIP_NAME);
   }
@@ -414,7 +399,7 @@ export class ZhTwMapComponent implements AfterViewInit, OnDestroy {
 
   /** 聚焦到特定縣市 */
   private _zoomToCounty(regionCode: REGION_CODE): d3.Transition<SVGGElement, unknown, null, undefined> | undefined {
-    const feature = this._cachedCountyFeatures.find((f) => f.properties.COUNTYCODE === regionCode);
+    const feature = this.countyFeatures.find((f) => f.properties.COUNTYCODE === regionCode);
     if (feature === undefined) return;
 
     const targetPath = this._getTargetPath(regionCode);

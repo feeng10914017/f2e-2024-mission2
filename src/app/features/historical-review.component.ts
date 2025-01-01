@@ -1,19 +1,53 @@
-import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { BehaviorSubject, distinctUntilChanged, merge, Subject, takeUntil } from 'rxjs';
+import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { ZhTwMapComponent } from '../components/zh-tw-map/zh-tw-map.component';
+import { DISTRICT_CODE } from '../core/enums/district-code.enum';
+import { REGION_CODE } from '../core/enums/region-code.enum';
+import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
+import { ApiService } from '../core/services/api.service';
+import { DropdownService } from '../core/services/dropdown.service';
+import { GeoFeature } from '../core/types/geo-feature.type';
 
 @Component({
   selector: 'app-historical-review',
-  imports: [HeaderComponent, ZhTwMapComponent],
+  imports: [HeaderComponent, ZhTwMapComponent, BreadcrumbComponent, AsyncPipe],
   template: `
-    <app-header />
+    <app-header
+      [adYearOptions]="adYearOptions"
+      [regionOptions]="regionOptions"
+      [districtOptions]="districtOptions"
+      [(addYear)]="addYear"
+      [regionCode]="(regionCodeBehavior$ | async) || regionCodeBehavior$.getValue()"
+      (regionCodeChange)="regionCodeBehavior$.next($event)"
+      [districtCode]="(districtCodeBehavior$ | async) || districtCodeBehavior$.getValue()"
+      (districtCodeChange)="districtCodeBehavior$.next($event)" />
 
     <div class="grid grid-cols-1 xl:grid-cols-[500px,1fr]">
       <div class="relative bg-[#E4FAFF]">
-        <app-zh-tw-map class="top:auto static block h-[148px] xl:sticky xl:top-[65px] xl:h-[calc(100dvh-65px)]" />
+        @if (regionFeatures.length !== 0 && districtFeatures.length !== 0) {
+          <app-zh-tw-map
+            class="top:auto static block h-[148px] xl:sticky xl:top-[65px] xl:h-[calc(100dvh-65px)]"
+            [countyFeatures]="regionFeatures"
+            [townshipFeatures]="districtFeatures"
+            [regionCode]="(regionCodeBehavior$ | async) || regionCodeBehavior$.getValue()"
+            (regionCodeChange)="regionCodeBehavior$.next($event)"
+            [districtCode]="(districtCodeBehavior$ | async) || districtCodeBehavior$.getValue()"
+            (districtCodeChange)="districtCodeBehavior$.next($event)" />
+        }
       </div>
 
-      <div>
+      <div class="grid grid-cols-2 gap-6 px-4 py-8 xl:px-12">
+        <div class="col-span-2 grid gap-y-3">
+          <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ title }}</h2>
+
+          @if (breadcrumbList.length > 1) {
+            <app-breadcrumb class="mb-5" [breadcrumbList]="breadcrumbList" />
+          }
+        </div>
+
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, corrupti? Quia non a vel nostrum quos illum
         aut quaerat architecto necessitatibus, sed, porro perferendis incidunt, harum at suscipit dolor ratione.
         <br />
@@ -103,4 +137,85 @@ import { ZhTwMapComponent } from '../components/zh-tw-map/zh-tw-map.component';
   `,
   styles: ``,
 })
-export class HistoricalReviewComponent {}
+export class HistoricalReviewComponent implements OnInit, OnDestroy {
+  private readonly _apiService = inject(ApiService);
+  private readonly _dropdownService = inject(DropdownService);
+  private readonly _destroy = new Subject<void>();
+  private readonly dataSummaryTitle = '全臺縣市總統得票';
+
+  protected title = this.dataSummaryTitle;
+
+  protected readonly adYearOptions = this._dropdownService.getYearList();
+  protected addYear = this.adYearOptions[0].value;
+
+  protected regionOptions: IDropdownOption<REGION_CODE>[] = [];
+  protected readonly regionCodeBehavior$ = new BehaviorSubject<REGION_CODE>(REGION_CODE.ALL);
+
+  protected districtOptions: IDropdownOption<DISTRICT_CODE>[] = [];
+  protected readonly districtCodeBehavior$ = new BehaviorSubject<DISTRICT_CODE>(DISTRICT_CODE.ALL);
+
+  protected regionFeatures: GeoFeature[] = [];
+
+  protected breadcrumbList: string[] = [];
+
+  protected districtFeatures: GeoFeature[] = [];
+
+  ngOnInit(): void {
+    this._fetchMapGeoJson();
+    this._registerRegionCodeChangeListener();
+    this._registerDistrictCodeChangeListener();
+    this._registerBreadcrumbRenderer();
+  }
+
+  ngOnDestroy(): void {
+    this._destroy.next();
+    this._destroy.complete();
+  }
+
+  private _fetchMapGeoJson(): void {
+    this._apiService.fetchCountyGeoJson().subscribe((data) => {
+      this.regionOptions = data
+        .map((item) => ({
+          label: item.properties.COUNTYNAME,
+          value: item.properties.COUNTYCODE as REGION_CODE,
+        }))
+        .sort((a, b) => a.value.localeCompare(b.value) * -1);
+      this.regionFeatures = data;
+    });
+    this._apiService.fetchTownshipGeoJson().subscribe((data) => (this.districtFeatures = data));
+  }
+
+  private _registerRegionCodeChangeListener(): void {
+    this.regionCodeBehavior$.pipe(takeUntil(this._destroy), distinctUntilChanged()).subscribe((regionCode) => {
+      this.districtOptions = this.districtFeatures
+        .filter((feature) => feature.properties.COUNTYCODE === regionCode)
+        .map((feature) => ({
+          label: feature.properties.TOWNNAME,
+          value: feature.properties.TOWNCODE as DISTRICT_CODE,
+        }));
+      this.districtCodeBehavior$.next(DISTRICT_CODE.ALL);
+    });
+  }
+
+  private _registerDistrictCodeChangeListener(): void {
+    this.districtCodeBehavior$.pipe(takeUntil(this._destroy), distinctUntilChanged()).subscribe((districtCode) => {});
+  }
+
+  private _registerBreadcrumbRenderer(): void {
+    merge(this.regionCodeBehavior$, this.districtCodeBehavior$)
+      .pipe(takeUntil(this._destroy), distinctUntilChanged())
+      .subscribe(() => {
+        const regionFeature = this.regionFeatures.find(
+          (feature) => feature.properties.COUNTYCODE === this.regionCodeBehavior$.getValue(),
+        );
+        const districtFeature = this.districtFeatures.find(
+          (feature) => feature.properties.TOWNCODE === this.districtCodeBehavior$.getValue(),
+        );
+        this.breadcrumbList = [
+          this.dataSummaryTitle,
+          regionFeature?.properties?.COUNTYNAME || '',
+          districtFeature?.properties?.TOWNNAME || '',
+        ].filter((item) => !!item);
+      });
+  }
+}

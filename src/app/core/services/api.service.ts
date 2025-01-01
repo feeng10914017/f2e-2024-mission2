@@ -1,22 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { map, Observable, shareReplay, tap } from 'rxjs';
 import { PUBLIC_FILE } from '../enums/public-file.enum';
+import { LocationInfo } from '../models/location-info.model';
+import { GeoFeature } from '../types/geo-feature.type';
+import { CommonService } from './common.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private commonService: CommonService,
+  ) {}
 
   /**
    * 取得 縣市 topoJSON
    * @reference 縣市數據 https://data.gov.tw/dataset/7442
    * @reference 格式轉換 https://mapshaper.org/
    */
-  fetchCountyGeoJson(): Observable<TopoJSON.Topology> {
-    const url = '/map-topo-json/' + PUBLIC_FILE.COUNTY + '.json';
-    return this.http.get<TopoJSON.Topology>(url).pipe(shareReplay(1));
+  fetchCountyGeoJson(): Observable<GeoFeature[]> {
+    const COUNTY_JSON_PATH = PUBLIC_FILE.COUNTY;
+    const url = '/map-topo-json/' + COUNTY_JSON_PATH + '.json';
+    return this.http.get<TopoJSON.Topology>(url).pipe(
+      map((res) => res as TopoJSON.Topology),
+      map((res) => this.commonService.convertTopoToFeatures(res, COUNTY_JSON_PATH)),
+      map((res) => res.features),
+      tap((features) => features.forEach((item) => (item.properties = new LocationInfo(item.properties)))),
+      shareReplay(1),
+    );
   }
 
   /**
@@ -24,8 +37,15 @@ export class ApiService {
    * @reference 鄉鎮市區數據 https://data.gov.tw/dataset/7441
    * @reference 格式轉換 https://mapshaper.org/
    */
-  fetchTownshipGeoJson(): Observable<TopoJSON.Topology> {
-    const url = '/map-topo-json/' + PUBLIC_FILE.TOWNSHIP + '.json';
-    return this.http.get<TopoJSON.Topology>(url).pipe(shareReplay(1));
+  fetchTownshipGeoJson(): Observable<GeoFeature[]> {
+    const TOWNSHIP_JSON_PATH = PUBLIC_FILE.TOWNSHIP;
+    const url = '/map-topo-json/' + TOWNSHIP_JSON_PATH + '.json';
+    return this.http.get<TopoJSON.Topology>(url).pipe(
+      map((res) => res as TopoJSON.Topology),
+      map((res) => this.commonService.convertTopoToFeatures(res, TOWNSHIP_JSON_PATH)),
+      map((res) => res.features),
+      tap((features) => features.forEach((item) => (item.properties = new LocationInfo(item.properties)))),
+      shareReplay(1),
+    );
   }
 }

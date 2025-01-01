@@ -1,13 +1,11 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { debounceTime, distinctUntilChanged, fromEvent, map, merge, Subject, takeUntil } from 'rxjs';
+import { debounceTime, fromEvent, merge, Subject, takeUntil } from 'rxjs';
 import { DISTRICT_CODE } from '../../core/enums/district-code.enum';
 import { REGION_CODE } from '../../core/enums/region-code.enum';
 import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interface';
-import { DropdownService } from '../../core/services/dropdown.service';
-import { HistoryManagerService } from '../../core/services/history-manager.service';
 
 @Component({
   selector: 'app-header',
@@ -132,63 +130,59 @@ import { HistoryManagerService } from '../../core/services/history-manager.servi
     ]),
   ],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnChanges, OnInit, OnDestroy {
   private readonly _destroy = new Subject<void>();
 
+  @Input({ required: true }) adYearOptions!: IDropdownOption<string>[];
+  @Input({ required: true }) addYear!: string;
+  @Output() addYearChange = new EventEmitter<string>();
   protected adYearLabel = '';
   protected isAdYearSelectOpen = false;
-  protected adYearOptions: IDropdownOption<string>[] = [];
 
-  protected readonly REGION_CODE = REGION_CODE;
+  @Input({ required: true }) regionOptions!: IDropdownOption<REGION_CODE>[];
+  @Input({ required: true }) regionCode!: REGION_CODE;
+  @Output() regionCodeChange = new EventEmitter<REGION_CODE>();
   protected regionLabel = '';
   protected isRegionSelectOpen = false;
-  protected regionOptions: IDropdownOption<REGION_CODE>[] = [];
 
-  protected DISTRICT_CODE = DISTRICT_CODE;
+  @Input({ required: true }) districtOptions!: IDropdownOption<DISTRICT_CODE>[];
+  @Input({ required: true }) districtCode!: DISTRICT_CODE;
+  @Output() districtCodeChange = new EventEmitter<DISTRICT_CODE>();
   protected districtLabel = '';
   protected isDistrictSelectOpen = false;
-  protected districtOptions: IDropdownOption<DISTRICT_CODE>[] = [];
 
-  constructor(
-    private dropdownService: DropdownService,
-    private historyManagerService: HistoryManagerService,
-  ) {
-    this.adYearOptions = this.dropdownService.getYearList();
-    this.regionOptions = [{ label: '全部縣市', value: REGION_CODE.ALL }];
-    this.districtOptions = [{ label: '全部鄉鎮市區', value: DISTRICT_CODE.ALL }];
+  ngOnChanges(changes: SimpleChanges): void {
+    const { regionOptions, districtOptions } = changes;
+    if (regionOptions && Array.isArray(regionOptions.currentValue)) {
+      const allOption: IDropdownOption<REGION_CODE> = { label: '全部縣市', value: REGION_CODE.ALL };
+      const hasAll = !!regionOptions.currentValue.find((opt) => opt.value === allOption.value);
+      if (!hasAll) regionOptions.currentValue.unshift(allOption);
+    }
+    if (districtOptions && Array.isArray(districtOptions.currentValue)) {
+      const allOption: IDropdownOption<DISTRICT_CODE> = { label: '全部鄉鎮市區', value: DISTRICT_CODE.ALL };
+      const hasAll = !!districtOptions.currentValue.find((opt) => opt.value === allOption.value);
+      if (!hasAll) districtOptions.currentValue.unshift(allOption);
+    }
+
+    const { addYear, regionCode, districtCode } = changes;
+    if (addYear) {
+      const targetOption = this.adYearOptions.find((item) => item.value === addYear.currentValue);
+      if (targetOption) this.adYearLabel = targetOption.label;
+    }
+    if (regionCode) {
+      const targetOption = this.regionOptions.find((item) => item.value === regionCode.currentValue);
+      if (targetOption) this.regionLabel = targetOption.label;
+    }
+    if (districtCode) {
+      const targetOption = this.districtOptions.find((item) => item.value === districtCode.currentValue);
+      if (targetOption) this.districtLabel = targetOption.label;
+    }
   }
 
   ngOnInit(): void {
     merge(fromEvent(document, 'click'), fromEvent(document, 'scroll'))
       .pipe(takeUntil(this._destroy), debounceTime(0))
       .subscribe(() => this.closeAllSelects());
-
-    this.historyManagerService.adYear$
-      .pipe(
-        takeUntil(this._destroy),
-        distinctUntilChanged(),
-        map((v) => this.adYearOptions.find((item) => item.value === v)),
-        map((opt) => opt?.label || ''),
-      )
-      .subscribe((label) => (this.adYearLabel = label));
-
-    this.historyManagerService.region$
-      .pipe(
-        takeUntil(this._destroy),
-        distinctUntilChanged(),
-        map((v) => this.regionOptions.find((item) => item.value === v)),
-        map((opt) => opt?.label || ''),
-      )
-      .subscribe((label) => (this.regionLabel = label));
-
-    this.historyManagerService.district$
-      .pipe(
-        takeUntil(this._destroy),
-        distinctUntilChanged(),
-        map((v) => this.districtOptions.find((item) => item.value === v)),
-        map((opt) => opt?.label || ''),
-      )
-      .subscribe((label) => (this.districtLabel = label));
   }
 
   ngOnDestroy(): void {
@@ -205,18 +199,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   protected onYearChange(label: string, adYear: string): void {
     this.adYearLabel = label;
     this.isAdYearSelectOpen = !this.isAdYearSelectOpen;
-    this.historyManagerService.adYear$.next(adYear);
+    this.addYearChange.emit(adYear);
   }
 
   protected onRegionChange(label: string, region: REGION_CODE): void {
     this.regionLabel = label;
     this.isRegionSelectOpen = !this.isRegionSelectOpen;
-    this.historyManagerService.region$.next(region);
+    this.regionCodeChange.emit(region);
   }
 
   protected onDistrictChange(label: string, district: DISTRICT_CODE): void {
     this.districtLabel = label;
     this.isDistrictSelectOpen = !this.isDistrictSelectOpen;
-    this.historyManagerService.district$.next(district);
+    this.districtCodeChange.emit(district);
   }
 }
