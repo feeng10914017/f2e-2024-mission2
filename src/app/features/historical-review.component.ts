@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, distinctUntilChanged, merge, Subject, takeUntil } from 'rxjs';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
+import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { PartyVotesBarChartComponent } from '../components/party-votes-bar-chart/party-votes-bar-chart.component';
 import { PartyVotesLineChartComponent } from '../components/party-votes-line-chart/party-votes-line-chart.component';
@@ -26,6 +27,7 @@ import { GeoFeature } from '../core/types/geo-feature.type';
     PartyVotesBarChartComponent,
     PartyVotesLineChartComponent,
     VotingOverviewComponent,
+    FooterComponent,
   ],
   template: `
     <app-header
@@ -52,34 +54,37 @@ import { GeoFeature } from '../core/types/geo-feature.type';
         }
       </div>
 
-      <div class="grid auto-rows-min grid-cols-2 gap-6 px-4 py-8 xl:px-12">
-        <div class="col-span-2 grid gap-y-3">
-          <div class="flex items-center gap-x-3">
-            @if (title !== dataSummaryTitle) {
-              <button
-                type="button"
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200"
-                (click)="backToPreviousLevel()">
-                <img src="/images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
-              </button>
-            }
-            <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ title }}</h2>
+      <div class="flex flex-col justify-between">
+        <div class="grid auto-rows-min grid-cols-2 gap-6 px-4 py-8 xl:px-12">
+          <div class="col-span-2 grid gap-y-3">
+            <div class="flex items-center gap-x-3">
+              @if (title !== dataSummaryTitle) {
+                <button
+                  type="button"
+                  class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200"
+                  (click)="backToPreviousLevel()">
+                  <img src="/images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
+                </button>
+              }
+              <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ title }}</h2>
+            </div>
+
+            <div>
+              @if (breadcrumbList.length > 1) {
+                <app-breadcrumb class="mb-2 block" [breadcrumbList]="breadcrumbList" />
+              }
+            </div>
+
+            <app-presidential-votes />
           </div>
 
-          <div>
-            @if (breadcrumbList.length > 1) {
-              <app-breadcrumb class="mb-2 block" [breadcrumbList]="breadcrumbList" />
-            }
-          </div>
+          <app-party-votes-bar-chart />
 
-          <app-presidential-votes />
+          <app-party-votes-line-chart />
+
+          <app-voting-overview class="col-span-2" />
         </div>
-
-        <app-party-votes-bar-chart />
-
-        <app-party-votes-line-chart />
-
-        <app-voting-overview class="col-span-2" />
+        <app-footer />
       </div>
     </div>
   `,
