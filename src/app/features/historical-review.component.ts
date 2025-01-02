@@ -1,11 +1,12 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, merge, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, fromEvent, map, merge, Subject, takeUntil } from 'rxjs';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
-import { PartyVotesBarChartComponent } from '../components/party-votes-bar-chart/party-votes-bar-chart.component';
-import { PartyVotesLineChartComponent } from '../components/party-votes-line-chart/party-votes-line-chart.component';
+import { HistoricalPartyVoteCountsComponent } from '../components/historical-party-vote-counts/historical-party-vote-counts.component';
+import { HistoricalPartyVoteRatesComponent } from '../components/historical-party-vote-rates/historical-party-vote-rates.component';
 import { PresidentialVotesComponent } from '../components/presidential-votes/presidential-votes.component';
 import { VotingOverviewComponent } from '../components/voting-overview/voting-overview.component';
 import { ZhTwMapComponent } from '../components/zh-tw-map/zh-tw-map.component';
@@ -24,8 +25,8 @@ import { GeoFeature } from '../core/types/geo-feature.type';
     ZhTwMapComponent,
     BreadcrumbComponent,
     PresidentialVotesComponent,
-    PartyVotesBarChartComponent,
-    PartyVotesLineChartComponent,
+    HistoricalPartyVoteCountsComponent,
+    HistoricalPartyVoteRatesComponent,
     VotingOverviewComponent,
     FooterComponent,
   ],
@@ -78,22 +79,45 @@ import { GeoFeature } from '../core/types/geo-feature.type';
             <app-presidential-votes />
           </div>
 
-          <app-party-votes-bar-chart />
+          <app-historical-party-vote-counts />
 
-          <app-party-votes-line-chart />
+          <app-historical-party-vote-rates />
 
           <app-voting-overview class="col-span-2" />
         </div>
         <app-footer />
       </div>
     </div>
+
+    <div
+      [@opacityVisibleHidden]="(isScrollToTopVisible$ | async) ? 'visible' : 'hidden'"
+      class="fixed bottom-6 right-6 opacity-0">
+      <button
+        type="button"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-solid border-primary bg-white"
+        (click)="scrollToTop()">
+        <img src="/images/icons/arrow_upward.png" alt="arrow_upward" class="pointer-events-none h-5 w-5" />
+      </button>
+    </div>
   `,
   styles: ``,
+  animations: [
+    trigger('opacityVisibleHidden', [
+      state('visible', style({ opacity: '1' })),
+      state('hidden', style({ opacity: '0' })),
+      transition('visible => hidden', [animate('0.2s')]),
+      transition('hidden => visible', [animate('0.2s')]),
+    ]),
+  ],
 })
 export class HistoricalReviewComponent implements OnInit, OnDestroy {
   private readonly _apiService = inject(ApiService);
   private readonly _dropdownService = inject(DropdownService);
   private readonly _destroy = new Subject<void>();
+
+  protected readonly isScrollToTopVisible$ = fromEvent(window, 'scroll').pipe(
+    map(() => document.documentElement.scrollTop > 50),
+  );
 
   protected readonly dataSummaryTitle = '全臺縣市總統得票';
   protected title = this.dataSummaryTitle;
@@ -178,5 +202,9 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       this.regionCodeBehavior$.next(REGION_CODE.ALL);
       return;
     }
+  }
+
+  protected scrollToTop(): void {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 }
