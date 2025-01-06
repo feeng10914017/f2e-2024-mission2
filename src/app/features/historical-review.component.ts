@@ -56,8 +56,8 @@ import { GeoFeature } from '../core/types/geo-feature.type';
       </div>
 
       <div class="flex flex-col justify-between">
-        <div class="grid auto-rows-min grid-cols-2 gap-6 px-4 py-8 xl:px-12">
-          <div class="col-span-2 grid gap-y-3">
+        <div class="grid auto-rows-min grid-cols-1 gap-6 px-4 py-8 xl:grid-cols-2 xl:px-12">
+          <div class="grid gap-y-3 xl:col-span-2">
             <div class="flex items-center gap-x-3">
               @if (title !== dataSummaryTitle) {
                 <button
@@ -83,7 +83,7 @@ import { GeoFeature } from '../core/types/geo-feature.type';
 
           <app-historical-party-vote-rates />
 
-          <app-voting-overview class="col-span-2" />
+          <app-voting-overview class="xl:col-span-2" />
         </div>
         <app-footer />
       </div>
