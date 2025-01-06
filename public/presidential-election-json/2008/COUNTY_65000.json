@@ -1,0 +1,681 @@
+{
+  "ELECTION_TITLE": "第12任總統(副總統)選舉",
+  "ELECTION_TERM": "12",
+  "ELECTION_GREGORIAN_YEAR": "2008",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "謝長廷",
+      "VICE_PRESIDENT": "蘇貞昌"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "蕭萬長"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "臺北縣",
+    "ADMIN_CODE": "65000",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 866915
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 1359419
+      }
+    ],
+    "VALID_VOTES": 2226334,
+    "INVALID_VOTES": 21169,
+    "TOTAL_VOTES": 2247503,
+    "UNRETURNED_BALLOTS": 41,
+    "TOTAL_ISSUED_BALLOTS": 2247544,
+    "UNUSED_BALLOTS": 630933,
+    "ELIGIBLE_VOTERS": 2878477,
+    "TURNOUT_RATE": 78.08000183105469
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "板橋市",
+      "ADMIN_CODE": "65000010",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 136964
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 189109
+        }
+      ],
+      "VALID_VOTES": 326073,
+      "INVALID_VOTES": 3290,
+      "TOTAL_VOTES": 329363,
+      "UNRETURNED_BALLOTS": 4,
+      "TOTAL_ISSUED_BALLOTS": 329367,
+      "UNUSED_BALLOTS": 88389,
+      "ELIGIBLE_VOTERS": 417756,
+      "TURNOUT_RATE": 78.83999633789062
+    },
+    {
+      "ADMIN_NAME": "三重市",
+      "ADMIN_CODE": "65000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 107823
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 121441
+        }
+      ],
+      "VALID_VOTES": 229264,
+      "INVALID_VOTES": 2434,
+      "TOTAL_VOTES": 231698,
+      "UNRETURNED_BALLOTS": 3,
+      "TOTAL_ISSUED_BALLOTS": 231701,
+      "UNUSED_BALLOTS": 62830,
+      "ELIGIBLE_VOTERS": 294531,
+      "TURNOUT_RATE": 78.66999816894531
+    },
+    {
+      "ADMIN_NAME": "中和市",
+      "ADMIN_CODE": "65000030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 82944
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 174613
+        }
+      ],
+      "VALID_VOTES": 257557,
+      "INVALID_VOTES": 2674,
+      "TOTAL_VOTES": 260231,
+      "UNRETURNED_BALLOTS": 7,
+      "TOTAL_ISSUED_BALLOTS": 260238,
+      "UNUSED_BALLOTS": 63924,
+      "ELIGIBLE_VOTERS": 324162,
+      "TURNOUT_RATE": 80.27999877929688
+    },
+    {
+      "ADMIN_NAME": "永和市",
+      "ADMIN_CODE": "65000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 40410
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 104558
+        }
+      ],
+      "VALID_VOTES": 144968,
+      "INVALID_VOTES": 1217,
+      "TOTAL_VOTES": 146185,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 146185,
+      "UNUSED_BALLOTS": 35978,
+      "ELIGIBLE_VOTERS": 182163,
+      "TURNOUT_RATE": 80.25
+    },
+    {
+      "ADMIN_NAME": "新莊市",
+      "ADMIN_CODE": "65000050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 97044
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 126440
+        }
+      ],
+      "VALID_VOTES": 223484,
+      "INVALID_VOTES": 2036,
+      "TOTAL_VOTES": 225520,
+      "UNRETURNED_BALLOTS": 4,
+      "TOTAL_ISSUED_BALLOTS": 225524,
+      "UNUSED_BALLOTS": 64530,
+      "ELIGIBLE_VOTERS": 290054,
+      "TURNOUT_RATE": 77.75
+    },
+    {
+      "ADMIN_NAME": "新店市",
+      "ADMIN_CODE": "65000060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 49830
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 130218
+        }
+      ],
+      "VALID_VOTES": 180048,
+      "INVALID_VOTES": 1509,
+      "TOTAL_VOTES": 181557,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 181559,
+      "UNUSED_BALLOTS": 47775,
+      "ELIGIBLE_VOTERS": 229334,
+      "TURNOUT_RATE": 79.16999816894531
+    },
+    {
+      "ADMIN_NAME": "土城市",
+      "ADMIN_CODE": "65000130",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 53028
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 81127
+        }
+      ],
+      "VALID_VOTES": 134155,
+      "INVALID_VOTES": 1275,
+      "TOTAL_VOTES": 135430,
+      "UNRETURNED_BALLOTS": 4,
+      "TOTAL_ISSUED_BALLOTS": 135434,
+      "UNUSED_BALLOTS": 39148,
+      "ELIGIBLE_VOTERS": 174582,
+      "TURNOUT_RATE": 77.56999969482422
+    },
+    {
+      "ADMIN_NAME": "蘆洲市",
+      "ADMIN_CODE": "65000140",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 50205
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 56097
+        }
+      ],
+      "VALID_VOTES": 106302,
+      "INVALID_VOTES": 1050,
+      "TOTAL_VOTES": 107352,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 107354,
+      "UNUSED_BALLOTS": 31104,
+      "ELIGIBLE_VOTERS": 138458,
+      "TURNOUT_RATE": 77.52999877929688
+    },
+    {
+      "ADMIN_NAME": "汐止市",
+      "ADMIN_CODE": "65000110",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 38282
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 69863
+        }
+      ],
+      "VALID_VOTES": 108145,
+      "INVALID_VOTES": 909,
+      "TOTAL_VOTES": 109054,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 109056,
+      "UNUSED_BALLOTS": 32063,
+      "ELIGIBLE_VOTERS": 141119,
+      "TURNOUT_RATE": 77.27999877929688
+    },
+    {
+      "ADMIN_NAME": "樹林市",
+      "ADMIN_CODE": "65000070",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 39077
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 52285
+        }
+      ],
+      "VALID_VOTES": 91362,
+      "INVALID_VOTES": 982,
+      "TOTAL_VOTES": 92344,
+      "UNRETURNED_BALLOTS": 4,
+      "TOTAL_ISSUED_BALLOTS": 92348,
+      "UNUSED_BALLOTS": 27757,
+      "ELIGIBLE_VOTERS": 120105,
+      "TURNOUT_RATE": 76.88999938964844
+    },
+    {
+      "ADMIN_NAME": "鶯歌鎮",
+      "ADMIN_CODE": "65000080",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 19876
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 27178
+        }
+      ],
+      "VALID_VOTES": 47054,
+      "INVALID_VOTES": 458,
+      "TOTAL_VOTES": 47512,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 47513,
+      "UNUSED_BALLOTS": 14705,
+      "ELIGIBLE_VOTERS": 62218,
+      "TURNOUT_RATE": 76.36000061035156
+    },
+    {
+      "ADMIN_NAME": "三峽鎮",
+      "ADMIN_CODE": "65000090",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 20650
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 30067
+        }
+      ],
+      "VALID_VOTES": 50717,
+      "INVALID_VOTES": 516,
+      "TOTAL_VOTES": 51233,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 51234,
+      "UNUSED_BALLOTS": 16600,
+      "ELIGIBLE_VOTERS": 67834,
+      "TURNOUT_RATE": 75.52999877929688
+    },
+    {
+      "ADMIN_NAME": "淡水鎮",
+      "ADMIN_CODE": "65000100",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 28606
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 48182
+        }
+      ],
+      "VALID_VOTES": 76788,
+      "INVALID_VOTES": 656,
+      "TOTAL_VOTES": 77444,
+      "UNRETURNED_BALLOTS": 3,
+      "TOTAL_ISSUED_BALLOTS": 77447,
+      "UNUSED_BALLOTS": 23802,
+      "ELIGIBLE_VOTERS": 101249,
+      "TURNOUT_RATE": 76.48999786376953
+    },
+    {
+      "ADMIN_NAME": "瑞芳鎮",
+      "ADMIN_CODE": "65000120",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 9006
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 15707
+        }
+      ],
+      "VALID_VOTES": 24713,
+      "INVALID_VOTES": 221,
+      "TOTAL_VOTES": 24934,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 24934,
+      "UNUSED_BALLOTS": 9265,
+      "ELIGIBLE_VOTERS": 34199,
+      "TURNOUT_RATE": 72.91000366210938
+    },
+    {
+      "ADMIN_NAME": "五股鄉",
+      "ADMIN_CODE": "65000150",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 19119
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 24139
+        }
+      ],
+      "VALID_VOTES": 43258,
+      "INVALID_VOTES": 368,
+      "TOTAL_VOTES": 43626,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 43626,
+      "UNUSED_BALLOTS": 12738,
+      "ELIGIBLE_VOTERS": 56364,
+      "TURNOUT_RATE": 77.4000015258789
+    },
+    {
+      "ADMIN_NAME": "泰山鄉",
+      "ADMIN_CODE": "65000160",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 17068
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 25096
+        }
+      ],
+      "VALID_VOTES": 42164,
+      "INVALID_VOTES": 386,
+      "TOTAL_VOTES": 42550,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 42550,
+      "UNUSED_BALLOTS": 12310,
+      "ELIGIBLE_VOTERS": 54860,
+      "TURNOUT_RATE": 77.55999755859375
+    },
+    {
+      "ADMIN_NAME": "林口鄉",
+      "ADMIN_CODE": "65000170",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 14181
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 22155
+        }
+      ],
+      "VALID_VOTES": 36336,
+      "INVALID_VOTES": 248,
+      "TOTAL_VOTES": 36584,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 36584,
+      "UNUSED_BALLOTS": 10464,
+      "ELIGIBLE_VOTERS": 47048,
+      "TURNOUT_RATE": 77.76000213623047
+    },
+    {
+      "ADMIN_NAME": "深坑鄉",
+      "ADMIN_CODE": "65000180",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 4955
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 8224
+        }
+      ],
+      "VALID_VOTES": 13179,
+      "INVALID_VOTES": 119,
+      "TOTAL_VOTES": 13298,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 13299,
+      "UNUSED_BALLOTS": 3754,
+      "ELIGIBLE_VOTERS": 17053,
+      "TURNOUT_RATE": 77.9800033569336
+    },
+    {
+      "ADMIN_NAME": "石碇鄉",
+      "ADMIN_CODE": "65000190",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 2517
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 2251
+        }
+      ],
+      "VALID_VOTES": 4768,
+      "INVALID_VOTES": 39,
+      "TOTAL_VOTES": 4807,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 4807,
+      "UNUSED_BALLOTS": 1516,
+      "ELIGIBLE_VOTERS": 6323,
+      "TURNOUT_RATE": 76.0199966430664
+    },
+    {
+      "ADMIN_NAME": "坪林鄉",
+      "ADMIN_CODE": "65000200",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 2326
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1644
+        }
+      ],
+      "VALID_VOTES": 3970,
+      "INVALID_VOTES": 33,
+      "TOTAL_VOTES": 4003,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 4003,
+      "UNUSED_BALLOTS": 1526,
+      "ELIGIBLE_VOTERS": 5529,
+      "TURNOUT_RATE": 72.4000015258789
+    },
+    {
+      "ADMIN_NAME": "三芝鄉",
+      "ADMIN_CODE": "65000210",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 4435
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 8440
+        }
+      ],
+      "VALID_VOTES": 12875,
+      "INVALID_VOTES": 116,
+      "TOTAL_VOTES": 12991,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 12991,
+      "UNUSED_BALLOTS": 4880,
+      "ELIGIBLE_VOTERS": 17871,
+      "TURNOUT_RATE": 72.69000244140625
+    },
+    {
+      "ADMIN_NAME": "石門鄉",
+      "ADMIN_CODE": "65000220",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 2377
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 4325
+        }
+      ],
+      "VALID_VOTES": 6702,
+      "INVALID_VOTES": 48,
+      "TOTAL_VOTES": 6750,
+      "UNRETURNED_BALLOTS": 3,
+      "TOTAL_ISSUED_BALLOTS": 6753,
+      "UNUSED_BALLOTS": 2385,
+      "ELIGIBLE_VOTERS": 9138,
+      "TURNOUT_RATE": 73.87000274658203
+    },
+    {
+      "ADMIN_NAME": "八里鄉",
+      "ADMIN_CODE": "65000230",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 7378
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 11074
+        }
+      ],
+      "VALID_VOTES": 18452,
+      "INVALID_VOTES": 176,
+      "TOTAL_VOTES": 18628,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 18628,
+      "UNUSED_BALLOTS": 5932,
+      "ELIGIBLE_VOTERS": 24560,
+      "TURNOUT_RATE": 75.8499984741211
+    },
+    {
+      "ADMIN_NAME": "平溪鄉",
+      "ADMIN_CODE": "65000240",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1590
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1821
+        }
+      ],
+      "VALID_VOTES": 3411,
+      "INVALID_VOTES": 35,
+      "TOTAL_VOTES": 3446,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3446,
+      "UNUSED_BALLOTS": 1468,
+      "ELIGIBLE_VOTERS": 4914,
+      "TURNOUT_RATE": 70.12999725341797
+    },
+    {
+      "ADMIN_NAME": "雙溪鄉",
+      "ADMIN_CODE": "65000250",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 2438
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 3292
+        }
+      ],
+      "VALID_VOTES": 5730,
+      "INVALID_VOTES": 48,
+      "TOTAL_VOTES": 5778,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 5778,
+      "UNUSED_BALLOTS": 2514,
+      "ELIGIBLE_VOTERS": 8292,
+      "TURNOUT_RATE": 69.68000030517578
+    },
+    {
+      "ADMIN_NAME": "貢寮鄉",
+      "ADMIN_CODE": "65000260",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 4309
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 3529
+        }
+      ],
+      "VALID_VOTES": 7838,
+      "INVALID_VOTES": 85,
+      "TOTAL_VOTES": 7923,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 7923,
+      "UNUSED_BALLOTS": 3622,
+      "ELIGIBLE_VOTERS": 11545,
+      "TURNOUT_RATE": 68.62999725341797
+    },
+    {
+      "ADMIN_NAME": "金山鄉",
+      "ADMIN_CODE": "65000270",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 5015
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 7217
+        }
+      ],
+      "VALID_VOTES": 12232,
+      "INVALID_VOTES": 101,
+      "TOTAL_VOTES": 12333,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 12333,
+      "UNUSED_BALLOTS": 4510,
+      "ELIGIBLE_VOTERS": 16843,
+      "TURNOUT_RATE": 73.22000122070312
+    },
+    {
+      "ADMIN_NAME": "萬里鄉",
+      "ADMIN_CODE": "65000280",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 4510
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 7203
+        }
+      ],
+      "VALID_VOTES": 11713,
+      "INVALID_VOTES": 111,
+      "TOTAL_VOTES": 11824,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 11824,
+      "UNUSED_BALLOTS": 4493,
+      "ELIGIBLE_VOTERS": 16317,
+      "TURNOUT_RATE": 72.45999908447266
+    },
+    {
+      "ADMIN_NAME": "烏來鄉",
+      "ADMIN_CODE": "65000290",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 952
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 2124
+        }
+      ],
+      "VALID_VOTES": 3076,
+      "INVALID_VOTES": 29,
+      "TOTAL_VOTES": 3105,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3105,
+      "UNUSED_BALLOTS": 951,
+      "ELIGIBLE_VOTERS": 4056,
+      "TURNOUT_RATE": 76.55000305175781
+    }
+  ]
+}

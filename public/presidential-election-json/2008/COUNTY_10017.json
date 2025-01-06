@@ -1,0 +1,197 @@
+{
+  "ELECTION_TITLE": "第12任總統(副總統)選舉",
+  "ELECTION_TERM": "12",
+  "ELECTION_GREGORIAN_YEAR": "2008",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "謝長廷",
+      "VICE_PRESIDENT": "蘇貞昌"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "蕭萬長"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "基隆市",
+    "ADMIN_CODE": "10017",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 72562
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 152327
+      }
+    ],
+    "VALID_VOTES": 224889,
+    "INVALID_VOTES": 1701,
+    "TOTAL_VOTES": 226590,
+    "UNRETURNED_BALLOTS": 4,
+    "TOTAL_ISSUED_BALLOTS": 226594,
+    "UNUSED_BALLOTS": 71200,
+    "ELIGIBLE_VOTERS": 297794,
+    "TURNOUT_RATE": 76.08999633789062
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "中正區",
+      "ADMIN_CODE": "63000050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 10465
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 22654
+        }
+      ],
+      "VALID_VOTES": 33119,
+      "INVALID_VOTES": 248,
+      "TOTAL_VOTES": 33367,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 33367,
+      "UNUSED_BALLOTS": 11613,
+      "ELIGIBLE_VOTERS": 44980,
+      "TURNOUT_RATE": 74.18000030517578
+    },
+    {
+      "ADMIN_NAME": "信義區",
+      "ADMIN_CODE": "63000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 8541
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 21966
+        }
+      ],
+      "VALID_VOTES": 30507,
+      "INVALID_VOTES": 234,
+      "TOTAL_VOTES": 30741,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 30741,
+      "UNUSED_BALLOTS": 9129,
+      "ELIGIBLE_VOTERS": 39870,
+      "TURNOUT_RATE": 77.0999984741211
+    },
+    {
+      "ADMIN_NAME": "仁愛區",
+      "ADMIN_CODE": "10017040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 10663
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 18508
+        }
+      ],
+      "VALID_VOTES": 29171,
+      "INVALID_VOTES": 224,
+      "TOTAL_VOTES": 29395,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 29397,
+      "UNUSED_BALLOTS": 9042,
+      "ELIGIBLE_VOTERS": 38439,
+      "TURNOUT_RATE": 76.47000122070312
+    },
+    {
+      "ADMIN_NAME": "中山區",
+      "ADMIN_CODE": "63000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 10147
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 20022
+        }
+      ],
+      "VALID_VOTES": 30169,
+      "INVALID_VOTES": 242,
+      "TOTAL_VOTES": 30411,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 30412,
+      "UNUSED_BALLOTS": 10016,
+      "ELIGIBLE_VOTERS": 40428,
+      "TURNOUT_RATE": 75.22000122070312
+    },
+    {
+      "ADMIN_NAME": "安樂區",
+      "ADMIN_CODE": "10017060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 15511
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 33206
+        }
+      ],
+      "VALID_VOTES": 48717,
+      "INVALID_VOTES": 338,
+      "TOTAL_VOTES": 49055,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 49056,
+      "UNUSED_BALLOTS": 14693,
+      "ELIGIBLE_VOTERS": 63749,
+      "TURNOUT_RATE": 76.94999694824219
+    },
+    {
+      "ADMIN_NAME": "暖暖區",
+      "ADMIN_CODE": "10017030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 6270
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 15219
+        }
+      ],
+      "VALID_VOTES": 21489,
+      "INVALID_VOTES": 168,
+      "TOTAL_VOTES": 21657,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 21657,
+      "UNUSED_BALLOTS": 6906,
+      "ELIGIBLE_VOTERS": 28563,
+      "TURNOUT_RATE": 75.81999969482422
+    },
+    {
+      "ADMIN_NAME": "七堵區",
+      "ADMIN_CODE": "10017020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 10965
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 20752
+        }
+      ],
+      "VALID_VOTES": 31717,
+      "INVALID_VOTES": 247,
+      "TOTAL_VOTES": 31964,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 31964,
+      "UNUSED_BALLOTS": 9801,
+      "ELIGIBLE_VOTERS": 41765,
+      "TURNOUT_RATE": 76.52999877929688
+    }
+  ]
+}

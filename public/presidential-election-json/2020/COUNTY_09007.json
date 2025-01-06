@@ -1,0 +1,157 @@
+{
+  "ELECTION_TITLE": "第15任總統(副總統)選舉",
+  "ELECTION_TERM": "15",
+  "ELECTION_GREGORIAN_YEAR": "2020",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "PFP",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "余湘"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "韓國瑜",
+      "VICE_PRESIDENT": "張善政"
+    },
+    {
+      "NO": "3",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "賴清德"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "連江縣",
+    "ADMIN_CODE": "09007",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 188
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 0
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 0
+      }
+    ],
+    "VALID_VOTES": 0,
+    "INVALID_VOTES": 82,
+    "TOTAL_VOTES": 0,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 0,
+    "UNUSED_BALLOTS": 0,
+    "ELIGIBLE_VOTERS": 0,
+    "TURNOUT_RATE": 57.3361
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "南竿鄉",
+      "ADMIN_CODE": "09007010",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 114
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 0
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 784
+        }
+      ],
+      "VALID_VOTES": 0,
+      "INVALID_VOTES": 53,
+      "TOTAL_VOTES": 0,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 0,
+      "UNUSED_BALLOTS": 0,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 61.1475
+    },
+    {
+      "ADMIN_NAME": "北竿鄉",
+      "ADMIN_CODE": "09007020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 25
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 883
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 201
+        }
+      ],
+      "VALID_VOTES": 0,
+      "INVALID_VOTES": 14,
+      "TOTAL_VOTES": 0,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 0,
+      "UNUSED_BALLOTS": 0,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 51.302
+    },
+    {
+      "ADMIN_NAME": "莒光鄉",
+      "ADMIN_CODE": "09007030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 14
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 513
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 105
+        }
+      ],
+      "VALID_VOTES": 632,
+      "INVALID_VOTES": 9,
+      "TOTAL_VOTES": 641,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 641,
+      "UNUSED_BALLOTS": 733,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 46.6521
+    },
+    {
+      "ADMIN_NAME": "東引鄉",
+      "ADMIN_CODE": "09007040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 35
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 505
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 136
+        }
+      ],
+      "VALID_VOTES": 676,
+      "INVALID_VOTES": 6,
+      "TOTAL_VOTES": 682,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 682,
+      "UNUSED_BALLOTS": 437,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 60.9473
+    }
+  ]
+}

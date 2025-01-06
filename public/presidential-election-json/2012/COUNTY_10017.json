@@ -1,0 +1,235 @@
+{
+  "ELECTION_TITLE": "第13任總統(副總統)選舉",
+  "ELECTION_TERM": "13",
+  "ELECTION_GREGORIAN_YEAR": "2012",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "蘇嘉全"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "吳敦義"
+    },
+    {
+      "NO": "3",
+      "PARTY": "EMPTY",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "林瑞雄"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "基隆市",
+    "ADMIN_CODE": "10017",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 79562
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 128294
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 8533
+      }
+    ],
+    "VALID_VOTES": 216389,
+    "INVALID_VOTES": 1414,
+    "TOTAL_VOTES": 217803,
+    "UNRETURNED_BALLOTS": 3,
+    "TOTAL_ISSUED_BALLOTS": 217806,
+    "UNUSED_BALLOTS": 84333,
+    "ELIGIBLE_VOTERS": 302139,
+    "TURNOUT_RATE": 72.08999633789062
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "中正區",
+      "ADMIN_CODE": "63000050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 11034
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 18395
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1239
+        }
+      ],
+      "VALID_VOTES": 30668,
+      "INVALID_VOTES": 217,
+      "TOTAL_VOTES": 30885,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 30886,
+      "UNUSED_BALLOTS": 13416,
+      "ELIGIBLE_VOTERS": 44302,
+      "TURNOUT_RATE": 69.70999908447266
+    },
+    {
+      "ADMIN_NAME": "信義區",
+      "ADMIN_CODE": "63000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 9635
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 19170
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1175
+        }
+      ],
+      "VALID_VOTES": 29980,
+      "INVALID_VOTES": 180,
+      "TOTAL_VOTES": 30160,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 30161,
+      "UNUSED_BALLOTS": 11343,
+      "ELIGIBLE_VOTERS": 41504,
+      "TURNOUT_RATE": 72.66999816894531
+    },
+    {
+      "ADMIN_NAME": "仁愛區",
+      "ADMIN_CODE": "10017040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 11291
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 15308
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 961
+        }
+      ],
+      "VALID_VOTES": 27560,
+      "INVALID_VOTES": 202,
+      "TOTAL_VOTES": 27762,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 27762,
+      "UNUSED_BALLOTS": 10336,
+      "ELIGIBLE_VOTERS": 38098,
+      "TURNOUT_RATE": 72.87000274658203
+    },
+    {
+      "ADMIN_NAME": "中山區",
+      "ADMIN_CODE": "63000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 11286
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 16522
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1197
+        }
+      ],
+      "VALID_VOTES": 29005,
+      "INVALID_VOTES": 210,
+      "TOTAL_VOTES": 29215,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 29215,
+      "UNUSED_BALLOTS": 11584,
+      "ELIGIBLE_VOTERS": 40799,
+      "TURNOUT_RATE": 71.61000061035156
+    },
+    {
+      "ADMIN_NAME": "安樂區",
+      "ADMIN_CODE": "10017060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 17043
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 27881
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1895
+        }
+      ],
+      "VALID_VOTES": 46819,
+      "INVALID_VOTES": 261,
+      "TOTAL_VOTES": 47080,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 47080,
+      "UNUSED_BALLOTS": 17416,
+      "ELIGIBLE_VOTERS": 64496,
+      "TURNOUT_RATE": 73.0
+    },
+    {
+      "ADMIN_NAME": "暖暖區",
+      "ADMIN_CODE": "10017030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 7027
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 13040
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 957
+        }
+      ],
+      "VALID_VOTES": 21024,
+      "INVALID_VOTES": 148,
+      "TOTAL_VOTES": 21172,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 21172,
+      "UNUSED_BALLOTS": 8561,
+      "ELIGIBLE_VOTERS": 29733,
+      "TURNOUT_RATE": 71.20999908447266
+    },
+    {
+      "ADMIN_NAME": "七堵區",
+      "ADMIN_CODE": "10017020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 12246
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 17978
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1109
+        }
+      ],
+      "VALID_VOTES": 31333,
+      "INVALID_VOTES": 196,
+      "TOTAL_VOTES": 31529,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 31530,
+      "UNUSED_BALLOTS": 11677,
+      "ELIGIBLE_VOTERS": 43207,
+      "TURNOUT_RATE": 72.97000122070312
+    }
+  ]
+}

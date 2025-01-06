@@ -1,0 +1,209 @@
+{
+  "ELECTION_TITLE": "第14任總統(副總統)選舉",
+  "ELECTION_TERM": "14",
+  "ELECTION_GREGORIAN_YEAR": "2016",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "KMT",
+      "PRESIDENT": "朱立倫",
+      "VICE_PRESIDENT": "王如玄"
+    },
+    {
+      "NO": "2",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "陳建仁"
+    },
+    {
+      "NO": "3",
+      "PARTY": "PFP",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "徐欣瑩"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "澎湖縣",
+    "ADMIN_CODE": "10016",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 12564
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 21658
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 8401
+      }
+    ],
+    "VALID_VOTES": 42623,
+    "INVALID_VOTES": 643,
+    "TOTAL_VOTES": 43266,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 43266,
+    "UNUSED_BALLOTS": 40956,
+    "ELIGIBLE_VOTERS": 84222,
+    "TURNOUT_RATE": 51.369998931884766
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "馬公市",
+      "ADMIN_CODE": "10016010",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 8536
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 13328
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 5313
+        }
+      ],
+      "VALID_VOTES": 27177,
+      "INVALID_VOTES": 376,
+      "TOTAL_VOTES": 27553,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 27553,
+      "UNUSED_BALLOTS": 21628,
+      "ELIGIBLE_VOTERS": 49181,
+      "TURNOUT_RATE": 56.02000045776367
+    },
+    {
+      "ADMIN_NAME": "湖西鄉",
+      "ADMIN_CODE": "10016020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1515
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 3717
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1064
+        }
+      ],
+      "VALID_VOTES": 6296,
+      "INVALID_VOTES": 115,
+      "TOTAL_VOTES": 6411,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 6411,
+      "UNUSED_BALLOTS": 5764,
+      "ELIGIBLE_VOTERS": 12175,
+      "TURNOUT_RATE": 52.65999984741211
+    },
+    {
+      "ADMIN_NAME": "白沙鄉",
+      "ADMIN_CODE": "10016030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1155
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1796
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 642
+        }
+      ],
+      "VALID_VOTES": 3593,
+      "INVALID_VOTES": 40,
+      "TOTAL_VOTES": 3633,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3633,
+      "UNUSED_BALLOTS": 4574,
+      "ELIGIBLE_VOTERS": 8207,
+      "TURNOUT_RATE": 44.27000045776367
+    },
+    {
+      "ADMIN_NAME": "西嶼鄉",
+      "ADMIN_CODE": "10016040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 900
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1875
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 608
+        }
+      ],
+      "VALID_VOTES": 3383,
+      "INVALID_VOTES": 69,
+      "TOTAL_VOTES": 3452,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3452,
+      "UNUSED_BALLOTS": 3692,
+      "ELIGIBLE_VOTERS": 7144,
+      "TURNOUT_RATE": 48.31999969482422
+    },
+    {
+      "ADMIN_NAME": "望安鄉",
+      "ADMIN_CODE": "10016050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 267
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 641
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 289
+        }
+      ],
+      "VALID_VOTES": 1197,
+      "INVALID_VOTES": 20,
+      "TOTAL_VOTES": 1217,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1217,
+      "UNUSED_BALLOTS": 3150,
+      "ELIGIBLE_VOTERS": 4367,
+      "TURNOUT_RATE": 27.8700008392334
+    },
+    {
+      "ADMIN_NAME": "七美鄉",
+      "ADMIN_CODE": "10016060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 191
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 301
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 485
+        }
+      ],
+      "VALID_VOTES": 977,
+      "INVALID_VOTES": 23,
+      "TOTAL_VOTES": 1000,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1000,
+      "UNUSED_BALLOTS": 2148,
+      "ELIGIBLE_VOTERS": 3148,
+      "TURNOUT_RATE": 31.770000457763672
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "ELECTION_TITLE": "第12任總統(副總統)選舉",
+  "ELECTION_TERM": "12",
+  "ELECTION_GREGORIAN_YEAR": "2008",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "謝長廷",
+      "VICE_PRESIDENT": "蘇貞昌"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "蕭萬長"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "嘉義市",
+    "ADMIN_CODE": "10020",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 72442
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 79713
+      }
+    ],
+    "VALID_VOTES": 152155,
+    "INVALID_VOTES": 1154,
+    "TOTAL_VOTES": 153309,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 153309,
+    "UNUSED_BALLOTS": 47525,
+    "ELIGIBLE_VOTERS": 200834,
+    "TURNOUT_RATE": 76.33999633789062
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "東區",
+      "ADMIN_CODE": "66000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 32449
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 39243
+        }
+      ],
+      "VALID_VOTES": 71692,
+      "INVALID_VOTES": 511,
+      "TOTAL_VOTES": 72203,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 72203,
+      "UNUSED_BALLOTS": 22278,
+      "ELIGIBLE_VOTERS": 94481,
+      "TURNOUT_RATE": 76.41999816894531
+    },
+    {
+      "ADMIN_NAME": "西區",
+      "ADMIN_CODE": "66000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 39993
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 40470
+        }
+      ],
+      "VALID_VOTES": 80463,
+      "INVALID_VOTES": 643,
+      "TOTAL_VOTES": 81106,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 81106,
+      "UNUSED_BALLOTS": 25247,
+      "ELIGIBLE_VOTERS": 106353,
+      "TURNOUT_RATE": 76.26000213623047
+    }
+  ]
+}

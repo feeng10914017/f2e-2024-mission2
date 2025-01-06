@@ -1,0 +1,105 @@
+{
+  "ELECTION_TITLE": "第15任總統(副總統)選舉",
+  "ELECTION_TERM": "15",
+  "ELECTION_GREGORIAN_YEAR": "2020",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "PFP",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "余湘"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "韓國瑜",
+      "VICE_PRESIDENT": "張善政"
+    },
+    {
+      "NO": "3",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "賴清德"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "嘉義市",
+    "ADMIN_CODE": "10020",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 0
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 0
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 0
+      }
+    ],
+    "VALID_VOTES": 0,
+    "INVALID_VOTES": 0,
+    "TOTAL_VOTES": 0,
+    "UNRETURNED_BALLOTS": 4,
+    "TOTAL_ISSUED_BALLOTS": 0,
+    "UNUSED_BALLOTS": 0,
+    "ELIGIBLE_VOTERS": 0,
+    "TURNOUT_RATE": 75.9815
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "東區",
+      "ADMIN_CODE": "66000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 0
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 0
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 0
+        }
+      ],
+      "VALID_VOTES": 0,
+      "INVALID_VOTES": 796,
+      "TOTAL_VOTES": 0,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 0,
+      "UNUSED_BALLOTS": 0,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 75.97
+    },
+    {
+      "ADMIN_NAME": "西區",
+      "ADMIN_CODE": "66000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 0
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 0
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 0
+        }
+      ],
+      "VALID_VOTES": 0,
+      "INVALID_VOTES": 868,
+      "TOTAL_VOTES": 0,
+      "UNRETURNED_BALLOTS": 2,
+      "TOTAL_ISSUED_BALLOTS": 0,
+      "UNUSED_BALLOTS": 0,
+      "ELIGIBLE_VOTERS": 0,
+      "TURNOUT_RATE": 75.9911
+    }
+  ]
+}

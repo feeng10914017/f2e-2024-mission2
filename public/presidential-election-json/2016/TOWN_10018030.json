@@ -1,0 +1,3199 @@
+{
+  "ELECTION_TITLE": "第14任總統(副總統)選舉",
+  "ELECTION_TERM": "14",
+  "ELECTION_GREGORIAN_YEAR": "2016",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "KMT",
+      "PRESIDENT": "朱立倫",
+      "VICE_PRESIDENT": "王如玄"
+    },
+    {
+      "NO": "2",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "陳建仁"
+    },
+    {
+      "NO": "3",
+      "PARTY": "PFP",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "徐欣瑩"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "香山區",
+    "ADMIN_CODE": "10018030",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 11014
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 22663
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 6632
+      }
+    ],
+    "VALID_VOTES": 40309,
+    "INVALID_VOTES": 518,
+    "TOTAL_VOTES": 40827,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 40827,
+    "UNUSED_BALLOTS": 19849,
+    "ELIGIBLE_VOTERS": 60676,
+    "TURNOUT_RATE": 67.29000091552734
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "育賢里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 194
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 275
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 93
+        }
+      ],
+      "VALID_VOTES": 562,
+      "INVALID_VOTES": 12,
+      "TOTAL_VOTES": 574,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 574,
+      "UNUSED_BALLOTS": 825,
+      "ELIGIBLE_VOTERS": 1399,
+      "TURNOUT_RATE": 41.029998779296875
+    },
+    {
+      "ADMIN_NAME": "親仁里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 491
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 393
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 187
+        }
+      ],
+      "VALID_VOTES": 1071,
+      "INVALID_VOTES": 16,
+      "TOTAL_VOTES": 1087,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1087,
+      "UNUSED_BALLOTS": 496,
+      "ELIGIBLE_VOTERS": 1583,
+      "TURNOUT_RATE": 68.66999816894531
+    },
+    {
+      "ADMIN_NAME": "東門里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 98
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 256
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 45
+        }
+      ],
+      "VALID_VOTES": 399,
+      "INVALID_VOTES": 4,
+      "TOTAL_VOTES": 403,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 403,
+      "UNUSED_BALLOTS": 164,
+      "ELIGIBLE_VOTERS": 567,
+      "TURNOUT_RATE": 71.08000183105469
+    },
+    {
+      "ADMIN_NAME": "成功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 115
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 260
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 59
+        }
+      ],
+      "VALID_VOTES": 434,
+      "INVALID_VOTES": 8,
+      "TOTAL_VOTES": 442,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 442,
+      "UNUSED_BALLOTS": 203,
+      "ELIGIBLE_VOTERS": 645,
+      "TURNOUT_RATE": 68.52999877929688
+    },
+    {
+      "ADMIN_NAME": "榮光里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 63
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 121
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 28
+        }
+      ],
+      "VALID_VOTES": 212,
+      "INVALID_VOTES": 0,
+      "TOTAL_VOTES": 212,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 212,
+      "UNUSED_BALLOTS": 105,
+      "ELIGIBLE_VOTERS": 317,
+      "TURNOUT_RATE": 66.87999725341797
+    },
+    {
+      "ADMIN_NAME": "中正里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 103
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 231
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 42
+        }
+      ],
+      "VALID_VOTES": 376,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 379,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 379,
+      "UNUSED_BALLOTS": 172,
+      "ELIGIBLE_VOTERS": 551,
+      "TURNOUT_RATE": 68.77999877929688
+    },
+    {
+      "ADMIN_NAME": "錦華里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 380
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 484
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 222
+        }
+      ],
+      "VALID_VOTES": 1086,
+      "INVALID_VOTES": 14,
+      "TOTAL_VOTES": 1100,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1100,
+      "UNUSED_BALLOTS": 559,
+      "ELIGIBLE_VOTERS": 1659,
+      "TURNOUT_RATE": 66.30999755859375
+    },
+    {
+      "ADMIN_NAME": "文華里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1066
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1389
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 488
+        }
+      ],
+      "VALID_VOTES": 2943,
+      "INVALID_VOTES": 52,
+      "TOTAL_VOTES": 2995,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2995,
+      "UNUSED_BALLOTS": 1267,
+      "ELIGIBLE_VOTERS": 4262,
+      "TURNOUT_RATE": 70.2699966430664
+    },
+    {
+      "ADMIN_NAME": "復中里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1024
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1430
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 401
+        }
+      ],
+      "VALID_VOTES": 2855,
+      "INVALID_VOTES": 44,
+      "TOTAL_VOTES": 2899,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2899,
+      "UNUSED_BALLOTS": 1164,
+      "ELIGIBLE_VOTERS": 4063,
+      "TURNOUT_RATE": 71.3499984741211
+    },
+    {
+      "ADMIN_NAME": "復興里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1029
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1503
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 489
+        }
+      ],
+      "VALID_VOTES": 3021,
+      "INVALID_VOTES": 57,
+      "TOTAL_VOTES": 3078,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3078,
+      "UNUSED_BALLOTS": 1394,
+      "ELIGIBLE_VOTERS": 4472,
+      "TURNOUT_RATE": 68.83000183105469
+    },
+    {
+      "ADMIN_NAME": "三民里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 980
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1651
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 489
+        }
+      ],
+      "VALID_VOTES": 3120,
+      "INVALID_VOTES": 32,
+      "TOTAL_VOTES": 3152,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3152,
+      "UNUSED_BALLOTS": 1405,
+      "ELIGIBLE_VOTERS": 4557,
+      "TURNOUT_RATE": 69.16999816894531
+    },
+    {
+      "ADMIN_NAME": "東園里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1037
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1687
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 530
+        }
+      ],
+      "VALID_VOTES": 3254,
+      "INVALID_VOTES": 65,
+      "TOTAL_VOTES": 3319,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3319,
+      "UNUSED_BALLOTS": 1448,
+      "ELIGIBLE_VOTERS": 4767,
+      "TURNOUT_RATE": 69.62000274658203
+    },
+    {
+      "ADMIN_NAME": "公園里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 714
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 971
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 309
+        }
+      ],
+      "VALID_VOTES": 1994,
+      "INVALID_VOTES": 24,
+      "TOTAL_VOTES": 2018,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2018,
+      "UNUSED_BALLOTS": 895,
+      "ELIGIBLE_VOTERS": 2913,
+      "TURNOUT_RATE": 69.27999877929688
+    },
+    {
+      "ADMIN_NAME": "建華里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 513
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 795
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 216
+        }
+      ],
+      "VALID_VOTES": 1524,
+      "INVALID_VOTES": 27,
+      "TOTAL_VOTES": 1551,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1551,
+      "UNUSED_BALLOTS": 654,
+      "ELIGIBLE_VOTERS": 2205,
+      "TURNOUT_RATE": 70.33999633789062
+    },
+    {
+      "ADMIN_NAME": "東山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 872
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1009
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 330
+        }
+      ],
+      "VALID_VOTES": 2211,
+      "INVALID_VOTES": 42,
+      "TOTAL_VOTES": 2253,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2253,
+      "UNUSED_BALLOTS": 839,
+      "ELIGIBLE_VOTERS": 3092,
+      "TURNOUT_RATE": 72.87000274658203
+    },
+    {
+      "ADMIN_NAME": "綠水里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1465
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1846
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 579
+        }
+      ],
+      "VALID_VOTES": 3890,
+      "INVALID_VOTES": 70,
+      "TOTAL_VOTES": 3960,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3960,
+      "UNUSED_BALLOTS": 1725,
+      "ELIGIBLE_VOTERS": 5685,
+      "TURNOUT_RATE": 69.66000366210938
+    },
+    {
+      "ADMIN_NAME": "東勢里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 491
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 802
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 240
+        }
+      ],
+      "VALID_VOTES": 1533,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 1564,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1564,
+      "UNUSED_BALLOTS": 599,
+      "ELIGIBLE_VOTERS": 2163,
+      "TURNOUT_RATE": 72.30999755859375
+    },
+    {
+      "ADMIN_NAME": "光復里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 494
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 852
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 236
+        }
+      ],
+      "VALID_VOTES": 1582,
+      "INVALID_VOTES": 20,
+      "TOTAL_VOTES": 1602,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1602,
+      "UNUSED_BALLOTS": 621,
+      "ELIGIBLE_VOTERS": 2223,
+      "TURNOUT_RATE": 72.05999755859375
+    },
+    {
+      "ADMIN_NAME": "前溪里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 488
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1026
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 338
+        }
+      ],
+      "VALID_VOTES": 1852,
+      "INVALID_VOTES": 21,
+      "TOTAL_VOTES": 1873,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1873,
+      "UNUSED_BALLOTS": 829,
+      "ELIGIBLE_VOTERS": 2702,
+      "TURNOUT_RATE": 69.31999969482422
+    },
+    {
+      "ADMIN_NAME": "水源里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 558
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1355
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 330
+        }
+      ],
+      "VALID_VOTES": 2243,
+      "INVALID_VOTES": 38,
+      "TOTAL_VOTES": 2281,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2281,
+      "UNUSED_BALLOTS": 930,
+      "ELIGIBLE_VOTERS": 3211,
+      "TURNOUT_RATE": 71.04000091552734
+    },
+    {
+      "ADMIN_NAME": "千甲里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 452
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 645
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 273
+        }
+      ],
+      "VALID_VOTES": 1370,
+      "INVALID_VOTES": 26,
+      "TOTAL_VOTES": 1396,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1396,
+      "UNUSED_BALLOTS": 590,
+      "ELIGIBLE_VOTERS": 1986,
+      "TURNOUT_RATE": 70.29000091552734
+    },
+    {
+      "ADMIN_NAME": "豐功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1106
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1274
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 430
+        }
+      ],
+      "VALID_VOTES": 2810,
+      "INVALID_VOTES": 61,
+      "TOTAL_VOTES": 2871,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2871,
+      "UNUSED_BALLOTS": 1200,
+      "ELIGIBLE_VOTERS": 4071,
+      "TURNOUT_RATE": 70.5199966430664
+    },
+    {
+      "ADMIN_NAME": "武功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1568
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 624
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 444
+        }
+      ],
+      "VALID_VOTES": 2636,
+      "INVALID_VOTES": 43,
+      "TOTAL_VOTES": 2679,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2679,
+      "UNUSED_BALLOTS": 1052,
+      "ELIGIBLE_VOTERS": 3731,
+      "TURNOUT_RATE": 71.80000305175781
+    },
+    {
+      "ADMIN_NAME": "軍功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 822
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 649
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 308
+        }
+      ],
+      "VALID_VOTES": 1779,
+      "INVALID_VOTES": 40,
+      "TOTAL_VOTES": 1819,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1819,
+      "UNUSED_BALLOTS": 866,
+      "ELIGIBLE_VOTERS": 2685,
+      "TURNOUT_RATE": 67.75
+    },
+    {
+      "ADMIN_NAME": "立功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 316
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 159
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 141
+        }
+      ],
+      "VALID_VOTES": 616,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 629,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 629,
+      "UNUSED_BALLOTS": 324,
+      "ELIGIBLE_VOTERS": 953,
+      "TURNOUT_RATE": 66.0
+    },
+    {
+      "ADMIN_NAME": "建功里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1394
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 476
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 362
+        }
+      ],
+      "VALID_VOTES": 2232,
+      "INVALID_VOTES": 34,
+      "TOTAL_VOTES": 2266,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2266,
+      "UNUSED_BALLOTS": 905,
+      "ELIGIBLE_VOTERS": 3171,
+      "TURNOUT_RATE": 71.45999908447266
+    },
+    {
+      "ADMIN_NAME": "光明里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 891
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 794
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 290
+        }
+      ],
+      "VALID_VOTES": 1975,
+      "INVALID_VOTES": 51,
+      "TOTAL_VOTES": 2026,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2026,
+      "UNUSED_BALLOTS": 843,
+      "ELIGIBLE_VOTERS": 2869,
+      "TURNOUT_RATE": 70.62000274658203
+    },
+    {
+      "ADMIN_NAME": "龍山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1224
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1798
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 691
+        }
+      ],
+      "VALID_VOTES": 3713,
+      "INVALID_VOTES": 44,
+      "TOTAL_VOTES": 3757,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3757,
+      "UNUSED_BALLOTS": 1643,
+      "ELIGIBLE_VOTERS": 5400,
+      "TURNOUT_RATE": 69.56999969482422
+    },
+    {
+      "ADMIN_NAME": "科園里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1736
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1897
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 624
+        }
+      ],
+      "VALID_VOTES": 4257,
+      "INVALID_VOTES": 55,
+      "TOTAL_VOTES": 4312,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 4312,
+      "UNUSED_BALLOTS": 1626,
+      "ELIGIBLE_VOTERS": 5938,
+      "TURNOUT_RATE": 72.62000274658203
+    },
+    {
+      "ADMIN_NAME": "埔頂里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 636
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1244
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 347
+        }
+      ],
+      "VALID_VOTES": 2227,
+      "INVALID_VOTES": 37,
+      "TOTAL_VOTES": 2264,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2264,
+      "UNUSED_BALLOTS": 1008,
+      "ELIGIBLE_VOTERS": 3272,
+      "TURNOUT_RATE": 69.19000244140625
+    },
+    {
+      "ADMIN_NAME": "新莊里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1172
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1599
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 650
+        }
+      ],
+      "VALID_VOTES": 3421,
+      "INVALID_VOTES": 46,
+      "TOTAL_VOTES": 3467,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3467,
+      "UNUSED_BALLOTS": 1539,
+      "ELIGIBLE_VOTERS": 5006,
+      "TURNOUT_RATE": 69.26000213623047
+    },
+    {
+      "ADMIN_NAME": "關新里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 616
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1226
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 352
+        }
+      ],
+      "VALID_VOTES": 2194,
+      "INVALID_VOTES": 22,
+      "TOTAL_VOTES": 2216,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2216,
+      "UNUSED_BALLOTS": 936,
+      "ELIGIBLE_VOTERS": 3152,
+      "TURNOUT_RATE": 70.30000305175781
+    },
+    {
+      "ADMIN_NAME": "關東里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1087
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1256
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 585
+        }
+      ],
+      "VALID_VOTES": 2928,
+      "INVALID_VOTES": 39,
+      "TOTAL_VOTES": 2967,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2967,
+      "UNUSED_BALLOTS": 1386,
+      "ELIGIBLE_VOTERS": 4353,
+      "TURNOUT_RATE": 68.16000366210938
+    },
+    {
+      "ADMIN_NAME": "金山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1224
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1272
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 571
+        }
+      ],
+      "VALID_VOTES": 3067,
+      "INVALID_VOTES": 42,
+      "TOTAL_VOTES": 3109,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3109,
+      "UNUSED_BALLOTS": 1635,
+      "ELIGIBLE_VOTERS": 4744,
+      "TURNOUT_RATE": 65.54000091552734
+    },
+    {
+      "ADMIN_NAME": "仙水里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 976
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1230
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 523
+        }
+      ],
+      "VALID_VOTES": 2729,
+      "INVALID_VOTES": 38,
+      "TOTAL_VOTES": 2767,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2767,
+      "UNUSED_BALLOTS": 1199,
+      "ELIGIBLE_VOTERS": 3966,
+      "TURNOUT_RATE": 69.7699966430664
+    },
+    {
+      "ADMIN_NAME": "仙宮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 253
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 424
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 159
+        }
+      ],
+      "VALID_VOTES": 836,
+      "INVALID_VOTES": 14,
+      "TOTAL_VOTES": 850,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 850,
+      "UNUSED_BALLOTS": 320,
+      "ELIGIBLE_VOTERS": 1170,
+      "TURNOUT_RATE": 72.6500015258789
+    },
+    {
+      "ADMIN_NAME": "關帝里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 79
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 245
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 43
+        }
+      ],
+      "VALID_VOTES": 367,
+      "INVALID_VOTES": 8,
+      "TOTAL_VOTES": 375,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 375,
+      "UNUSED_BALLOTS": 152,
+      "ELIGIBLE_VOTERS": 527,
+      "TURNOUT_RATE": 71.16000366210938
+    },
+    {
+      "ADMIN_NAME": "南門里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 112
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 287
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 69
+        }
+      ],
+      "VALID_VOTES": 468,
+      "INVALID_VOTES": 8,
+      "TOTAL_VOTES": 476,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 476,
+      "UNUSED_BALLOTS": 224,
+      "ELIGIBLE_VOTERS": 700,
+      "TURNOUT_RATE": 68.0
+    },
+    {
+      "ADMIN_NAME": "南市里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 151
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 378
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 84
+        }
+      ],
+      "VALID_VOTES": 613,
+      "INVALID_VOTES": 8,
+      "TOTAL_VOTES": 621,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 621,
+      "UNUSED_BALLOTS": 259,
+      "ELIGIBLE_VOTERS": 880,
+      "TURNOUT_RATE": 70.56999969482422
+    },
+    {
+      "ADMIN_NAME": "福德里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 321
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 473
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 121
+        }
+      ],
+      "VALID_VOTES": 915,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 928,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 928,
+      "UNUSED_BALLOTS": 444,
+      "ELIGIBLE_VOTERS": 1372,
+      "TURNOUT_RATE": 67.63999938964844
+    },
+    {
+      "ADMIN_NAME": "振興里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1070
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1767
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 573
+        }
+      ],
+      "VALID_VOTES": 3410,
+      "INVALID_VOTES": 40,
+      "TOTAL_VOTES": 3450,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3450,
+      "UNUSED_BALLOTS": 1820,
+      "ELIGIBLE_VOTERS": 5270,
+      "TURNOUT_RATE": 65.45999908447266
+    },
+    {
+      "ADMIN_NAME": "新興里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 640
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1121
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 309
+        }
+      ],
+      "VALID_VOTES": 2070,
+      "INVALID_VOTES": 34,
+      "TOTAL_VOTES": 2104,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2104,
+      "UNUSED_BALLOTS": 842,
+      "ELIGIBLE_VOTERS": 2946,
+      "TURNOUT_RATE": 71.41999816894531
+    },
+    {
+      "ADMIN_NAME": "寺前里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 119
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 267
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 80
+        }
+      ],
+      "VALID_VOTES": 466,
+      "INVALID_VOTES": 12,
+      "TOTAL_VOTES": 478,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 478,
+      "UNUSED_BALLOTS": 234,
+      "ELIGIBLE_VOTERS": 712,
+      "TURNOUT_RATE": 67.12999725341797
+    },
+    {
+      "ADMIN_NAME": "竹蓮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 108
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 341
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 66
+        }
+      ],
+      "VALID_VOTES": 515,
+      "INVALID_VOTES": 8,
+      "TOTAL_VOTES": 523,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 523,
+      "UNUSED_BALLOTS": 218,
+      "ELIGIBLE_VOTERS": 741,
+      "TURNOUT_RATE": 70.58000183105469
+    },
+    {
+      "ADMIN_NAME": "下竹里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 106
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 169
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 72
+        }
+      ],
+      "VALID_VOTES": 347,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 350,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 350,
+      "UNUSED_BALLOTS": 155,
+      "ELIGIBLE_VOTERS": 505,
+      "TURNOUT_RATE": 69.30999755859375
+    },
+    {
+      "ADMIN_NAME": "頂竹里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 607
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1055
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 278
+        }
+      ],
+      "VALID_VOTES": 1940,
+      "INVALID_VOTES": 27,
+      "TOTAL_VOTES": 1967,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1967,
+      "UNUSED_BALLOTS": 912,
+      "ELIGIBLE_VOTERS": 2879,
+      "TURNOUT_RATE": 68.31999969482422
+    },
+    {
+      "ADMIN_NAME": "南大里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 269
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 530
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 160
+        }
+      ],
+      "VALID_VOTES": 959,
+      "INVALID_VOTES": 19,
+      "TOTAL_VOTES": 978,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 978,
+      "UNUSED_BALLOTS": 431,
+      "ELIGIBLE_VOTERS": 1409,
+      "TURNOUT_RATE": 69.41000366210938
+    },
+    {
+      "ADMIN_NAME": "新光里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 677
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1194
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 346
+        }
+      ],
+      "VALID_VOTES": 2217,
+      "INVALID_VOTES": 35,
+      "TOTAL_VOTES": 2252,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2252,
+      "UNUSED_BALLOTS": 1080,
+      "ELIGIBLE_VOTERS": 3332,
+      "TURNOUT_RATE": 67.58999633789062
+    },
+    {
+      "ADMIN_NAME": "光鎮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 711
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1122
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 376
+        }
+      ],
+      "VALID_VOTES": 2209,
+      "INVALID_VOTES": 24,
+      "TOTAL_VOTES": 2233,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2233,
+      "UNUSED_BALLOTS": 990,
+      "ELIGIBLE_VOTERS": 3223,
+      "TURNOUT_RATE": 69.27999877929688
+    },
+    {
+      "ADMIN_NAME": "高峰里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1195
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1932
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 579
+        }
+      ],
+      "VALID_VOTES": 3706,
+      "INVALID_VOTES": 55,
+      "TOTAL_VOTES": 3761,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3761,
+      "UNUSED_BALLOTS": 1756,
+      "ELIGIBLE_VOTERS": 5517,
+      "TURNOUT_RATE": 68.16999816894531
+    },
+    {
+      "ADMIN_NAME": "湖濱里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 804
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1238
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 343
+        }
+      ],
+      "VALID_VOTES": 2385,
+      "INVALID_VOTES": 23,
+      "TOTAL_VOTES": 2408,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2408,
+      "UNUSED_BALLOTS": 1014,
+      "ELIGIBLE_VOTERS": 3422,
+      "TURNOUT_RATE": 70.37000274658203
+    },
+    {
+      "ADMIN_NAME": "柴橋里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1083
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1546
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 516
+        }
+      ],
+      "VALID_VOTES": 3145,
+      "INVALID_VOTES": 50,
+      "TOTAL_VOTES": 3195,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3195,
+      "UNUSED_BALLOTS": 1449,
+      "ELIGIBLE_VOTERS": 4644,
+      "TURNOUT_RATE": 68.80000305175781
+    },
+    {
+      "ADMIN_NAME": "明湖里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 896
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1244
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 601
+        }
+      ],
+      "VALID_VOTES": 2741,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 2772,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2772,
+      "UNUSED_BALLOTS": 1656,
+      "ELIGIBLE_VOTERS": 4428,
+      "TURNOUT_RATE": 62.599998474121094
+    },
+    {
+      "ADMIN_NAME": "西門里、中央里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 151
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 420
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 82
+        }
+      ],
+      "VALID_VOTES": 653,
+      "INVALID_VOTES": 6,
+      "TOTAL_VOTES": 659,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 659,
+      "UNUSED_BALLOTS": 317,
+      "ELIGIBLE_VOTERS": 976,
+      "TURNOUT_RATE": 67.5199966430664
+    },
+    {
+      "ADMIN_NAME": "潛園里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 124
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 325
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 62
+        }
+      ],
+      "VALID_VOTES": 511,
+      "INVALID_VOTES": 2,
+      "TOTAL_VOTES": 513,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 513,
+      "UNUSED_BALLOTS": 234,
+      "ELIGIBLE_VOTERS": 747,
+      "TURNOUT_RATE": 68.66999816894531
+    },
+    {
+      "ADMIN_NAME": "石坊里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 104
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 206
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 39
+        }
+      ],
+      "VALID_VOTES": 349,
+      "INVALID_VOTES": 4,
+      "TOTAL_VOTES": 353,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 353,
+      "UNUSED_BALLOTS": 167,
+      "ELIGIBLE_VOTERS": 520,
+      "TURNOUT_RATE": 67.87999725341797
+    },
+    {
+      "ADMIN_NAME": "仁德里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 111
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 311
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 63
+        }
+      ],
+      "VALID_VOTES": 485,
+      "INVALID_VOTES": 2,
+      "TOTAL_VOTES": 487,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 487,
+      "UNUSED_BALLOTS": 226,
+      "ELIGIBLE_VOTERS": 713,
+      "TURNOUT_RATE": 68.30000305175781
+    },
+    {
+      "ADMIN_NAME": "崇禮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 170
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 528
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 106
+        }
+      ],
+      "VALID_VOTES": 804,
+      "INVALID_VOTES": 12,
+      "TOTAL_VOTES": 816,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 816,
+      "UNUSED_BALLOTS": 335,
+      "ELIGIBLE_VOTERS": 1151,
+      "TURNOUT_RATE": 70.88999938964844
+    },
+    {
+      "ADMIN_NAME": "興南里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 263
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 530
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 123
+        }
+      ],
+      "VALID_VOTES": 916,
+      "INVALID_VOTES": 14,
+      "TOTAL_VOTES": 930,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 930,
+      "UNUSED_BALLOTS": 440,
+      "ELIGIBLE_VOTERS": 1370,
+      "TURNOUT_RATE": 67.87999725341797
+    },
+    {
+      "ADMIN_NAME": "育英里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 642
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1334
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 393
+        }
+      ],
+      "VALID_VOTES": 2369,
+      "INVALID_VOTES": 50,
+      "TOTAL_VOTES": 2419,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2419,
+      "UNUSED_BALLOTS": 1049,
+      "ELIGIBLE_VOTERS": 3468,
+      "TURNOUT_RATE": 69.75
+    },
+    {
+      "ADMIN_NAME": "台溪里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 290
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 466
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 148
+        }
+      ],
+      "VALID_VOTES": 904,
+      "INVALID_VOTES": 7,
+      "TOTAL_VOTES": 911,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 911,
+      "UNUSED_BALLOTS": 571,
+      "ELIGIBLE_VOTERS": 1482,
+      "TURNOUT_RATE": 61.470001220703125
+    },
+    {
+      "ADMIN_NAME": "曲溪里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1071
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1585
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 579
+        }
+      ],
+      "VALID_VOTES": 3235,
+      "INVALID_VOTES": 39,
+      "TOTAL_VOTES": 3274,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3274,
+      "UNUSED_BALLOTS": 1739,
+      "ELIGIBLE_VOTERS": 5013,
+      "TURNOUT_RATE": 65.30999755859375
+    },
+    {
+      "ADMIN_NAME": "西雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 504
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1187
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 265
+        }
+      ],
+      "VALID_VOTES": 1956,
+      "INVALID_VOTES": 25,
+      "TOTAL_VOTES": 1981,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1981,
+      "UNUSED_BALLOTS": 829,
+      "ELIGIBLE_VOTERS": 2810,
+      "TURNOUT_RATE": 70.5
+    },
+    {
+      "ADMIN_NAME": "客雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 331
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 701
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 182
+        }
+      ],
+      "VALID_VOTES": 1214,
+      "INVALID_VOTES": 10,
+      "TOTAL_VOTES": 1224,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1224,
+      "UNUSED_BALLOTS": 501,
+      "ELIGIBLE_VOTERS": 1725,
+      "TURNOUT_RATE": 70.95999908447266
+    },
+    {
+      "ADMIN_NAME": "中雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 976
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 705
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 345
+        }
+      ],
+      "VALID_VOTES": 2026,
+      "INVALID_VOTES": 32,
+      "TOTAL_VOTES": 2058,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2058,
+      "UNUSED_BALLOTS": 933,
+      "ELIGIBLE_VOTERS": 2991,
+      "TURNOUT_RATE": 68.80999755859375
+    },
+    {
+      "ADMIN_NAME": "南勢里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 471
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1496
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 316
+        }
+      ],
+      "VALID_VOTES": 2283,
+      "INVALID_VOTES": 36,
+      "TOTAL_VOTES": 2319,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2319,
+      "UNUSED_BALLOTS": 920,
+      "ELIGIBLE_VOTERS": 3239,
+      "TURNOUT_RATE": 71.5999984741211
+    },
+    {
+      "ADMIN_NAME": "南勢里、大鵬里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 126
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 235
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 121
+        }
+      ],
+      "VALID_VOTES": 482,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 485,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 485,
+      "UNUSED_BALLOTS": 295,
+      "ELIGIBLE_VOTERS": 780,
+      "TURNOUT_RATE": 62.18000030517578
+    },
+    {
+      "ADMIN_NAME": "大同里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 182
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 268
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 81
+        }
+      ],
+      "VALID_VOTES": 531,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 544,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 544,
+      "UNUSED_BALLOTS": 213,
+      "ELIGIBLE_VOTERS": 757,
+      "TURNOUT_RATE": 71.86000061035156
+    },
+    {
+      "ADMIN_NAME": "中山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 74
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 283
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 54
+        }
+      ],
+      "VALID_VOTES": 411,
+      "INVALID_VOTES": 2,
+      "TOTAL_VOTES": 413,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 413,
+      "UNUSED_BALLOTS": 179,
+      "ELIGIBLE_VOTERS": 592,
+      "TURNOUT_RATE": 69.76000213623047
+    },
+    {
+      "ADMIN_NAME": "中興里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 98
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 228
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 53
+        }
+      ],
+      "VALID_VOTES": 379,
+      "INVALID_VOTES": 10,
+      "TOTAL_VOTES": 389,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 389,
+      "UNUSED_BALLOTS": 151,
+      "ELIGIBLE_VOTERS": 540,
+      "TURNOUT_RATE": 72.04000091552734
+    },
+    {
+      "ADMIN_NAME": "新民里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 266
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 552
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 171
+        }
+      ],
+      "VALID_VOTES": 989,
+      "INVALID_VOTES": 18,
+      "TOTAL_VOTES": 1007,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1007,
+      "UNUSED_BALLOTS": 462,
+      "ELIGIBLE_VOTERS": 1469,
+      "TURNOUT_RATE": 68.55000305175781
+    },
+    {
+      "ADMIN_NAME": "長和里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 216
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 512
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 155
+        }
+      ],
+      "VALID_VOTES": 883,
+      "INVALID_VOTES": 10,
+      "TOTAL_VOTES": 893,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 893,
+      "UNUSED_BALLOTS": 414,
+      "ELIGIBLE_VOTERS": 1307,
+      "TURNOUT_RATE": 68.31999969482422
+    },
+    {
+      "ADMIN_NAME": "北門里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 163
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 387
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 76
+        }
+      ],
+      "VALID_VOTES": 626,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 629,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 629,
+      "UNUSED_BALLOTS": 262,
+      "ELIGIBLE_VOTERS": 891,
+      "TURNOUT_RATE": 70.58999633789062
+    },
+    {
+      "ADMIN_NAME": "民富里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 810
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1646
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 430
+        }
+      ],
+      "VALID_VOTES": 2886,
+      "INVALID_VOTES": 43,
+      "TOTAL_VOTES": 2929,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2929,
+      "UNUSED_BALLOTS": 1610,
+      "ELIGIBLE_VOTERS": 4539,
+      "TURNOUT_RATE": 64.52999877929688
+    },
+    {
+      "ADMIN_NAME": "磐石里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 937
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1974
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 549
+        }
+      ],
+      "VALID_VOTES": 3460,
+      "INVALID_VOTES": 36,
+      "TOTAL_VOTES": 3496,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3496,
+      "UNUSED_BALLOTS": 1566,
+      "ELIGIBLE_VOTERS": 5062,
+      "TURNOUT_RATE": 69.05999755859375
+    },
+    {
+      "ADMIN_NAME": "新雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 755
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1697
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 459
+        }
+      ],
+      "VALID_VOTES": 2911,
+      "INVALID_VOTES": 33,
+      "TOTAL_VOTES": 2944,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2944,
+      "UNUSED_BALLOTS": 1355,
+      "ELIGIBLE_VOTERS": 4299,
+      "TURNOUT_RATE": 68.4800033569336
+    },
+    {
+      "ADMIN_NAME": "文雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 757
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1386
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 383
+        }
+      ],
+      "VALID_VOTES": 2526,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 2557,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2557,
+      "UNUSED_BALLOTS": 1065,
+      "ELIGIBLE_VOTERS": 3622,
+      "TURNOUT_RATE": 70.5999984741211
+    },
+    {
+      "ADMIN_NAME": "水田里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 588
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 965
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 260
+        }
+      ],
+      "VALID_VOTES": 1813,
+      "INVALID_VOTES": 18,
+      "TOTAL_VOTES": 1831,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1831,
+      "UNUSED_BALLOTS": 917,
+      "ELIGIBLE_VOTERS": 2748,
+      "TURNOUT_RATE": 66.62999725341797
+    },
+    {
+      "ADMIN_NAME": "光田里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 423
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 734
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 229
+        }
+      ],
+      "VALID_VOTES": 1386,
+      "INVALID_VOTES": 20,
+      "TOTAL_VOTES": 1406,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1406,
+      "UNUSED_BALLOTS": 681,
+      "ELIGIBLE_VOTERS": 2087,
+      "TURNOUT_RATE": 67.37000274658203
+    },
+    {
+      "ADMIN_NAME": "光華里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 770
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1081
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 343
+        }
+      ],
+      "VALID_VOTES": 2194,
+      "INVALID_VOTES": 33,
+      "TOTAL_VOTES": 2227,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2227,
+      "UNUSED_BALLOTS": 1675,
+      "ELIGIBLE_VOTERS": 3902,
+      "TURNOUT_RATE": 57.06999969482422
+    },
+    {
+      "ADMIN_NAME": "金華里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 990
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1605
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 506
+        }
+      ],
+      "VALID_VOTES": 3101,
+      "INVALID_VOTES": 42,
+      "TOTAL_VOTES": 3143,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3143,
+      "UNUSED_BALLOTS": 1426,
+      "ELIGIBLE_VOTERS": 4569,
+      "TURNOUT_RATE": 68.79000091552734
+    },
+    {
+      "ADMIN_NAME": "湳雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 601
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 878
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 307
+        }
+      ],
+      "VALID_VOTES": 1786,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 1817,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1817,
+      "UNUSED_BALLOTS": 736,
+      "ELIGIBLE_VOTERS": 2553,
+      "TURNOUT_RATE": 71.16999816894531
+    },
+    {
+      "ADMIN_NAME": "金雅里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 477
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 818
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 220
+        }
+      ],
+      "VALID_VOTES": 1515,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 1528,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1528,
+      "UNUSED_BALLOTS": 549,
+      "ELIGIBLE_VOTERS": 2077,
+      "TURNOUT_RATE": 73.56999969482422
+    },
+    {
+      "ADMIN_NAME": "湳中里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1450
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1934
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 647
+        }
+      ],
+      "VALID_VOTES": 4031,
+      "INVALID_VOTES": 66,
+      "TOTAL_VOTES": 4097,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 4097,
+      "UNUSED_BALLOTS": 1826,
+      "ELIGIBLE_VOTERS": 5923,
+      "TURNOUT_RATE": 69.16999816894531
+    },
+    {
+      "ADMIN_NAME": "舊社里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1153
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1935
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 665
+        }
+      ],
+      "VALID_VOTES": 3753,
+      "INVALID_VOTES": 53,
+      "TOTAL_VOTES": 3806,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3806,
+      "UNUSED_BALLOTS": 1753,
+      "ELIGIBLE_VOTERS": 5559,
+      "TURNOUT_RATE": 68.47000122070312
+    },
+    {
+      "ADMIN_NAME": "金竹里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1177
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1743
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 619
+        }
+      ],
+      "VALID_VOTES": 3539,
+      "INVALID_VOTES": 41,
+      "TOTAL_VOTES": 3580,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3580,
+      "UNUSED_BALLOTS": 1681,
+      "ELIGIBLE_VOTERS": 5261,
+      "TURNOUT_RATE": 68.05000305175781
+    },
+    {
+      "ADMIN_NAME": "武陵里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1883
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 644
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 507
+        }
+      ],
+      "VALID_VOTES": 3034,
+      "INVALID_VOTES": 37,
+      "TOTAL_VOTES": 3071,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3071,
+      "UNUSED_BALLOTS": 1457,
+      "ELIGIBLE_VOTERS": 4528,
+      "TURNOUT_RATE": 67.81999969482422
+    },
+    {
+      "ADMIN_NAME": "福林里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 868
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1206
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 419
+        }
+      ],
+      "VALID_VOTES": 2493,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 2524,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2524,
+      "UNUSED_BALLOTS": 1084,
+      "ELIGIBLE_VOTERS": 3608,
+      "TURNOUT_RATE": 69.95999908447266
+    },
+    {
+      "ADMIN_NAME": "境福里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 963
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1643
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 537
+        }
+      ],
+      "VALID_VOTES": 3143,
+      "INVALID_VOTES": 54,
+      "TOTAL_VOTES": 3197,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3197,
+      "UNUSED_BALLOTS": 1337,
+      "ELIGIBLE_VOTERS": 4534,
+      "TURNOUT_RATE": 70.51000213623047
+    },
+    {
+      "ADMIN_NAME": "士林里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 264
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 698
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 156
+        }
+      ],
+      "VALID_VOTES": 1118,
+      "INVALID_VOTES": 12,
+      "TOTAL_VOTES": 1130,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1130,
+      "UNUSED_BALLOTS": 411,
+      "ELIGIBLE_VOTERS": 1541,
+      "TURNOUT_RATE": 73.33000183105469
+    },
+    {
+      "ADMIN_NAME": "古賢里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 138
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 396
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 78
+        }
+      ],
+      "VALID_VOTES": 612,
+      "INVALID_VOTES": 17,
+      "TOTAL_VOTES": 629,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 629,
+      "UNUSED_BALLOTS": 232,
+      "ELIGIBLE_VOTERS": 861,
+      "TURNOUT_RATE": 73.05000305175781
+    },
+    {
+      "ADMIN_NAME": "南寮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 942
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1769
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 611
+        }
+      ],
+      "VALID_VOTES": 3322,
+      "INVALID_VOTES": 37,
+      "TOTAL_VOTES": 3359,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3359,
+      "UNUSED_BALLOTS": 1950,
+      "ELIGIBLE_VOTERS": 5309,
+      "TURNOUT_RATE": 63.27000045776367
+    },
+    {
+      "ADMIN_NAME": "康樂里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 473
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 903
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 271
+        }
+      ],
+      "VALID_VOTES": 1647,
+      "INVALID_VOTES": 14,
+      "TOTAL_VOTES": 1661,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1661,
+      "UNUSED_BALLOTS": 726,
+      "ELIGIBLE_VOTERS": 2387,
+      "TURNOUT_RATE": 69.58999633789062
+    },
+    {
+      "ADMIN_NAME": "中寮里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 524
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1066
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 349
+        }
+      ],
+      "VALID_VOTES": 1939,
+      "INVALID_VOTES": 22,
+      "TOTAL_VOTES": 1961,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1961,
+      "UNUSED_BALLOTS": 1093,
+      "ELIGIBLE_VOTERS": 3054,
+      "TURNOUT_RATE": 64.20999908447266
+    },
+    {
+      "ADMIN_NAME": "海濱里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 576
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1118
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 394
+        }
+      ],
+      "VALID_VOTES": 2088,
+      "INVALID_VOTES": 28,
+      "TOTAL_VOTES": 2116,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2116,
+      "UNUSED_BALLOTS": 1174,
+      "ELIGIBLE_VOTERS": 3290,
+      "TURNOUT_RATE": 64.31999969482422
+    },
+    {
+      "ADMIN_NAME": "港北里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 200
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 624
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 137
+        }
+      ],
+      "VALID_VOTES": 961,
+      "INVALID_VOTES": 22,
+      "TOTAL_VOTES": 983,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 983,
+      "UNUSED_BALLOTS": 485,
+      "ELIGIBLE_VOTERS": 1468,
+      "TURNOUT_RATE": 66.95999908447266
+    },
+    {
+      "ADMIN_NAME": "舊港里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 109
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 189
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 59
+        }
+      ],
+      "VALID_VOTES": 357,
+      "INVALID_VOTES": 5,
+      "TOTAL_VOTES": 362,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 362,
+      "UNUSED_BALLOTS": 210,
+      "ELIGIBLE_VOTERS": 572,
+      "TURNOUT_RATE": 63.290000915527344
+    },
+    {
+      "ADMIN_NAME": "頂埔里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 775
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1702
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 578
+        }
+      ],
+      "VALID_VOTES": 3055,
+      "INVALID_VOTES": 42,
+      "TOTAL_VOTES": 3097,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3097,
+      "UNUSED_BALLOTS": 1607,
+      "ELIGIBLE_VOTERS": 4704,
+      "TURNOUT_RATE": 65.83999633789062
+    },
+    {
+      "ADMIN_NAME": "頂福里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 760
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1297
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 461
+        }
+      ],
+      "VALID_VOTES": 2518,
+      "INVALID_VOTES": 30,
+      "TOTAL_VOTES": 2548,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2548,
+      "UNUSED_BALLOTS": 1268,
+      "ELIGIBLE_VOTERS": 3816,
+      "TURNOUT_RATE": 66.7699966430664
+    },
+    {
+      "ADMIN_NAME": "中埔里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 564
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1058
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 287
+        }
+      ],
+      "VALID_VOTES": 1909,
+      "INVALID_VOTES": 21,
+      "TOTAL_VOTES": 1930,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1930,
+      "UNUSED_BALLOTS": 842,
+      "ELIGIBLE_VOTERS": 2772,
+      "TURNOUT_RATE": 69.62000274658203
+    },
+    {
+      "ADMIN_NAME": "牛埔里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 707
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1312
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 426
+        }
+      ],
+      "VALID_VOTES": 2445,
+      "INVALID_VOTES": 24,
+      "TOTAL_VOTES": 2469,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2469,
+      "UNUSED_BALLOTS": 1277,
+      "ELIGIBLE_VOTERS": 3746,
+      "TURNOUT_RATE": 65.91000366210938
+    },
+    {
+      "ADMIN_NAME": "埔前里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 513
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1296
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 323
+        }
+      ],
+      "VALID_VOTES": 2132,
+      "INVALID_VOTES": 30,
+      "TOTAL_VOTES": 2162,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2162,
+      "UNUSED_BALLOTS": 1098,
+      "ELIGIBLE_VOTERS": 3260,
+      "TURNOUT_RATE": 66.31999969482422
+    },
+    {
+      "ADMIN_NAME": "樹下里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 283
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1020
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 167
+        }
+      ],
+      "VALID_VOTES": 1470,
+      "INVALID_VOTES": 16,
+      "TOTAL_VOTES": 1486,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1486,
+      "UNUSED_BALLOTS": 586,
+      "ELIGIBLE_VOTERS": 2072,
+      "TURNOUT_RATE": 71.72000122070312
+    },
+    {
+      "ADMIN_NAME": "浸水里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 291
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 982
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 234
+        }
+      ],
+      "VALID_VOTES": 1507,
+      "INVALID_VOTES": 21,
+      "TOTAL_VOTES": 1528,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1528,
+      "UNUSED_BALLOTS": 656,
+      "ELIGIBLE_VOTERS": 2184,
+      "TURNOUT_RATE": 69.95999908447266
+    },
+    {
+      "ADMIN_NAME": "虎林里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 392
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 813
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 248
+        }
+      ],
+      "VALID_VOTES": 1453,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 1466,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1466,
+      "UNUSED_BALLOTS": 687,
+      "ELIGIBLE_VOTERS": 2153,
+      "TURNOUT_RATE": 68.08999633789062
+    },
+    {
+      "ADMIN_NAME": "虎山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 871
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1962
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 519
+        }
+      ],
+      "VALID_VOTES": 3352,
+      "INVALID_VOTES": 42,
+      "TOTAL_VOTES": 3394,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3394,
+      "UNUSED_BALLOTS": 1682,
+      "ELIGIBLE_VOTERS": 5076,
+      "TURNOUT_RATE": 66.86000061035156
+    },
+    {
+      "ADMIN_NAME": "港南里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 347
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 998
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 253
+        }
+      ],
+      "VALID_VOTES": 1598,
+      "INVALID_VOTES": 17,
+      "TOTAL_VOTES": 1615,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1615,
+      "UNUSED_BALLOTS": 719,
+      "ELIGIBLE_VOTERS": 2334,
+      "TURNOUT_RATE": 69.19000244140625
+    },
+    {
+      "ADMIN_NAME": "東香里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 851
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1175
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 445
+        }
+      ],
+      "VALID_VOTES": 2471,
+      "INVALID_VOTES": 32,
+      "TOTAL_VOTES": 2503,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2503,
+      "UNUSED_BALLOTS": 1026,
+      "ELIGIBLE_VOTERS": 3529,
+      "TURNOUT_RATE": 70.93000030517578
+    },
+    {
+      "ADMIN_NAME": "香村里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 591
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 997
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 348
+        }
+      ],
+      "VALID_VOTES": 1936,
+      "INVALID_VOTES": 28,
+      "TOTAL_VOTES": 1964,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1964,
+      "UNUSED_BALLOTS": 1041,
+      "ELIGIBLE_VOTERS": 3005,
+      "TURNOUT_RATE": 65.36000061035156
+    },
+    {
+      "ADMIN_NAME": "香山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 687
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1440
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 485
+        }
+      ],
+      "VALID_VOTES": 2612,
+      "INVALID_VOTES": 31,
+      "TOTAL_VOTES": 2643,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2643,
+      "UNUSED_BALLOTS": 1253,
+      "ELIGIBLE_VOTERS": 3896,
+      "TURNOUT_RATE": 67.83999633789062
+    },
+    {
+      "ADMIN_NAME": "大庄里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 445
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1062
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 279
+        }
+      ],
+      "VALID_VOTES": 1786,
+      "INVALID_VOTES": 12,
+      "TOTAL_VOTES": 1798,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1798,
+      "UNUSED_BALLOTS": 831,
+      "ELIGIBLE_VOTERS": 2629,
+      "TURNOUT_RATE": 68.38999938964844
+    },
+    {
+      "ADMIN_NAME": "美山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 201
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 451
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 79
+        }
+      ],
+      "VALID_VOTES": 731,
+      "INVALID_VOTES": 11,
+      "TOTAL_VOTES": 742,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 742,
+      "UNUSED_BALLOTS": 354,
+      "ELIGIBLE_VOTERS": 1096,
+      "TURNOUT_RATE": 67.69999694824219
+    },
+    {
+      "ADMIN_NAME": "朝山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 345
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 707
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 198
+        }
+      ],
+      "VALID_VOTES": 1250,
+      "INVALID_VOTES": 17,
+      "TOTAL_VOTES": 1267,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1267,
+      "UNUSED_BALLOTS": 654,
+      "ELIGIBLE_VOTERS": 1921,
+      "TURNOUT_RATE": 65.95999908447266
+    },
+    {
+      "ADMIN_NAME": "海山里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 431
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 755
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 241
+        }
+      ],
+      "VALID_VOTES": 1427,
+      "INVALID_VOTES": 20,
+      "TOTAL_VOTES": 1447,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1447,
+      "UNUSED_BALLOTS": 690,
+      "ELIGIBLE_VOTERS": 2137,
+      "TURNOUT_RATE": 67.70999908447266
+    },
+    {
+      "ADMIN_NAME": "鹽水里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 245
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 492
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 159
+        }
+      ],
+      "VALID_VOTES": 896,
+      "INVALID_VOTES": 21,
+      "TOTAL_VOTES": 917,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 917,
+      "UNUSED_BALLOTS": 427,
+      "ELIGIBLE_VOTERS": 1344,
+      "TURNOUT_RATE": 68.2300033569336
+    },
+    {
+      "ADMIN_NAME": "內湖里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 773
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 1431
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 383
+        }
+      ],
+      "VALID_VOTES": 2587,
+      "INVALID_VOTES": 38,
+      "TOTAL_VOTES": 2625,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2625,
+      "UNUSED_BALLOTS": 1437,
+      "ELIGIBLE_VOTERS": 4062,
+      "TURNOUT_RATE": 64.62000274658203
+    },
+    {
+      "ADMIN_NAME": "南港里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 134
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 374
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 53
+        }
+      ],
+      "VALID_VOTES": 561,
+      "INVALID_VOTES": 7,
+      "TOTAL_VOTES": 568,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 568,
+      "UNUSED_BALLOTS": 245,
+      "ELIGIBLE_VOTERS": 813,
+      "TURNOUT_RATE": 69.86000061035156
+    },
+    {
+      "ADMIN_NAME": "中隘里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 355
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 489
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 173
+        }
+      ],
+      "VALID_VOTES": 1017,
+      "INVALID_VOTES": 18,
+      "TOTAL_VOTES": 1035,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1035,
+      "UNUSED_BALLOTS": 642,
+      "ELIGIBLE_VOTERS": 1677,
+      "TURNOUT_RATE": 61.720001220703125
+    },
+    {
+      "ADMIN_NAME": "南隘里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 164
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 259
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 85
+        }
+      ],
+      "VALID_VOTES": 508,
+      "INVALID_VOTES": 10,
+      "TOTAL_VOTES": 518,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 518,
+      "UNUSED_BALLOTS": 237,
+      "ELIGIBLE_VOTERS": 755,
+      "TURNOUT_RATE": 68.61000061035156
+    },
+    {
+      "ADMIN_NAME": "大湖里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 156
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 295
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 95
+        }
+      ],
+      "VALID_VOTES": 546,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 559,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 559,
+      "UNUSED_BALLOTS": 269,
+      "ELIGIBLE_VOTERS": 828,
+      "TURNOUT_RATE": 67.51000213623047
+    },
+    {
+      "ADMIN_NAME": "茄苳里",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 133
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 296
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 113
+        }
+      ],
+      "VALID_VOTES": 542,
+      "INVALID_VOTES": 4,
+      "TOTAL_VOTES": 546,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 546,
+      "UNUSED_BALLOTS": 321,
+      "ELIGIBLE_VOTERS": 867,
+      "TURNOUT_RATE": 62.97999954223633
+    }
+  ]
+}

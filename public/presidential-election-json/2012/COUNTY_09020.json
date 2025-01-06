@@ -1,0 +1,209 @@
+{
+  "ELECTION_TITLE": "第13任總統(副總統)選舉",
+  "ELECTION_TERM": "13",
+  "ELECTION_GREGORIAN_YEAR": "2012",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "蘇嘉全"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "吳敦義"
+    },
+    {
+      "NO": "3",
+      "PARTY": "EMPTY",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "林瑞雄"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "金門縣",
+    "ADMIN_CODE": "09020",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 3193
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 34676
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 990
+      }
+    ],
+    "VALID_VOTES": 38859,
+    "INVALID_VOTES": 316,
+    "TOTAL_VOTES": 39175,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 39175,
+    "UNUSED_BALLOTS": 44774,
+    "ELIGIBLE_VOTERS": 83949,
+    "TURNOUT_RATE": 46.66999816894531
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "金城鎮",
+      "ADMIN_CODE": "09020010",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 1118
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 11611
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 335
+        }
+      ],
+      "VALID_VOTES": 13064,
+      "INVALID_VOTES": 90,
+      "TOTAL_VOTES": 13154,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 13154,
+      "UNUSED_BALLOTS": 14317,
+      "ELIGIBLE_VOTERS": 27471,
+      "TURNOUT_RATE": 47.880001068115234
+    },
+    {
+      "ADMIN_NAME": "金寧鄉",
+      "ADMIN_CODE": "09020040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 732
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 6589
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 170
+        }
+      ],
+      "VALID_VOTES": 7491,
+      "INVALID_VOTES": 72,
+      "TOTAL_VOTES": 7563,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 7563,
+      "UNUSED_BALLOTS": 8826,
+      "ELIGIBLE_VOTERS": 16389,
+      "TURNOUT_RATE": 46.150001525878906
+    },
+    {
+      "ADMIN_NAME": "烈嶼鄉",
+      "ADMIN_CODE": "09020050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 175
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 3023
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 69
+        }
+      ],
+      "VALID_VOTES": 3267,
+      "INVALID_VOTES": 35,
+      "TOTAL_VOTES": 3302,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3302,
+      "UNUSED_BALLOTS": 4650,
+      "ELIGIBLE_VOTERS": 7952,
+      "TURNOUT_RATE": 41.52000045776367
+    },
+    {
+      "ADMIN_NAME": "烏坵鄉",
+      "ADMIN_CODE": "09020060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 9
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 94
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 0
+        }
+      ],
+      "VALID_VOTES": 103,
+      "INVALID_VOTES": 1,
+      "TOTAL_VOTES": 104,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 104,
+      "UNUSED_BALLOTS": 296,
+      "ELIGIBLE_VOTERS": 400,
+      "TURNOUT_RATE": 26.0
+    },
+    {
+      "ADMIN_NAME": "金湖鎮",
+      "ADMIN_CODE": "09020030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 806
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 7740
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 268
+        }
+      ],
+      "VALID_VOTES": 8814,
+      "INVALID_VOTES": 58,
+      "TOTAL_VOTES": 8872,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 8872,
+      "UNUSED_BALLOTS": 9496,
+      "ELIGIBLE_VOTERS": 18368,
+      "TURNOUT_RATE": 48.29999923706055
+    },
+    {
+      "ADMIN_NAME": "金沙鎮",
+      "ADMIN_CODE": "09020020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 353
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 5619
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 148
+        }
+      ],
+      "VALID_VOTES": 6120,
+      "INVALID_VOTES": 60,
+      "TOTAL_VOTES": 6180,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 6180,
+      "UNUSED_BALLOTS": 7189,
+      "ELIGIBLE_VOTERS": 13369,
+      "TURNOUT_RATE": 46.22999954223633
+    }
+  ]
+}
