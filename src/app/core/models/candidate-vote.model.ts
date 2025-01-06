@@ -1,13 +1,13 @@
 /** 候選人得票數據 */
 export class CandidateVote {
   /** 候選人號次 */
-  NUMBER: number | null;
+  NO: number | null;
 
   /** 得票數 */
-  VOTES: number | null;
+  VOTE_COUNT: number | null;
 
   constructor(data?: any) {
-    this.NUMBER = Number.isNaN(data?.NUMBER) ? null : data.NUMBER;
-    this.VOTES = Number.isNaN(data?.VOTES) ? null : data.VOTES;
+    this.NO = Number.isNaN(data?.NO) ? null : data.NO;
+    this.VOTE_COUNT = Number.isNaN(data?.VOTE_COUNT) ? null : data.VOTE_COUNT;
   }
 }

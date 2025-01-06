@@ -1,31 +1,21 @@
-import { Candidate } from './candidate.model';
-
 /** 正副總統候選人組合 */
 export class CandidatePair {
   /** 候選人號次 */
-  NUMBER: number | null;
+  NO: number | null;
 
   /** 推薦政黨 */
   PARTY: string;
 
   /** 總統候選人資料 */
-  PRESIDENT: Candidate;
+  PRESIDENT: string;
 
   /** 副總統候選人資料 */
-  VICE_PRESIDENT: Candidate;
-
-  /** 得票數 */
-  VOTES: number | null;
-
-  /** 是否當選 */
-  IS_ELECTED: boolean | null;
+  VICE_PRESIDENT: string;
 
   constructor(data?: any) {
-    this.NUMBER = Number.isNaN(data?.NUMBER) ? null : data.NUMBER;
+    this.NO = Number.isNaN(data?.NO) ? null : data.NO;
     this.PARTY = data?.PARTY || '';
-    this.PRESIDENT = new Candidate(data?.PRESIDENT);
-    this.VICE_PRESIDENT = new Candidate(data?.VICE_PRESIDENT);
-    this.VOTES = Number.isNaN(data?.VOTES) ? null : data.VOTES;
-    this.IS_ELECTED = typeof data?.IS_ELECTED === 'boolean' ? data.IS_ELECTED : null;
+    this.PRESIDENT = data?.PRESIDENT || '';
+    this.VICE_PRESIDENT = data?.VICE_PRESIDENT || '';
   }
 }

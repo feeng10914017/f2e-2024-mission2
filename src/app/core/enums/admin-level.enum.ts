@@ -1,5 +1,5 @@
 /** 區域等級 */
-export enum AREA_LEVEL {
+export enum ADMIN_LEVEL {
   /** 國家 */
   COUNTRY = 'COUNTRY',
 

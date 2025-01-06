@@ -1,21 +1,36 @@
+import { AdminCollection } from './admin-collection.model';
+import { CandidatePair } from './candidate-pair.model';
+
 /** 選舉識別碼 */
-export class ElectionIdentifier {
+export class ElectionOverview {
+  /** 選舉名稱 */
+  ELECTION_TITLE: string;
+
   /** 選舉任期 */
   ELECTION_TERM: number | null;
 
-  /** 選舉名稱 */
-  ELECTION_NAME: string;
-
   /** 選舉西元年 */
-  ELECTION_AD_YEAR: string;
+  ELECTION_GREGORIAN_YEAR: string;
 
-  /** 選舉民國年 */
-  ELECTION_ROC_YEAR: string;
+  /** 候選人資訊 */
+  CANDIDATES: CandidatePair[];
+
+  /** 總統計數據 */
+  TOTAL_STATISTICS: AdminCollection;
+
+  /** 行政區域總計數據 */
+  ADMIN_COLLECTION: AdminCollection[];
 
   constructor(data?: any) {
+    this.ELECTION_TITLE = data?.ELECTION_TITLE || '';
     this.ELECTION_TERM = Number.isNaN(data?.ELECTION_TERM) ? null : data.ELECTION_TERM;
-    this.ELECTION_NAME = data?.ELECTION_NAME || '';
-    this.ELECTION_AD_YEAR = data?.ELECTION_AD_YEAR || '';
-    this.ELECTION_ROC_YEAR = data?.ELECTION_ROC_YEAR || '';
+    this.ELECTION_GREGORIAN_YEAR = data?.ELECTION_GREGORIAN_YEAR || '';
+    this.CANDIDATES = Array.isArray(data?.CANDIDATES)
+      ? data.CANDIDATES.map((item: any) => new CandidatePair(item))
+      : [];
+    this.TOTAL_STATISTICS = new AdminCollection(data?.TOTAL_STATISTICS);
+    this.ADMIN_COLLECTION = Array.isArray(data?.ADMIN_COLLECTION)
+      ? data.ADMIN_COLLECTION.map((item: any) => new AdminCollection(item))
+      : [];
   }
 }
