@@ -1,15 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { catchError, debounceTime, forkJoin, Observable, of, Subject, takeUntil } from 'rxjs';
-import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
-import { FooterComponent } from '../components/footer/footer.component';
-import { HeaderComponent } from '../components/header/header.component';
-import { HistoricalPartyVoteCountsComponent } from '../components/historical-party-vote-counts/historical-party-vote-counts.component';
-import { HistoricalPartyVoteRatesComponent } from '../components/historical-party-vote-rates/historical-party-vote-rates.component';
-import { PresidentialVotesComponent } from '../components/presidential-votes/presidential-votes.component';
-import { ToTopButtonComponent } from '../components/to-top-button/to-top-button.component';
-import { VotingOverviewComponent } from '../components/voting-overview/voting-overview.component';
-import { ZhTwMapComponent } from '../components/zh-tw-map/zh-tw-map.component';
 import { DISTRICT_CODE } from '../core/enums/district-code.enum';
 import { REGION_CODE } from '../core/enums/region-code.enum';
 import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
@@ -18,6 +9,15 @@ import { ElectionInfo } from '../core/models/election-info.model';
 import { ApiService } from '../core/services/api.service';
 import { CommonService } from '../core/services/common.service';
 import { GeoFeature } from '../core/types/geo-feature.type';
+import { BreadcrumbComponent } from '../shared/components/breadcrumb.component';
+import { ToTopButtonComponent } from '../shared/components/to-top-button.component';
+import { HistoricalPartyVoteCountsComponent } from '../shared/features/historical-party-vote-counts.component';
+import { HistoricalPartyVoteRatesComponent } from '../shared/features/historical-party-vote-rates.component';
+import { PresidentialVotesComponent } from '../shared/features/presidential-votes.component';
+import { VotingOverviewComponent } from '../shared/features/voting-overview.component';
+import { FooterComponent } from '../shared/layouts/footer.component';
+import { HeaderComponent } from '../shared/layouts/header.component';
+import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
 
 @Component({
   selector: 'app-historical-review',

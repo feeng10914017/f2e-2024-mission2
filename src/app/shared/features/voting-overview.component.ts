@@ -4,7 +4,7 @@ import { POLITICAL_PARTIES } from '../../core/constants/political-parties.const'
 import { AdminCollection } from '../../core/models/admin-collection.model';
 import { ElectionInfo } from '../../core/models/election-info.model';
 import { VotePercentage } from '../../core/types/vote-percentage.type';
-import { VotePercentageBarComponent } from '../vote-percentage-bar/vote-percentage-bar.component';
+import { VotePercentageBarComponent } from '../components/vote-percentage-bar.component';
 
 type TableItem = {
   ADMIN_NAME: string;

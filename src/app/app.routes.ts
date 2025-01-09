@@ -4,12 +4,12 @@ import { historyReviewGuard } from './core/guards/history-review.guard';
 export const routes: Routes = [
   {
     path: 'portal',
-    loadComponent: () => import('./features/portal.component').then((x) => x.PortalComponent),
+    loadComponent: () => import('./views/portal.component').then((x) => x.PortalComponent),
   },
   {
     path: 'historical-review',
     canActivate: [historyReviewGuard],
-    loadComponent: () => import('./features/historical-review.component').then((x) => x.HistoricalReviewComponent),
+    loadComponent: () => import('./views/historical-review.component').then((x) => x.HistoricalReviewComponent),
   },
   {
     path: '**',
