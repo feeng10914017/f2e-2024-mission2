@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, shareReplay, tap } from 'rxjs';
 import { PUBLIC_FILE } from '../enums/public-file.enum';
+import { ElectionInfo } from '../models/election-info.model';
 import { LocationInfo } from '../models/location-info.model';
 import { GeoFeature } from '../types/geo-feature.type';
 import { CommonService } from './common.service';
@@ -47,5 +48,23 @@ export class ApiService {
       tap((features) => features.forEach((item) => (item.properties = new LocationInfo(item.properties)))),
       shareReplay(1),
     );
+  }
+
+  /** 取得中央投票 JSON */
+  fetchCentralVotesJson(gregorianYear: string): Observable<ElectionInfo> {
+    const url = `/presidential-election-json/${gregorianYear}/CENTRAL.json`;
+    return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
+  }
+
+  /** 取得縣市投票 JSON */
+  fetchCountyVotesJson(gregorianYear: string, areaCode: string): Observable<ElectionInfo> {
+    const url = `/presidential-election-json/${gregorianYear}/COUNTY_${areaCode}.json`;
+    return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
+  }
+
+  /** 取得鄉鎮市投票 JSON */
+  fetchTownVotesJson(gregorianYear: string, areaCode: string): Observable<ElectionInfo> {
+    const url = `/presidential-election-json/${gregorianYear}/TOWN_${areaCode}.json`;
+    return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
   }
 }

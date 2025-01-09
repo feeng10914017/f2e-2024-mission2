@@ -1,20 +1,22 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, fromEvent, map, merge, Subject, takeUntil } from 'rxjs';
+import { catchError, debounceTime, forkJoin, Observable, of, Subject, takeUntil } from 'rxjs';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { HistoricalPartyVoteCountsComponent } from '../components/historical-party-vote-counts/historical-party-vote-counts.component';
 import { HistoricalPartyVoteRatesComponent } from '../components/historical-party-vote-rates/historical-party-vote-rates.component';
 import { PresidentialVotesComponent } from '../components/presidential-votes/presidential-votes.component';
+import { ToTopButtonComponent } from '../components/to-top-button/to-top-button.component';
 import { VotingOverviewComponent } from '../components/voting-overview/voting-overview.component';
 import { ZhTwMapComponent } from '../components/zh-tw-map/zh-tw-map.component';
 import { DISTRICT_CODE } from '../core/enums/district-code.enum';
 import { REGION_CODE } from '../core/enums/region-code.enum';
 import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
+import { AdminCollection } from '../core/models/admin-collection.model';
+import { ElectionInfo } from '../core/models/election-info.model';
 import { ApiService } from '../core/services/api.service';
-import { DropdownService } from '../core/services/dropdown.service';
+import { CommonService } from '../core/services/common.service';
 import { GeoFeature } from '../core/types/geo-feature.type';
 
 @Component({
@@ -29,17 +31,19 @@ import { GeoFeature } from '../core/types/geo-feature.type';
     HistoricalPartyVoteRatesComponent,
     VotingOverviewComponent,
     FooterComponent,
+    ToTopButtonComponent,
   ],
   template: `
     <app-header
-      [adYearOptions]="adYearOptions"
+      [gregorianYearOptions]="gregorianYearOptions"
+      [gregorianYear]="gregorianYear"
+      (gregorianYearChange)="changeGregorianYear($event)"
       [regionOptions]="regionOptions"
+      [regionCode]="regionCode"
+      (regionCodeChange)="changeRegionCode($event)"
       [districtOptions]="districtOptions"
-      [(addYear)]="addYear"
-      [regionCode]="(regionCodeBehavior$ | async) || regionCodeBehavior$.getValue()"
-      (regionCodeChange)="regionCodeBehavior$.next($event)"
-      [districtCode]="(districtCodeBehavior$ | async) || districtCodeBehavior$.getValue()"
-      (districtCodeChange)="districtCodeBehavior$.next($event)" />
+      [districtCode]="districtCode"
+      (districtCodeChange)="changeDistrictCode($event)" />
 
     <div class="grid grid-cols-1 xl:grid-cols-[500px,1fr]">
       <div class="relative bg-[#E4FAFF]">
@@ -48,10 +52,10 @@ import { GeoFeature } from '../core/types/geo-feature.type';
             class="top:auto static block h-[148px] xl:sticky xl:top-[65px] xl:h-[calc(100dvh-65px)]"
             [countyFeatures]="regionFeatures"
             [townshipFeatures]="districtFeatures"
-            [regionCode]="(regionCodeBehavior$ | async) || regionCodeBehavior$.getValue()"
-            (regionCodeChange)="regionCodeBehavior$.next($event)"
-            [districtCode]="(districtCodeBehavior$ | async) || districtCodeBehavior$.getValue()"
-            (districtCodeChange)="districtCodeBehavior$.next($event)" />
+            [regionCode]="regionCode"
+            (regionCodeChange)="changeRegionCode($event)"
+            [districtCode]="districtCode"
+            (districtCodeChange)="changeDistrictCode($event)" />
         }
       </div>
 
@@ -59,7 +63,7 @@ import { GeoFeature } from '../core/types/geo-feature.type';
         <div class="grid auto-rows-min grid-cols-1 gap-6 px-4 py-8 xl:grid-cols-2 xl:px-12">
           <div class="grid gap-y-3 xl:col-span-2">
             <div class="flex items-center gap-x-3">
-              @if (title !== dataSummaryTitle) {
+              @if (adminTitle !== adminCentralTitle) {
                 <button
                   type="button"
                   class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200"
@@ -67,7 +71,7 @@ import { GeoFeature } from '../core/types/geo-feature.type';
                   <img src="/images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
                 </button>
               }
-              <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ title }}</h2>
+              <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ adminTitle }}</h2>
             </div>
 
             <div>
@@ -83,64 +87,56 @@ import { GeoFeature } from '../core/types/geo-feature.type';
 
           <app-historical-party-vote-rates />
 
-          <app-voting-overview class="xl:col-span-2" />
+          <app-voting-overview
+            class="xl:col-span-2"
+            [electionInfo]="electionInfo"
+            [candidateNoOrder]="candidateNoOrder"
+            (adminChange$)="changeAdminCodeWithSubAdmin($event)" />
         </div>
         <app-footer />
       </div>
     </div>
 
-    <div
-      [@opacityVisibleHidden]="(isScrollToTopVisible$ | async) ? 'visible' : 'hidden'"
-      class="fixed bottom-6 right-6 opacity-0">
-      <button
-        type="button"
-        class="flex h-11 w-11 items-center justify-center rounded-full border border-solid border-primary bg-white"
-        (click)="scrollToTop()">
-        <img src="/images/icons/arrow_upward.png" alt="arrow_upward" class="pointer-events-none h-5 w-5" />
-      </button>
-    </div>
+    <app-to-top-button />
   `,
   styles: ``,
-  animations: [
-    trigger('opacityVisibleHidden', [
-      state('visible', style({ opacity: '1' })),
-      state('hidden', style({ opacity: '0' })),
-      transition('visible => hidden', [animate('0.2s')]),
-      transition('hidden => visible', [animate('0.2s')]),
-    ]),
-  ],
 })
 export class HistoricalReviewComponent implements OnInit, OnDestroy {
   private readonly _apiService = inject(ApiService);
-  private readonly _dropdownService = inject(DropdownService);
+  private readonly _commonService = inject(CommonService);
   private readonly _destroy = new Subject<void>();
+  private readonly _refetchVoteData$ = new Subject<[string, REGION_CODE, DISTRICT_CODE]>();
 
-  protected readonly isScrollToTopVisible$ = fromEvent(window, 'scroll').pipe(
-    map(() => document.documentElement.scrollTop > 50),
-  );
-
-  protected readonly dataSummaryTitle = '全臺縣市總統得票';
-  protected title = this.dataSummaryTitle;
-
-  protected readonly adYearOptions = this._dropdownService.getYearList();
-  protected addYear = this.adYearOptions[0].value;
-
+  protected readonly adminCentralTitle = '全臺縣市總統得票';
+  protected readonly gregorianYearOptions = this._commonService
+    .getYearsSince1996()
+    .map((year) => this._commonService.convertOption(year, year));
   protected regionOptions: IDropdownOption<REGION_CODE>[] = [];
-  protected readonly regionCodeBehavior$ = new BehaviorSubject<REGION_CODE>(REGION_CODE.ALL);
-
   protected districtOptions: IDropdownOption<DISTRICT_CODE>[] = [];
-  protected readonly districtCodeBehavior$ = new BehaviorSubject<DISTRICT_CODE>(DISTRICT_CODE.ALL);
-
-  protected breadcrumbList: string[] = [];
 
   protected regionFeatures: GeoFeature[] = [];
   protected districtFeatures: GeoFeature[] = [];
 
+  protected gregorianYear = this.gregorianYearOptions[7].value;
+  protected regionCode = REGION_CODE.ALL;
+  protected districtCode = DISTRICT_CODE.ALL;
+
+  protected adminTitle = this.adminCentralTitle;
+  protected breadcrumbList: string[] = [];
+
+  protected candidateNoOrder: number[] = [];
+  protected electionInfo: ElectionInfo | undefined;
+  protected historicalStatistics: AdminCollection[] = [];
+
   ngOnInit(): void {
     this._fetchMapGeoJson();
-    this._registerRegionCodeChangeListener();
-    this._registerDistrictCodeChangeListener();
-    this._registerTitleAndBreadcrumbRenderer();
+
+    this._refetchVoteData$
+      .pipe(takeUntil(this._destroy), debounceTime(100))
+      .subscribe(([gregorianYear, regionCode, districtCode]) => {
+        this._fetchVotingData(gregorianYear, regionCode, districtCode);
+      });
+    this._refetchVoteData$.next([this.gregorianYear, this.regionCode, this.districtCode]);
   }
 
   ngOnDestroy(): void {
@@ -149,62 +145,90 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
   }
 
   private _fetchMapGeoJson(): void {
-    this._apiService.fetchCountyGeoJson().subscribe((data) => {
-      this.regionOptions = data
-        .map((item) => ({
-          label: item.properties.COUNTYNAME,
-          value: item.properties.COUNTYCODE as REGION_CODE,
-        }))
-        .sort((a, b) => a.value.localeCompare(b.value) * -1);
-      this.regionFeatures = data;
-    });
+    this._apiService.fetchCountyGeoJson().subscribe((data) => (this.regionFeatures = data));
     this._apiService.fetchTownshipGeoJson().subscribe((data) => (this.districtFeatures = data));
   }
 
-  private _registerRegionCodeChangeListener(): void {
-    this.regionCodeBehavior$.pipe(takeUntil(this._destroy), distinctUntilChanged()).subscribe((regionCode) => {
-      this.districtOptions = this.districtFeatures
-        .filter((feature) => feature.properties.COUNTYCODE === regionCode)
-        .map((feature) => ({
-          label: feature.properties.TOWNNAME,
-          value: feature.properties.TOWNCODE as DISTRICT_CODE,
-        }));
-      this.districtCodeBehavior$.next(DISTRICT_CODE.ALL);
+  private _fetchVotingData(gregorianYear: string, regionCode: REGION_CODE, districtCode: DISTRICT_CODE): void {
+    const gregorianYears = this._commonService.getYearsSince1996();
+    const fetchObservables: Observable<ElectionInfo>[] = gregorianYears
+      .map((year) => {
+        if (districtCode !== DISTRICT_CODE.ALL) {
+          return this._apiService.fetchTownVotesJson(year, districtCode);
+        } else if (regionCode !== REGION_CODE.ALL) {
+          return this._apiService.fetchCountyVotesJson(year, regionCode);
+        } else {
+          return this._apiService.fetchCentralVotesJson(year);
+        }
+      })
+      .map((obs) => obs.pipe(catchError(() => of(new ElectionInfo()))));
+
+    forkJoin(fetchObservables).subscribe((list) => {
+      this.gregorianYear = gregorianYear;
+      this.regionCode = regionCode;
+      this.districtCode = districtCode;
+
+      // 設定當前行政區資訊
+      const index = list.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === gregorianYear);
+      this.electionInfo = index !== -1 ? list[index] : new ElectionInfo();
+      console.log(this.electionInfo);
+      // 設定頁面標題
+      const adminName = this.electionInfo.TOTAL_STATISTICS.ADMIN_NAME;
+      this.adminTitle = regionCode === REGION_CODE.ALL ? this.adminCentralTitle : adminName;
+
+      // 設定縣市下拉選單
+      if (regionCode === REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
+        this.regionOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
+          this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as REGION_CODE),
+        ).sort((a, b) => a.value.localeCompare(b.value) * -1);
+      }
+
+      // 設定鄉鎮市下拉選單
+      if (regionCode !== REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
+        this.districtOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
+          this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as DISTRICT_CODE),
+        ).sort((a, b) => a.value.localeCompare(b.value) * -1);
+      }
+
+      // 設定政黨排序
+      this.candidateNoOrder = [...this.electionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES]
+        .sort((a, b) => (b.VOTE_COUNT || 0) - (a.VOTE_COUNT || 0))
+        .map((item) => item.NO || 0);
+
+      // 設定歷屆政黨資訊
+      this.historicalStatistics = list.map((item) => item.TOTAL_STATISTICS);
     });
   }
 
-  private _registerDistrictCodeChangeListener(): void {
-    this.districtCodeBehavior$.pipe(takeUntil(this._destroy), distinctUntilChanged()).subscribe((districtCode) => {});
+  protected changeGregorianYear(year: string): void {
+    this._refetchVoteData$.next([year, this.regionCode, this.districtCode]);
   }
 
-  private _registerTitleAndBreadcrumbRenderer(): void {
-    merge(this.regionCodeBehavior$, this.districtCodeBehavior$)
-      .pipe(takeUntil(this._destroy))
-      .subscribe(() => {
-        const regionName =
-          this.regionFeatures.find((feature) => feature.properties.COUNTYCODE === this.regionCodeBehavior$.getValue())
-            ?.properties?.COUNTYNAME || '';
-        const districtName =
-          this.districtFeatures.find((feature) => feature.properties.TOWNCODE === this.districtCodeBehavior$.getValue())
-            ?.properties?.TOWNNAME || '';
-        this.title = districtName || regionName || this.dataSummaryTitle;
-        this.breadcrumbList = [this.dataSummaryTitle, regionName, districtName].filter((item) => !!item);
-      });
+  protected changeRegionCode(code: REGION_CODE): void {
+    this._refetchVoteData$.next([this.gregorianYear, code, DISTRICT_CODE.ALL]);
+  }
+
+  protected changeDistrictCode(code: DISTRICT_CODE): void {
+    this._refetchVoteData$.next([this.gregorianYear, this.regionCode, code]);
+  }
+
+  protected changeAdminCodeWithSubAdmin(code: string): void {
+    if (this.regionCode === REGION_CODE.ALL) {
+      this.changeRegionCode(code as REGION_CODE);
+    } else if (this.districtCode === DISTRICT_CODE.ALL) {
+      this.changeDistrictCode(code as DISTRICT_CODE);
+    }
   }
 
   protected backToPreviousLevel(): void {
-    if (this.districtCodeBehavior$.getValue() !== DISTRICT_CODE.ALL) {
-      this.districtCodeBehavior$.next(DISTRICT_CODE.ALL);
+    if (this.districtCode !== DISTRICT_CODE.ALL) {
+      this.changeDistrictCode(DISTRICT_CODE.ALL);
       return;
     }
 
-    if (this.regionCodeBehavior$.getValue() !== REGION_CODE.ALL) {
-      this.regionCodeBehavior$.next(REGION_CODE.ALL);
+    if (this.regionCode !== REGION_CODE.ALL) {
+      this.changeRegionCode(REGION_CODE.ALL);
       return;
     }
-  }
-
-  protected scrollToTop(): void {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 }

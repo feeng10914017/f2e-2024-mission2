@@ -1,8 +1,8 @@
 import { AdminCollection } from './admin-collection.model';
 import { CandidatePair } from './candidate-pair.model';
 
-/** 選舉識別碼 */
-export class ElectionOverview {
+/** 選舉資訊 */
+export class ElectionInfo {
   /** 選舉名稱 */
   ELECTION_TITLE: string;
 
@@ -23,7 +23,7 @@ export class ElectionOverview {
 
   constructor(data?: any) {
     this.ELECTION_TITLE = data?.ELECTION_TITLE || '';
-    this.ELECTION_TERM = Number.isNaN(data?.ELECTION_TERM) ? null : data.ELECTION_TERM;
+    this.ELECTION_TERM = Number.isNaN(parseInt(data?.ELECTION_TERM)) ? null : data.ELECTION_TERM;
     this.ELECTION_GREGORIAN_YEAR = data?.ELECTION_GREGORIAN_YEAR || '';
     this.CANDIDATES = Array.isArray(data?.CANDIDATES)
       ? data.CANDIDATES.map((item: any) => new CandidatePair(item))

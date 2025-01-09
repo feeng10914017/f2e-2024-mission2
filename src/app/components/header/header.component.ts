@@ -28,7 +28,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                   type="text"
                   readonly
                   placeholder="請選擇"
-                  [value]="adYearLabel"
+                  [value]="gregorianYearLabel"
                   (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
                 <div>
                   <img
@@ -38,8 +38,8 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                 </div>
                 @if (isAdYearSelectOpen) {
                   <ul>
-                    @for (option of adYearOptions; track option.value) {
-                      <li (click)="onYearChange(option.label, option.value)">
+                    @for (option of gregorianYearOptions; track option.value) {
+                      <li (click)="onYearChange(option.value)">
                         {{ option.label }}
                       </li>
                     }
@@ -69,7 +69,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                 @if (isRegionSelectOpen) {
                   <ul>
                     @for (option of regionOptions; track option.value) {
-                      <li (click)="onRegionChange(option.label, option.value)">{{ option.label }}</li>
+                      <li (click)="onRegionChange(option.value)">{{ option.label }}</li>
                     }
                   </ul>
                 }
@@ -93,7 +93,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                 @if (isDistrictSelectOpen) {
                   <ul>
                     @for (option of districtOptions; track option.value) {
-                      <li (click)="onDistrictChange(option.label, option.value)">{{ option.label }}</li>
+                      <li (click)="onDistrictChange(option.value)">{{ option.label }}</li>
                     }
                   </ul>
                 }
@@ -133,10 +133,10 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
 export class HeaderComponent implements OnChanges, OnInit, OnDestroy {
   private readonly _destroy = new Subject<void>();
 
-  @Input({ required: true }) adYearOptions!: IDropdownOption<string>[];
-  @Input({ required: true }) addYear!: string;
-  @Output() addYearChange = new EventEmitter<string>();
-  protected adYearLabel = '';
+  @Input({ required: true }) gregorianYearOptions!: IDropdownOption<string>[];
+  @Input({ required: true }) gregorianYear!: string;
+  @Output() gregorianYearChange = new EventEmitter<string>();
+  protected gregorianYearLabel = '';
   protected isAdYearSelectOpen = false;
 
   @Input({ required: true }) regionOptions!: IDropdownOption<REGION_CODE>[];
@@ -164,10 +164,10 @@ export class HeaderComponent implements OnChanges, OnInit, OnDestroy {
       if (!hasAll) districtOptions.currentValue.unshift(allOption);
     }
 
-    const { addYear, regionCode, districtCode } = changes;
-    if (addYear) {
-      const targetOption = this.adYearOptions.find((item) => item.value === addYear.currentValue);
-      if (targetOption) this.adYearLabel = targetOption.label;
+    const { gregorianYear, regionCode, districtCode } = changes;
+    if (gregorianYear) {
+      const targetOption = this.gregorianYearOptions.find((item) => item.value === gregorianYear.currentValue);
+      if (targetOption) this.gregorianYearLabel = targetOption.label;
     }
     if (regionCode) {
       const targetOption = this.regionOptions.find((item) => item.value === regionCode.currentValue);
@@ -196,20 +196,17 @@ export class HeaderComponent implements OnChanges, OnInit, OnDestroy {
     this.isDistrictSelectOpen = false;
   }
 
-  protected onYearChange(label: string, adYear: string): void {
-    this.adYearLabel = label;
+  protected onYearChange(adYear: string): void {
     this.isAdYearSelectOpen = !this.isAdYearSelectOpen;
-    this.addYearChange.emit(adYear);
+    this.gregorianYearChange.emit(adYear);
   }
 
-  protected onRegionChange(label: string, region: REGION_CODE): void {
-    this.regionLabel = label;
+  protected onRegionChange(region: REGION_CODE): void {
     this.isRegionSelectOpen = !this.isRegionSelectOpen;
     this.regionCodeChange.emit(region);
   }
 
-  protected onDistrictChange(label: string, district: DISTRICT_CODE): void {
-    this.districtLabel = label;
+  protected onDistrictChange(district: DISTRICT_CODE): void {
     this.isDistrictSelectOpen = !this.isDistrictSelectOpen;
     this.districtCodeChange.emit(district);
   }

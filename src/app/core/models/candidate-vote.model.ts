@@ -7,7 +7,7 @@ export class CandidateVote {
   VOTE_COUNT: number | null;
 
   constructor(data?: any) {
-    this.NO = Number.isNaN(data?.NO) ? null : data.NO;
-    this.VOTE_COUNT = Number.isNaN(data?.VOTE_COUNT) ? null : data.VOTE_COUNT;
+    this.NO = Number.isNaN(parseInt(data?.NO)) ? null : data.NO;
+    this.VOTE_COUNT = Number.isNaN(parseInt(data?.VOTE_COUNT)) ? null : data.VOTE_COUNT;
   }
 }

@@ -7,6 +7,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '國民黨',
     EN_FULL_NAME: 'Kuomintang Chinese Nationalist Party',
     EN_SHORT_NAME: 'KMT',
+    PRESIDENT_3D_IMG: '/images/3d-president/man-vampire.png',
+    REPRESENTATIVE_COLOR: '#8082FF',
   },
   DPP: {
     EMBLEM: 'https://upload.wikimedia.org/wikipedia/zh/c/c1/Emblem_of_Democratic_Progressive_Party_%28new%29.svg',
@@ -14,6 +16,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '民進黨',
     EN_FULL_NAME: 'Democratic Progressive Party',
     EN_SHORT_NAME: 'DPP',
+    PRESIDENT_3D_IMG: '/images/3d-president/troll.png',
+    REPRESENTATIVE_COLOR: '#57D2A9',
   },
   TPP: {
     EMBLEM: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Emblem_of_Taiwan_People%27s_Party_2019.svg',
@@ -21,6 +25,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '民眾黨',
     EN_FULL_NAME: "Taiwan People's Party",
     EN_SHORT_NAME: 'TPP',
+    PRESIDENT_3D_IMG: '/images/3d-president/man_in_steamy_room.png',
+    REPRESENTATIVE_COLOR: '#60C5C7',
   },
   PFP: {
     EMBLEM: 'https://upload.wikimedia.org/wikipedia/zh/6/65/Flag_of_People_First_Party.png',
@@ -28,6 +34,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '親民黨',
     EN_FULL_NAME: 'People First Party',
     EN_SHORT_NAME: 'PFP',
+    PRESIDENT_3D_IMG: '/images/3d-president/man-elf.png',
+    REPRESENTATIVE_COLOR: '#F4A76F',
   },
   NP: {
     EMBLEM: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Np_logo.svg',
@@ -35,6 +43,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '新黨',
     EN_FULL_NAME: 'New Party',
     EN_SHORT_NAME: 'NP',
+    PRESIDENT_3D_IMG: '/images/3d-president/person-mage.png',
+    REPRESENTATIVE_COLOR: '#F9DA4A',
   },
   PETITION: {
     EMBLEM: '',
@@ -42,6 +52,8 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '',
     EN_FULL_NAME: 'Petition',
     EN_SHORT_NAME: 'PETITION',
+    PRESIDENT_3D_IMG: '/images/3d-president/man-genie.png',
+    REPRESENTATIVE_COLOR: '#CED4DA',
   },
   EMPTY: {
     EMBLEM: '',
@@ -49,5 +61,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '',
     EN_FULL_NAME: 'Empty',
     EN_SHORT_NAME: 'EMPTY',
+    PRESIDENT_3D_IMG: '/images/3d-president/woman-zombie.png',
+    REPRESENTATIVE_COLOR: '#CED4DA',
   },
 };

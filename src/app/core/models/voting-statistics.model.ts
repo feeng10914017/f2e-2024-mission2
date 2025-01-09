@@ -33,13 +33,13 @@ export class VotingStatistics {
     this.CANDIDATES_VOTES = Array.isArray(data?.CANDIDATES_VOTES)
       ? data.CANDIDATES_VOTES.map((item: any) => new CandidateVote(item))
       : [];
-    this.VALID_VOTES = Number.isNaN(data?.VALID_VOTES) ? null : data.VALID_VOTES;
-    this.INVALID_VOTES = Number.isNaN(data?.INVALID_VOTES) ? null : data.INVALID_VOTES;
-    this.TOTAL_VOTES = Number.isNaN(data?.TOTAL_VOTES) ? null : data.TOTAL_VOTES;
-    this.UNRETURNED_BALLOTS = Number.isNaN(data?.UNRETURNED_BALLOTS) ? null : data.UNRETURNED_BALLOTS;
-    this.TOTAL_ISSUED_BALLOTS = Number.isNaN(data?.TOTAL_ISSUED_BALLOTS) ? null : data.TOTAL_ISSUED_BALLOTS;
-    this.UNUSED_BALLOTS = Number.isNaN(data?.UNUSED_BALLOTS) ? null : data.UNUSED_BALLOTS;
-    this.ELIGIBLE_VOTERS = Number.isNaN(data?.ELIGIBLE_VOTERS) ? null : data.ELIGIBLE_VOTERS;
-    this.TURNOUT_RATE = Number.isNaN(data?.TURNOUT_RATE) ? null : data.TURNOUT_RATE;
+    this.VALID_VOTES = Number.isNaN(parseInt(data?.VALID_VOTES)) ? null : data.VALID_VOTES;
+    this.INVALID_VOTES = Number.isNaN(parseInt(data?.INVALID_VOTES)) ? null : data.INVALID_VOTES;
+    this.TOTAL_VOTES = Number.isNaN(parseInt(data?.TOTAL_VOTES)) ? null : data.TOTAL_VOTES;
+    this.UNRETURNED_BALLOTS = Number.isNaN(parseInt(data?.UNRETURNED_BALLOTS)) ? null : data.UNRETURNED_BALLOTS;
+    this.TOTAL_ISSUED_BALLOTS = Number.isNaN(parseInt(data?.TOTAL_ISSUED_BALLOTS)) ? null : data.TOTAL_ISSUED_BALLOTS;
+    this.UNUSED_BALLOTS = Number.isNaN(parseInt(data?.UNUSED_BALLOTS)) ? null : data.UNUSED_BALLOTS;
+    this.ELIGIBLE_VOTERS = Number.isNaN(parseInt(data?.ELIGIBLE_VOTERS)) ? null : data.ELIGIBLE_VOTERS;
+    this.TURNOUT_RATE = Number.isNaN(parseInt(data?.TURNOUT_RATE)) ? null : data.TURNOUT_RATE;
   }
 }

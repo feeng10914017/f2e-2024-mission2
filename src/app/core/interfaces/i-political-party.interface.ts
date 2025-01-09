@@ -13,4 +13,10 @@ export interface IPoliticalParty {
 
   /** 英文簡稱 */
   EN_SHORT_NAME: string;
+
+  /** 總統 3D 照片 */
+  PRESIDENT_3D_IMG: string;
+
+  /** 代表色 */
+  REPRESENTATIVE_COLOR: string;
 }

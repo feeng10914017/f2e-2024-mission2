@@ -13,7 +13,7 @@ export class CandidatePair {
   VICE_PRESIDENT: string;
 
   constructor(data?: any) {
-    this.NO = Number.isNaN(data?.NO) ? null : data.NO;
+    this.NO = Number.isNaN(parseInt(data?.NO)) ? null : data.NO;
     this.PARTY = data?.PARTY || '';
     this.PRESIDENT = data?.PRESIDENT || '';
     this.VICE_PRESIDENT = data?.VICE_PRESIDENT || '';
