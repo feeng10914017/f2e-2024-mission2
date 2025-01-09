@@ -1,5 +1,5 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { catchError, debounceTime, forkJoin, Observable, of, Subject, takeUntil } from 'rxjs';
 import { DISTRICT_CODE } from '../core/enums/district-code.enum';
 import { REGION_CODE } from '../core/enums/region-code.enum';
@@ -22,7 +22,6 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
 @Component({
   selector: 'app-historical-review',
   imports: [
-    AsyncPipe,
     HeaderComponent,
     ZhTwMapComponent,
     BreadcrumbComponent,
@@ -102,6 +101,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
   styles: ``,
 })
 export class HistoricalReviewComponent implements OnInit, OnDestroy {
+  private readonly _route = inject(ActivatedRoute);
   private readonly _apiService = inject(ApiService);
   private readonly _commonService = inject(CommonService);
   private readonly _destroy = new Subject<void>();
@@ -117,7 +117,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
   protected regionFeatures: GeoFeature[] = [];
   protected districtFeatures: GeoFeature[] = [];
 
-  protected gregorianYear = this.gregorianYearOptions[7].value;
+  protected gregorianYear = '';
   protected regionCode = REGION_CODE.ALL;
   protected districtCode = DISTRICT_CODE.ALL;
 
@@ -136,6 +136,9 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       .subscribe(([gregorianYear, regionCode, districtCode]) => {
         this._fetchVotingData(gregorianYear, regionCode, districtCode);
       });
+
+    const { beginGregorianYear } = this._route.snapshot.queryParams;
+    this.gregorianYear = beginGregorianYear || this._commonService.getYearsSince1996().pop();
     this._refetchVoteData$.next([this.gregorianYear, this.regionCode, this.districtCode]);
   }
 
@@ -164,6 +167,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       .map((obs) => obs.pipe(catchError(() => of(new ElectionInfo()))));
 
     forkJoin(fetchObservables).subscribe((list) => {
+      // 設定下拉選單值
       this.gregorianYear = gregorianYear;
       this.regionCode = regionCode;
       this.districtCode = districtCode;
@@ -171,7 +175,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       // 設定當前行政區資訊
       const index = list.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === gregorianYear);
       this.electionInfo = index !== -1 ? list[index] : new ElectionInfo();
-      console.log(this.electionInfo);
+
       // 設定頁面標題
       const adminName = this.electionInfo.TOTAL_STATISTICS.ADMIN_NAME;
       this.adminTitle = regionCode === REGION_CODE.ALL ? this.adminCentralTitle : adminName;

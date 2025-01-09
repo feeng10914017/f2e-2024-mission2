@@ -1,13 +1,11 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
-import { DropdownService } from '../core/services/dropdown.service';
-import { HistoryManagerService } from '../core/services/history-manager.service';
+import { RouterLink } from '@angular/router';
+import { CommonService } from '../core/services/common.service';
 
 @Component({
   selector: 'app-portal',
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   template: `
     <div class="min-h-dvh pt-24">
       <div class="grid-flow-rows grid auto-rows-auto gap-y-6">
@@ -18,8 +16,12 @@ import { HistoryManagerService } from '../core/services/history-manager.service'
         <div class="text-center text-2xl font-bold leading-9 text-primary">選擇查詢年份</div>
         <div class="flex items-center justify-center">
           <div class="grid grid-cols-2 gap-4 xl:grid-cols-5">
-            <button *ngFor="let item of adYearList" type="button" (click)="redirectToHistoricalReview(item.value)">
-              {{ item.label }}
+            <button
+              *ngFor="let beginGregorianYear of gregorianYearList"
+              type="button"
+              [routerLink]="['/historical-review']"
+              [queryParams]="{ beginGregorianYear }">
+              {{ beginGregorianYear }}
             </button>
           </div>
         </div>
@@ -45,13 +47,9 @@ export class PortalComponent {
   private readonly _original3DImgs: string[];
   protected presidentImgs: string[];
 
-  protected adYearList: IDropdownOption<string>[];
+  protected gregorianYearList: string[];
 
-  constructor(
-    private router: Router,
-    private dropdownService: DropdownService,
-    private historyManagerService: HistoryManagerService,
-  ) {
+  constructor(private commonService: CommonService) {
     this._original3DImgs = [
       'man_in_steamy_room',
       'man-elf',
@@ -63,7 +61,7 @@ export class PortalComponent {
       'woman-zombie',
     ];
     this.presidentImgs = this._shuffle(this._original3DImgs);
-    this.adYearList = this.dropdownService.getYearList();
+    this.gregorianYearList = this.commonService.getYearsSince1996();
   }
 
   private _shuffle<T>(array: Array<T>): Array<T> {
@@ -75,10 +73,5 @@ export class PortalComponent {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
-  }
-
-  redirectToHistoricalReview(adYear: string): void {
-    this.historyManagerService.adYear$.next(adYear);
-    this.router.navigate(['/historical-review']);
   }
 }
