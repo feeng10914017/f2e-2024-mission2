@@ -1,0 +1,175 @@
+{
+  "ELECTION_TITLE": "第12任總統(副總統)選舉",
+  "ELECTION_TERM": "12",
+  "ELECTION_GREGORIAN_YEAR": "2008",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "謝長廷",
+      "VICE_PRESIDENT": "蘇貞昌"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "蕭萬長"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "金門縣",
+    "ADMIN_CODE": "09020",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 1710
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 33384
+      }
+    ],
+    "VALID_VOTES": 35094,
+    "INVALID_VOTES": 172,
+    "TOTAL_VOTES": 35266,
+    "UNRETURNED_BALLOTS": 1,
+    "TOTAL_ISSUED_BALLOTS": 35267,
+    "UNUSED_BALLOTS": 30305,
+    "ELIGIBLE_VOTERS": 65572,
+    "TURNOUT_RATE": 53.779998779296875
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "金城鎮",
+      "ADMIN_CODE": "09020010",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 629
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 11342
+        }
+      ],
+      "VALID_VOTES": 11971,
+      "INVALID_VOTES": 61,
+      "TOTAL_VOTES": 12032,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 12032,
+      "UNUSED_BALLOTS": 10041,
+      "ELIGIBLE_VOTERS": 22073,
+      "TURNOUT_RATE": 54.5099983215332
+    },
+    {
+      "ADMIN_NAME": "金寧鄉",
+      "ADMIN_CODE": "09020040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 339
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 6065
+        }
+      ],
+      "VALID_VOTES": 6404,
+      "INVALID_VOTES": 35,
+      "TOTAL_VOTES": 6439,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 6439,
+      "UNUSED_BALLOTS": 5572,
+      "ELIGIBLE_VOTERS": 12011,
+      "TURNOUT_RATE": 53.61000061035156
+    },
+    {
+      "ADMIN_NAME": "金湖鎮",
+      "ADMIN_CODE": "09020030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 444
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 7422
+        }
+      ],
+      "VALID_VOTES": 7866,
+      "INVALID_VOTES": 36,
+      "TOTAL_VOTES": 7902,
+      "UNRETURNED_BALLOTS": 1,
+      "TOTAL_ISSUED_BALLOTS": 7903,
+      "UNUSED_BALLOTS": 6728,
+      "ELIGIBLE_VOTERS": 14631,
+      "TURNOUT_RATE": 54.0099983215332
+    },
+    {
+      "ADMIN_NAME": "金沙鎮",
+      "ADMIN_CODE": "09020020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 205
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 5533
+        }
+      ],
+      "VALID_VOTES": 5738,
+      "INVALID_VOTES": 30,
+      "TOTAL_VOTES": 5768,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 5768,
+      "UNUSED_BALLOTS": 4795,
+      "ELIGIBLE_VOTERS": 10563,
+      "TURNOUT_RATE": 54.61000061035156
+    },
+    {
+      "ADMIN_NAME": "烈嶼鄉",
+      "ADMIN_CODE": "09020050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 87
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 2897
+        }
+      ],
+      "VALID_VOTES": 2984,
+      "INVALID_VOTES": 9,
+      "TOTAL_VOTES": 2993,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2993,
+      "UNUSED_BALLOTS": 2966,
+      "ELIGIBLE_VOTERS": 5959,
+      "TURNOUT_RATE": 50.22999954223633
+    },
+    {
+      "ADMIN_NAME": "烏坵鄉",
+      "ADMIN_CODE": "09020060",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 6
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 125
+        }
+      ],
+      "VALID_VOTES": 131,
+      "INVALID_VOTES": 1,
+      "TOTAL_VOTES": 132,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 132,
+      "UNUSED_BALLOTS": 203,
+      "ELIGIBLE_VOTERS": 335,
+      "TURNOUT_RATE": 39.400001525878906
+    }
+  ]
+}

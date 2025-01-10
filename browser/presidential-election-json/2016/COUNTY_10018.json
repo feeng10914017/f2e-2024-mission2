@@ -1,0 +1,131 @@
+{
+  "ELECTION_TITLE": "第14任總統(副總統)選舉",
+  "ELECTION_TERM": "14",
+  "ELECTION_GREGORIAN_YEAR": "2016",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "KMT",
+      "PRESIDENT": "朱立倫",
+      "VICE_PRESIDENT": "王如玄"
+    },
+    {
+      "NO": "2",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "陳建仁"
+    },
+    {
+      "NO": "3",
+      "PARTY": "PFP",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "徐欣瑩"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "新竹市",
+    "ADMIN_CODE": "10018",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 71771
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 113386
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 36198
+      }
+    ],
+    "VALID_VOTES": 221355,
+    "INVALID_VOTES": 3138,
+    "TOTAL_VOTES": 224493,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 224493,
+    "UNUSED_BALLOTS": 104087,
+    "ELIGIBLE_VOTERS": 328580,
+    "TURNOUT_RATE": 68.31999969482422
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "東區",
+      "ADMIN_CODE": "66000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 36596
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 49812
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 17017
+        }
+      ],
+      "VALID_VOTES": 103425,
+      "INVALID_VOTES": 1583,
+      "TOTAL_VOTES": 105008,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 105008,
+      "UNUSED_BALLOTS": 47002,
+      "ELIGIBLE_VOTERS": 152010,
+      "TURNOUT_RATE": 69.08000183105469
+    },
+    {
+      "ADMIN_NAME": "北區",
+      "ADMIN_CODE": "66000050",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 24161
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 40911
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 12549
+        }
+      ],
+      "VALID_VOTES": 77621,
+      "INVALID_VOTES": 1037,
+      "TOTAL_VOTES": 78658,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 78658,
+      "UNUSED_BALLOTS": 37236,
+      "ELIGIBLE_VOTERS": 115894,
+      "TURNOUT_RATE": 67.87000274658203
+    },
+    {
+      "ADMIN_NAME": "香山區",
+      "ADMIN_CODE": "10018030",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 11014
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 22663
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 6632
+        }
+      ],
+      "VALID_VOTES": 40309,
+      "INVALID_VOTES": 518,
+      "TOTAL_VOTES": 40827,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 40827,
+      "UNUSED_BALLOTS": 19849,
+      "ELIGIBLE_VOTERS": 60676,
+      "TURNOUT_RATE": 67.29000091552734
+    }
+  ]
+}

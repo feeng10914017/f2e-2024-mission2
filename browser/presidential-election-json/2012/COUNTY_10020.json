@@ -1,0 +1,105 @@
+{
+  "ELECTION_TITLE": "第13任總統(副總統)選舉",
+  "ELECTION_TERM": "13",
+  "ELECTION_GREGORIAN_YEAR": "2012",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "蘇嘉全"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "吳敦義"
+    },
+    {
+      "NO": "3",
+      "PARTY": "EMPTY",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "林瑞雄"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "嘉義市",
+    "ADMIN_CODE": "10020",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 76711
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 69535
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 4042
+      }
+    ],
+    "VALID_VOTES": 150288,
+    "INVALID_VOTES": 973,
+    "TOTAL_VOTES": 151261,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 151261,
+    "UNUSED_BALLOTS": 54450,
+    "ELIGIBLE_VOTERS": 205711,
+    "TURNOUT_RATE": 73.52999877929688
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "東區",
+      "ADMIN_CODE": "66000020",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 33803
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 33958
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 1882
+        }
+      ],
+      "VALID_VOTES": 69643,
+      "INVALID_VOTES": 419,
+      "TOTAL_VOTES": 70062,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 70062,
+      "UNUSED_BALLOTS": 24821,
+      "ELIGIBLE_VOTERS": 94883,
+      "TURNOUT_RATE": 73.83999633789062
+    },
+    {
+      "ADMIN_NAME": "西區",
+      "ADMIN_CODE": "66000040",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 42908
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 35577
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 2160
+        }
+      ],
+      "VALID_VOTES": 80645,
+      "INVALID_VOTES": 554,
+      "TOTAL_VOTES": 81199,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 81199,
+      "UNUSED_BALLOTS": 29629,
+      "ELIGIBLE_VOTERS": 110828,
+      "TURNOUT_RATE": 73.2699966430664
+    }
+  ]
+}

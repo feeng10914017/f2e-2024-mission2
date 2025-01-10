@@ -1,0 +1,261 @@
+{
+  "ELECTION_TITLE": "第13任總統(副總統)選舉",
+  "ELECTION_TERM": "13",
+  "ELECTION_GREGORIAN_YEAR": "2012",
+  "CANDIDATES": [
+    {
+      "NO": "1",
+      "PARTY": "DPP",
+      "PRESIDENT": "蔡英文",
+      "VICE_PRESIDENT": "蘇嘉全"
+    },
+    {
+      "NO": "2",
+      "PARTY": "KMT",
+      "PRESIDENT": "馬英九",
+      "VICE_PRESIDENT": "吳敦義"
+    },
+    {
+      "NO": "3",
+      "PARTY": "EMPTY",
+      "PRESIDENT": "宋楚瑜",
+      "VICE_PRESIDENT": "林瑞雄"
+    }
+  ],
+  "TOTAL_STATISTICS": {
+    "ADMIN_NAME": "東引鄉",
+    "ADMIN_CODE": "09007040",
+    "CANDIDATES_VOTES": [
+      {
+        "NO": 1,
+        "VOTE_COUNT": 52
+      },
+      {
+        "NO": 2,
+        "VOTE_COUNT": 524
+      },
+      {
+        "NO": 3,
+        "VOTE_COUNT": 45
+      }
+    ],
+    "VALID_VOTES": 621,
+    "INVALID_VOTES": 2,
+    "TOTAL_VOTES": 623,
+    "UNRETURNED_BALLOTS": 0,
+    "TOTAL_ISSUED_BALLOTS": 623,
+    "UNUSED_BALLOTS": 228,
+    "ELIGIBLE_VOTERS": 851,
+    "TURNOUT_RATE": 73.20999908447266
+  },
+  "ADMIN_COLLECTION": [
+    {
+      "ADMIN_NAME": "介壽村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 79
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 913
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 55
+        }
+      ],
+      "VALID_VOTES": 1047,
+      "INVALID_VOTES": 10,
+      "TOTAL_VOTES": 1057,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1057,
+      "UNUSED_BALLOTS": 450,
+      "ELIGIBLE_VOTERS": 1507,
+      "TURNOUT_RATE": 70.13999938964844
+    },
+    {
+      "ADMIN_NAME": "復興村、福沃村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 95
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 800
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 38
+        }
+      ],
+      "VALID_VOTES": 933,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 946,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 946,
+      "UNUSED_BALLOTS": 442,
+      "ELIGIBLE_VOTERS": 1388,
+      "TURNOUT_RATE": 68.16000366210938
+    },
+    {
+      "ADMIN_NAME": "清水村、仁愛村、津沙村、馬祖村、珠螺村、四維村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 99
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 978
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 51
+        }
+      ],
+      "VALID_VOTES": 1128,
+      "INVALID_VOTES": 13,
+      "TOTAL_VOTES": 1141,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1141,
+      "UNUSED_BALLOTS": 641,
+      "ELIGIBLE_VOTERS": 1782,
+      "TURNOUT_RATE": 64.02999877929688
+    },
+    {
+      "ADMIN_NAME": "塘岐村、后沃村、橋仔村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 41
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 565
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 35
+        }
+      ],
+      "VALID_VOTES": 641,
+      "INVALID_VOTES": 6,
+      "TOTAL_VOTES": 647,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 647,
+      "UNUSED_BALLOTS": 358,
+      "ELIGIBLE_VOTERS": 1005,
+      "TURNOUT_RATE": 64.37999725341797
+    },
+    {
+      "ADMIN_NAME": "芹壁村、里村、白沙村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 22
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 268
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 7
+        }
+      ],
+      "VALID_VOTES": 297,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 300,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 300,
+      "UNUSED_BALLOTS": 172,
+      "ELIGIBLE_VOTERS": 472,
+      "TURNOUT_RATE": 63.560001373291016
+    },
+    {
+      "ADMIN_NAME": "青帆村、田沃村、西坵村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 15
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 261
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 23
+        }
+      ],
+      "VALID_VOTES": 299,
+      "INVALID_VOTES": 3,
+      "TOTAL_VOTES": 302,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 302,
+      "UNUSED_BALLOTS": 258,
+      "ELIGIBLE_VOTERS": 560,
+      "TURNOUT_RATE": 53.93000030517578
+    },
+    {
+      "ADMIN_NAME": "福正村、大坪村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 15
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 198
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 25
+        }
+      ],
+      "VALID_VOTES": 238,
+      "INVALID_VOTES": 1,
+      "TOTAL_VOTES": 239,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 239,
+      "UNUSED_BALLOTS": 183,
+      "ELIGIBLE_VOTERS": 422,
+      "TURNOUT_RATE": 56.63999938964844
+    },
+    {
+      "ADMIN_NAME": "中柳村、樂華村",
+      "ADMIN_CODE": "",
+      "CANDIDATES_VOTES": [
+        {
+          "NO": 1,
+          "VOTE_COUNT": 52
+        },
+        {
+          "NO": 2,
+          "VOTE_COUNT": 524
+        },
+        {
+          "NO": 3,
+          "VOTE_COUNT": 45
+        }
+      ],
+      "VALID_VOTES": 621,
+      "INVALID_VOTES": 2,
+      "TOTAL_VOTES": 623,
+      "UNRETURNED_BALLOTS": 0,
+      "TOTAL_ISSUED_BALLOTS": 623,
+      "UNUSED_BALLOTS": 228,
+      "ELIGIBLE_VOTERS": 851,
+      "TURNOUT_RATE": 73.20999908447266
+    }
+  ]
+}
