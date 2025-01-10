@@ -27,13 +27,15 @@ import { CommonService } from '../core/services/common.service';
         </div>
       </div>
 
-      <div class="absolute bottom-[-16px] grid grid-cols-4 gap-12 xl:grid-cols-6">
-        <img [src]="'/images/3d-president/' + presidentImgs[0] + '.png'" />
-        <img [src]="'/images/3d-president/' + presidentImgs[1] + '.png'" />
-        <img [src]="'/images/3d-president/' + presidentImgs[2] + '.png'" />
-        <img [src]="'/images/3d-president/' + presidentImgs[3] + '.png'" />
-        <img class="hidden xl:block" [src]="'/images/3d-president/' + presidentImgs[4] + '.png'" />
-        <img class="hidden xl:block" [src]="'/images/3d-president/' + presidentImgs[5] + '.png'" />
+      <div class="absolute bottom-0 w-full overflow-hidden">
+        <div class="grid translate-y-[7%] grid-cols-4 gap-12 xl:grid-cols-6">
+          <img class="w-full" [src]="'/images/3d-president/' + presidentImgs[0] + '.png'" />
+          <img class="w-full" [src]="'/images/3d-president/' + presidentImgs[1] + '.png'" />
+          <img class="w-full" [src]="'/images/3d-president/' + presidentImgs[2] + '.png'" />
+          <img class="w-full" [src]="'/images/3d-president/' + presidentImgs[3] + '.png'" />
+          <img class="hidden w-full xl:block" [src]="'/images/3d-president/' + presidentImgs[4] + '.png'" />
+          <img class="hidden w-full xl:block" [src]="'/images/3d-president/' + presidentImgs[5] + '.png'" />
+        </div>
       </div>
     </div>
   `,
