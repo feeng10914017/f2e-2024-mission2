@@ -1,11 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
-  },
-  "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts"]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0cce826d39c556f3f574752ed397939891f73e66e5b3c83d822a26dd46d47d05
+size 408

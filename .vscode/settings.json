@@ -1,15 +1,3 @@
-{
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "editor.formatOnSave": true
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d34d23ad7a4d2fdd81a7bfce3525dee1e45c5ebd081a684cba8885a1610bdfc
+size 354
