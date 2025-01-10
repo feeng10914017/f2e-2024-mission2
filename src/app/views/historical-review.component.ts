@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, debounceTime, forkJoin, Observable, of, Subject, takeUntil } from 'rxjs';
+import { catchError, debounceTime, forkJoin, map, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { DISTRICT_CODE } from '../core/enums/district-code.enum';
 import { REGION_CODE } from '../core/enums/region-code.enum';
 import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
@@ -132,10 +132,12 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
     this._fetchMapGeoJson();
 
     this._refetchVoteData$
-      .pipe(takeUntil(this._destroy), debounceTime(100))
-      .subscribe(([gregorianYear, regionCode, districtCode]) => {
-        this._fetchVotingData(gregorianYear, regionCode, districtCode);
-      });
+      .pipe(
+        takeUntil(this._destroy),
+        debounceTime(100),
+        switchMap((fetchArr) => this._fetchVotingData(...fetchArr)),
+      )
+      .subscribe((resArr) => this._renderVotingData(...resArr));
 
     const { beginGregorianYear } = this._route.snapshot.queryParams;
     this.gregorianYear = beginGregorianYear || this._commonService.getYearsSince1996().pop();
@@ -152,9 +154,13 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
     this._apiService.fetchTownshipGeoJson().subscribe((data) => (this.districtFeatures = data));
   }
 
-  private _fetchVotingData(gregorianYear: string, regionCode: REGION_CODE, districtCode: DISTRICT_CODE): void {
-    const gregorianYears = this._commonService.getYearsSince1996();
-    const fetchObservables: Observable<ElectionInfo>[] = gregorianYears
+  private _fetchVotingData(
+    gregorianYear: string,
+    regionCode: REGION_CODE,
+    districtCode: DISTRICT_CODE,
+  ): Observable<[string, REGION_CODE, DISTRICT_CODE, ElectionInfo[]]> {
+    const fetchObservables = this._commonService
+      .getYearsSince1996()
       .map((year) => {
         if (districtCode !== DISTRICT_CODE.ALL) {
           return this._apiService.fetchTownVotesJson(year, districtCode);
@@ -165,43 +171,51 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
         }
       })
       .map((obs) => obs.pipe(catchError(() => of(new ElectionInfo()))));
+    return forkJoin(fetchObservables).pipe(map((list) => [gregorianYear, regionCode, districtCode, list]));
+  }
 
-    forkJoin(fetchObservables).subscribe((list) => {
-      // 設定下拉選單值
-      this.gregorianYear = gregorianYear;
-      this.regionCode = regionCode;
-      this.districtCode = districtCode;
+  private _renderVotingData(
+    gregorianYear: string,
+    regionCode: REGION_CODE,
+    districtCode: DISTRICT_CODE,
+    electionInfoList: ElectionInfo[],
+  ): void {
+    // 設定下拉選單值
+    this.gregorianYear = gregorianYear;
+    this.regionCode = regionCode;
+    this.districtCode = districtCode;
 
-      // 設定當前行政區資訊
-      const index = list.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === gregorianYear);
-      this.electionInfo = index !== -1 ? list[index] : new ElectionInfo();
+    // 設定當前行政區資訊
+    const index = electionInfoList.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === gregorianYear);
+    this.electionInfo = index !== -1 ? electionInfoList[index] : new ElectionInfo();
 
-      // 設定頁面標題
-      const adminName = this.electionInfo.TOTAL_STATISTICS.ADMIN_NAME;
-      this.adminTitle = regionCode === REGION_CODE.ALL ? this.adminCentralTitle : adminName;
+    // 設定頁面標題
+    const adminName = this.electionInfo.TOTAL_STATISTICS.ADMIN_NAME;
+    this.adminTitle = regionCode === REGION_CODE.ALL ? this.adminCentralTitle : adminName;
 
-      // 設定縣市下拉選單
-      if (regionCode === REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
-        this.regionOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
-          this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as REGION_CODE),
-        ).sort((a, b) => a.value.localeCompare(b.value) * -1);
-      }
+    // 設定縣市下拉選單
+    if (regionCode === REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
+      this.regionOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
+        this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as REGION_CODE),
+      ).sort((a, b) => a.value.localeCompare(b.value) * -1);
+    }
 
-      // 設定鄉鎮市下拉選單
-      if (regionCode !== REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
-        this.districtOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
-          this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as DISTRICT_CODE),
-        ).sort((a, b) => a.value.localeCompare(b.value) * -1);
-      }
+    // 設定鄉鎮市下拉選單
+    if (regionCode !== REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
+      this.districtOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
+        this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as DISTRICT_CODE),
+      ).sort((a, b) => a.value.localeCompare(b.value) * -1);
+    }
 
-      // 設定政黨排序
-      this.candidateNoOrder = [...this.electionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES]
-        .sort((a, b) => (b.VOTE_COUNT || 0) - (a.VOTE_COUNT || 0))
-        .map((item) => item.NO || 0);
+    // 設定政黨排序
+    this.candidateNoOrder = [...this.electionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES]
+      .sort((a, b) => (b.VOTE_COUNT || 0) - (a.VOTE_COUNT || 0))
+      .map((item) => item.NO || 0);
 
-      // 設定歷屆政黨資訊
-      this.historicalStatistics = list.map((item) => item.TOTAL_STATISTICS);
-    });
+    // 設定歷屆政黨資訊
+    this.historicalStatistics = electionInfoList.map((item) => item.TOTAL_STATISTICS);
+
+    this._commonService.scrollToTop();
   }
 
   protected changeGregorianYear(year: string): void {
