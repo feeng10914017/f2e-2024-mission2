@@ -67,7 +67,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
                   type="button"
                   class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200"
                   (click)="backToPreviousLevel()">
-                  <img src="/images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
+                  <img src="images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
                 </button>
               }
               <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ adminTitle }}</h2>

@@ -17,7 +17,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
           <div class="flex items-center justify-between px-4 py-2 xl:justify-start xl:gap-x-6 xl:p-0">
             <a [routerLink]="['/portal']">
               <h1>
-                <img src="/images/logo.png" alt="logo" class="h-[28px] xl:h-[40px]" />
+                <img src="images/logo.png" alt="logo" class="h-[28px] xl:h-[40px]" />
               </h1>
             </a>
 
@@ -32,7 +32,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                   (click)="$event.stopPropagation(); closeAllSelects(); isAdYearSelectOpen = true" />
                 <div>
                   <img
-                    src="/images/icons/expand_more.png"
+                    src="images/icons/expand_more.png"
                     alt="expand_more"
                     [@iconOpenClose]="isAdYearSelectOpen ? 'open' : 'closed'" />
                 </div>
@@ -51,7 +51,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
 
           <div class="px-4 py-2 xl:static xl:flex xl:grow xl:items-center xl:justify-between xl:p-0">
             <div class="flex items-center rounded-full bg-gray-200">
-              <img src="/images/icons/search.png" alt="search" class="ml-3 hidden xl:block" />
+              <img src="images/icons/search.png" alt="search" class="ml-3 hidden xl:block" />
 
               <div class="cmp-dropdown w-1/2 xl:w-[194px]">
                 <input
@@ -62,7 +62,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                   (click)="$event.stopPropagation(); closeAllSelects(); isRegionSelectOpen = true" />
                 <div>
                   <img
-                    src="/images/icons/expand_more.png"
+                    src="images/icons/expand_more.png"
                     alt="expand_more"
                     [@iconOpenClose]="isRegionSelectOpen ? 'open' : 'closed'" />
                 </div>
@@ -86,7 +86,7 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
                   (click)="$event.stopPropagation(); closeAllSelects(); isDistrictSelectOpen = true" />
                 <div>
                   <img
-                    src="/images/icons/expand_more.png"
+                    src="images/icons/expand_more.png"
                     alt="expand_more"
                     [@iconOpenClose]="isDistrictSelectOpen ? 'open' : 'closed'" />
                 </div>
@@ -104,15 +104,15 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
               <div class="text-base font-normal text-dark">分享</div>
 
               <a href="http://www.facebook.com">
-                <img src="/images/icons/facebook-icon.png" alt="facebook-icon" class="h-6" />
+                <img src="images/icons/facebook-icon.png" alt="facebook-icon" class="h-6" />
               </a>
 
               <a href="http://www.instagram.com">
-                <img src="/images/icons/instagram-icon.png" alt="instagram-icon" class="h-6" />
+                <img src="images/icons/instagram-icon.png" alt="instagram-icon" class="h-6" />
               </a>
 
               <a href="http://www.youtube.com">
-                <img src="/images/icons/youtube-icon.png" alt="youtube-icon" class="h-6" />
+                <img src="images/icons/youtube-icon.png" alt="youtube-icon" class="h-6" />
               </a>
             </div>
           </div>

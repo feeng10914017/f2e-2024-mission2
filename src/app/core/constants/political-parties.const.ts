@@ -7,7 +7,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '國民黨',
     EN_FULL_NAME: 'Kuomintang Chinese Nationalist Party',
     EN_SHORT_NAME: 'KMT',
-    PRESIDENT_3D_IMG: '/images/3d-president/man-vampire.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/man-vampire.png',
     REPRESENTATIVE_COLOR: '#8082FF',
   },
   DPP: {
@@ -16,7 +16,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '民進黨',
     EN_FULL_NAME: 'Democratic Progressive Party',
     EN_SHORT_NAME: 'DPP',
-    PRESIDENT_3D_IMG: '/images/3d-president/troll.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/troll.png',
     REPRESENTATIVE_COLOR: '#57D2A9',
   },
   TPP: {
@@ -25,7 +25,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '民眾黨',
     EN_FULL_NAME: "Taiwan People's Party",
     EN_SHORT_NAME: 'TPP',
-    PRESIDENT_3D_IMG: '/images/3d-president/man_in_steamy_room.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/man_in_steamy_room.png',
     REPRESENTATIVE_COLOR: '#60C5C7',
   },
   PFP: {
@@ -34,7 +34,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '親民黨',
     EN_FULL_NAME: 'People First Party',
     EN_SHORT_NAME: 'PFP',
-    PRESIDENT_3D_IMG: '/images/3d-president/man-elf.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/man-elf.png',
     REPRESENTATIVE_COLOR: '#F4A76F',
   },
   NP: {
@@ -43,7 +43,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '新黨',
     EN_FULL_NAME: 'New Party',
     EN_SHORT_NAME: 'NP',
-    PRESIDENT_3D_IMG: '/images/3d-president/person-mage.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/person-mage.png',
     REPRESENTATIVE_COLOR: '#F9DA4A',
   },
   PETITION: {
@@ -52,7 +52,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '',
     EN_FULL_NAME: 'Petition',
     EN_SHORT_NAME: 'PETITION',
-    PRESIDENT_3D_IMG: '/images/3d-president/man-genie.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/man-genie.png',
     REPRESENTATIVE_COLOR: '#CED4DA',
   },
   EMPTY: {
@@ -61,7 +61,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     CN_SHORT_NAME: '',
     EN_FULL_NAME: 'Empty',
     EN_SHORT_NAME: 'EMPTY',
-    PRESIDENT_3D_IMG: '/images/3d-president/woman-zombie.png',
+    PRESIDENT_3D_IMG: 'images/3d-president/woman-zombie.png',
     REPRESENTATIVE_COLOR: '#CED4DA',
   },
 };

@@ -15,7 +15,7 @@ import { CommonService } from '../../core/services/common.service';
         type="button"
         class="flex h-11 w-11 items-center justify-center rounded-full border border-solid border-primary bg-white"
         (click)="commonService.scrollToTop()">
-        <img src="/images/icons/arrow_upward.png" alt="arrow_upward" class="pointer-events-none h-5 w-5" />
+        <img src="images/icons/arrow_upward.png" alt="arrow_upward" class="pointer-events-none h-5 w-5" />
       </button>
     </div>
   `,

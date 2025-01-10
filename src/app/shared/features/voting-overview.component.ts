@@ -51,7 +51,7 @@ type TableItem = {
             <td>
               @if (item.ADMIN_CODE) {
                 <div class="flex items-center justify-end">
-                  <img src="/images/icons/expand_more.png" alt="expand_more" class="-rotate-90" />
+                  <img src="images/icons/expand_more.png" alt="expand_more" class="-rotate-90" />
                 </div>
               }
             </td>

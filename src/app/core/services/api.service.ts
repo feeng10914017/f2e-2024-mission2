@@ -23,7 +23,7 @@ export class ApiService {
    */
   fetchCountyGeoJson(): Observable<GeoFeature[]> {
     const COUNTY_JSON_PATH = PUBLIC_FILE.COUNTY;
-    const url = '/map-topo-json/' + COUNTY_JSON_PATH + '.json';
+    const url = 'map-topo-json/' + COUNTY_JSON_PATH + '.json';
     return this.http.get<TopoJSON.Topology>(url).pipe(
       map((res) => res as TopoJSON.Topology),
       map((res) => this.commonService.convertTopoToFeatures(res, COUNTY_JSON_PATH)),
@@ -40,7 +40,7 @@ export class ApiService {
    */
   fetchTownshipGeoJson(): Observable<GeoFeature[]> {
     const TOWNSHIP_JSON_PATH = PUBLIC_FILE.TOWNSHIP;
-    const url = '/map-topo-json/' + TOWNSHIP_JSON_PATH + '.json';
+    const url = 'map-topo-json/' + TOWNSHIP_JSON_PATH + '.json';
     return this.http.get<TopoJSON.Topology>(url).pipe(
       map((res) => res as TopoJSON.Topology),
       map((res) => this.commonService.convertTopoToFeatures(res, TOWNSHIP_JSON_PATH)),
@@ -52,19 +52,19 @@ export class ApiService {
 
   /** 取得中央投票 JSON */
   fetchCentralVotesJson(gregorianYear: string): Observable<ElectionInfo> {
-    const url = `/presidential-election-json/${gregorianYear}/CENTRAL.json`;
+    const url = `presidential-election-json/${gregorianYear}/CENTRAL.json`;
     return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
   }
 
   /** 取得縣市投票 JSON */
   fetchCountyVotesJson(gregorianYear: string, areaCode: string): Observable<ElectionInfo> {
-    const url = `/presidential-election-json/${gregorianYear}/COUNTY_${areaCode}.json`;
+    const url = `presidential-election-json/${gregorianYear}/COUNTY_${areaCode}.json`;
     return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
   }
 
   /** 取得鄉鎮市投票 JSON */
   fetchTownVotesJson(gregorianYear: string, areaCode: string): Observable<ElectionInfo> {
-    const url = `/presidential-election-json/${gregorianYear}/TOWN_${areaCode}.json`;
+    const url = `presidential-election-json/${gregorianYear}/TOWN_${areaCode}.json`;
     return this.http.get<ElectionInfo>(url).pipe(map((res) => new ElectionInfo(res)));
   }
 }
