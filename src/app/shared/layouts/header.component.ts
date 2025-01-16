@@ -6,10 +6,11 @@ import { debounceTime, fromEvent, merge, Subject, takeUntil } from 'rxjs';
 import { DISTRICT_CODE } from '../../core/enums/district-code.enum';
 import { REGION_CODE } from '../../core/enums/region-code.enum';
 import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interface';
+import { ProgressBarComponent } from '../components/progress-bar.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ProgressBarComponent],
   template: `
     <div class="sticky top-[-48px] z-50 shadow xl:top-0">
       <div class="border-b-[1px] border-solid border-gray-300 bg-white xl:px-6 xl:py-3">
@@ -118,6 +119,8 @@ import { IDropdownOption } from '../../core/interfaces/i-dropdown-option.interfa
           </div>
         </div>
       </div>
+
+      <app-progress-bar />
     </div>
   `,
   styles: ``,
