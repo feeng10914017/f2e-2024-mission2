@@ -25,33 +25,49 @@ type TableItem = {
     <table>
       <thead>
         <tr>
-          <th [style.max-width.%]="16">地區</th>
-          <th [style.width.%]="24">得票率</th>
-          <th [style.max-width.%]="8">當選人</th>
-          <th [style.max-width.%]="16" class="text-right">投票數</th>
-          <th [style.max-width.%]="16" class="text-right">投票率</th>
-          <th [style.max-width.%]="20"></th>
+          <th>地區</th>
+          <th>得票率</th>
+          <th>當選人</th>
+          <th>投票數</th>
+          <th>投票率</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         @for (item of data; track $index) {
           <tr [class.cursor-pointer]="item.ADMIN_CODE" (click)="onItemClick(item.ADMIN_CODE)">
             <td>{{ item.ADMIN_NAME }}</td>
-            <td><app-vote-percentage-bar [votePercentage]="item.VOTE_PERCENTAGE" [visibleDesc]="false" /></td>
             <td>
-              <div class="flex items-center">
-                <div class="mr-1 h-8 w-8 overflow-hidden rounded-full" [style.background]="item.WINNER_COLOR">
+              <div class="grid gap-y-1">
+                <div class="flex items-center gap-x-2 xl:hidden">
+                  <span class="text-light">當選人</span>
+                  <div class="h-8 w-8 overflow-hidden rounded-full" [style.background]="item.WINNER_COLOR">
+                    <img
+                      [src]="item.WINNER_IMG"
+                      alt="winner_img"
+                      class="pointer-events-none translate-y-1.5 scale-125" />
+                  </div>
+                  {{ item.WINNER_NAME }}
+                </div>
+                <app-vote-percentage-bar class="py-1" [votePercentage]="item.VOTE_PERCENTAGE" [visibleDesc]="false" />
+              </div>
+            </td>
+            <td>
+              <div class="flex items-center gap-x-1">
+                <div class="h-8 w-8 overflow-hidden rounded-full" [style.background]="item.WINNER_COLOR">
                   <img [src]="item.WINNER_IMG" alt="winner_img" class="pointer-events-none translate-y-1.5 scale-125" />
                 </div>
                 {{ item.WINNER_NAME }}
               </div>
             </td>
-            <td class="text-right">{{ item.TOTAL_VOTES | number }}</td>
-            <td class="text-right">{{ item.TURNOUT_RATE | number: '1.2-2' }}%</td>
+            <td>{{ item.TOTAL_VOTES | number }}</td>
+            <td>{{ item.TURNOUT_RATE | number: '1.2-2' }}%</td>
             <td>
               @if (item.ADMIN_CODE) {
                 <div class="flex items-center justify-end">
-                  <img src="images/icons/expand_more.png" alt="expand_more" class="-rotate-90" />
+                  <div class="flex h-9 w-9 items-center justify-center">
+                    <img src="images/icons/expand_more.png" alt="expand_more" class="-rotate-90" />
+                  </div>
                 </div>
               }
             </td>
@@ -62,41 +78,70 @@ type TableItem = {
   `,
   styles: `
     table {
-      @apply w-full table-fixed text-nowrap text-left text-sm text-dark;
+      @apply w-full text-nowrap text-left text-sm text-dark;
     }
 
-    thead {
+    thead tr {
       @apply bg-gray-200;
-    }
 
-    table thead th:first-child {
-      @apply rounded-tl;
-    }
+      th {
+        @apply font-normal;
 
-    table thead th:last-child {
-      @apply rounded-tr;
+        &:first-child {
+          @apply rounded-tl;
+        }
+
+        &:last-child {
+          @apply rounded-tr;
+        }
+
+        &:nth-child(1) {
+          @apply xl:w-[16%];
+        }
+        &:nth-child(2) {
+          @apply w-full xl:w-[24%];
+        }
+        &:nth-child(3) {
+          @apply xl:w-[8%];
+        }
+        &:nth-child(4) {
+          @apply xl:w-[16%];
+        }
+        &:nth-child(5) {
+          @apply xl:w-[16%];
+        }
+        &:nth-child(6) {
+          @apply xl:w-[20%];
+        }
+      }
     }
 
     tbody tr {
       @apply border-b border-solid border-gray-300;
-    }
 
-    tr th:first-child,
-    tr td:first-child {
-      @apply ps-2;
+      td:first-child {
+        @apply align-baseline font-bold leading-8 xl:align-middle xl:leading-5;
+      }
     }
 
     tr th,
     tr td {
-      @apply py-2 pe-6;
-    }
+      @apply py-3 xl:py-1 xl:pe-6;
 
-    th {
-      @apply font-normal;
-    }
+      &:first-child {
+        @apply pe-8 ps-2 xl:pe-6;
+      }
 
-    tr td:first-child {
-      @apply font-bold;
+      &:nth-child(4),
+      &:nth-child(5) {
+        @apply text-right;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        @apply hidden xl:table-cell;
+      }
     }
   `,
 })
