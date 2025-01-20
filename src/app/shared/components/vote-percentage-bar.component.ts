@@ -1,16 +1,18 @@
-import { DecimalPipe } from '@angular/common';
+import { DecimalPipe, NgClass } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { POLITICAL_PARTIES } from '../../core/constants/political-parties.const';
 import { VotePercentage } from '../../core/types/vote-percentage.type';
 
 @Component({
   selector: 'app-vote-percentage-bar',
-  imports: [DecimalPipe],
+  imports: [NgClass, DecimalPipe],
   template: `
-    <div class="flex w-full overflow-hidden rounded-[500px]">
+    <div
+      class="flex w-full overflow-hidden rounded-[500px]"
+      [ngClass]="{ 'h-2': !visibleDesc, 'h-[18px]': visibleDesc }">
       @for (item of votePercentage; track $index) {
         <div
-          class="flex min-h-2 items-center justify-center overflow-hidden text-sm leading-[18px] text-white"
+          class="flex min-h-full items-center justify-center overflow-hidden text-sm leading-[18px] text-white"
           [style.flex-basis.%]="(item.voteCount / totalVote) * 100 + 1"
           [style.background]="POLITICAL_PARTIES[item.party].REPRESENTATIVE_COLOR">
           @if (visibleDesc) {
@@ -21,7 +23,7 @@ import { VotePercentage } from '../../core/types/vote-percentage.type';
     </div>
   `,
   styles: ``,
-  host: { class: 'block h-full' },
+  host: { class: 'block' },
 })
 export class VotePercentageBarComponent implements OnChanges {
   @Input({ required: true }) visibleDesc!: boolean;

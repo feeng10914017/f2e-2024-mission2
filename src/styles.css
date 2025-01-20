@@ -27,6 +27,14 @@ svg text {
 }
 
 @layer components {
+  .cmp-loading {
+    @apply relative animate-pulse;
+
+    &::after {
+      @apply absolute left-0 top-0 h-full w-full cursor-default bg-gray-200 content-[''];
+    }
+  }
+
   .cmp-dropdown {
     @apply relative flex h-8 cursor-pointer items-center justify-between rounded-full bg-gray-200 xl:h-10;
   }

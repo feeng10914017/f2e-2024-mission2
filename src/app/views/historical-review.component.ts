@@ -44,11 +44,11 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
       [districtCode]="districtCode"
       (districtCodeChange)="changeDistrictCode($event)" />
 
-    <div class="grid grid-cols-1 xl:grid-cols-[500px,1fr]">
+    <div class="grid grid-cols-1 2xl:grid-cols-[500px,1fr]">
       <div class="relative bg-[#E4FAFF]">
         @if (regionFeatures.length !== 0 && districtFeatures.length !== 0) {
           <app-zh-tw-map
-            class="top:auto static block h-[148px] xl:sticky xl:top-[65px] xl:h-[calc(100dvh-65px)]"
+            class="top:auto static block h-[148px] 2xl:sticky 2xl:top-[65px] 2xl:h-[calc(100dvh-65px)]"
             [countyFeatures]="regionFeatures"
             [townshipFeatures]="districtFeatures"
             [regionCode]="regionCode"
@@ -59,8 +59,8 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
       </div>
 
       <div class="flex flex-col justify-between">
-        <div class="grid auto-rows-min grid-cols-1 gap-6 px-4 py-8 xl:grid-cols-2 xl:px-12">
-          <div class="grid gap-y-3 xl:col-span-2">
+        <div class="grid auto-rows-min grid-cols-1 gap-6 px-4 py-8 2xl:grid-cols-2 2xl:px-12">
+          <div class="grid gap-y-3 2xl:col-span-2">
             <div class="flex items-center gap-x-3">
               @if (adminTitle !== adminCentralTitle) {
                 <button
@@ -70,7 +70,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
                   <img src="images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
                 </button>
               }
-              <h2 class="text-2xl font-bold text-dark xl:text-3xl">{{ adminTitle }}</h2>
+              <h2 class="text-2xl font-bold text-dark 2xl:text-3xl">{{ adminTitle }}</h2>
             </div>
 
             <div>
@@ -79,7 +79,10 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
               }
             </div>
 
-            <app-presidential-votes />
+            <app-presidential-votes
+              [isLoaded]="isLoaded"
+              [electionInfo]="electionInfo"
+              [candidateNoOrder]="candidateNoOrder" />
           </div>
 
           <app-historical-party-vote-counts />
@@ -87,7 +90,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
           <app-historical-party-vote-rates />
 
           <app-voting-overview
-            class="xl:col-span-2"
+            class="2xl:col-span-2"
             [electionInfo]="electionInfo"
             [candidateNoOrder]="candidateNoOrder"
             (adminChange$)="changeAdminCodeWithSubAdmin($event)" />
@@ -127,6 +130,8 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
   protected candidateNoOrder: number[] = [];
   protected electionInfo: ElectionInfo | undefined;
   protected historicalStatistics: AdminCollection[] = [];
+
+  protected isLoaded = false;
 
   ngOnInit(): void {
     this._fetchMapGeoJson();
@@ -216,6 +221,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
     this.historicalStatistics = electionInfoList.map((item) => item.TOTAL_STATISTICS);
 
     this._commonService.scrollToTop();
+    if (!this.isLoaded) this.isLoaded = true;
   }
 
   protected changeGregorianYear(year: string): void {
