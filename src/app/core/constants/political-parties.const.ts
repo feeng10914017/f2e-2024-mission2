@@ -26,7 +26,7 @@ export const POLITICAL_PARTIES: Record<string, IPoliticalParty> = {
     EN_FULL_NAME: "Taiwan People's Party",
     EN_SHORT_NAME: 'TPP',
     PRESIDENT_3D_IMG: 'images/3d-president/man_in_steamy_room.png',
-    REPRESENTATIVE_COLOR: '#60C5C7',
+    REPRESENTATIVE_COLOR: '#77DBEE',
   },
   PFP: {
     EMBLEM: 'https://upload.wikimedia.org/wikipedia/zh/6/65/Flag_of_People_First_Party.png',

@@ -39,7 +39,7 @@ type TableItem = {
             <td>{{ item.ADMIN_NAME }}</td>
             <td>
               <div class="grid gap-y-1">
-                <div class="flex items-center gap-x-2 xl:hidden">
+                <div class="flex items-center gap-x-2 md:hidden">
                   <span class="text-light">當選人</span>
                   <div class="h-8 w-8 overflow-hidden rounded-full" [style.background]="item.WINNER_COLOR">
                     <img
@@ -96,22 +96,22 @@ type TableItem = {
         }
 
         &:nth-child(1) {
-          @apply xl:w-[16%];
+          @apply md:w-[16%];
         }
         &:nth-child(2) {
-          @apply w-full xl:w-[24%];
+          @apply w-full md:w-[24%];
         }
         &:nth-child(3) {
-          @apply xl:w-[8%];
+          @apply md:w-[8%];
         }
         &:nth-child(4) {
-          @apply xl:w-[16%];
+          @apply md:w-[16%];
         }
         &:nth-child(5) {
-          @apply xl:w-[16%];
+          @apply md:w-[16%];
         }
         &:nth-child(6) {
-          @apply xl:w-[20%];
+          @apply md:w-[20%];
         }
       }
     }
@@ -120,16 +120,16 @@ type TableItem = {
       @apply border-b border-solid border-gray-300;
 
       td:first-child {
-        @apply align-baseline font-bold leading-8 xl:align-middle xl:leading-5;
+        @apply align-baseline font-bold leading-8 md:align-middle md:leading-5;
       }
     }
 
     tr th,
     tr td {
-      @apply py-3 xl:py-1 xl:pe-6;
+      @apply py-3 md:py-1 md:pe-6;
 
       &:first-child {
-        @apply pe-8 ps-2 xl:pe-6;
+        @apply pe-8 ps-2 md:pe-6;
       }
 
       &:nth-child(4),
@@ -140,7 +140,7 @@ type TableItem = {
       &:nth-child(3),
       &:nth-child(4),
       &:nth-child(5) {
-        @apply hidden xl:table-cell;
+        @apply hidden md:table-cell;
       }
     }
   `,

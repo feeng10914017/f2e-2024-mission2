@@ -6,11 +6,12 @@ import { CandidatePair } from '../../core/models/candidate-pair.model';
 import { CandidateVote } from '../../core/models/candidate-vote.model';
 import { ElectionInfo } from '../../core/models/election-info.model';
 import { VotePercentage } from '../../core/types/vote-percentage.type';
+import { PipChartComponent } from '../components/pip-chart.component';
 import { VotePercentageBarComponent } from '../components/vote-percentage-bar.component';
 
 @Component({
   selector: 'app-presidential-votes',
-  imports: [NgClass, DecimalPipe, VotePercentageBarComponent],
+  imports: [NgClass, DecimalPipe, VotePercentageBarComponent, PipChartComponent],
   template: `
     <div class="rounded-xl bg-gray-200 px-4 pb-4 pt-6">
       <h5 class="mb-4 text-xl font-bold text-dark">總統得票數</h5>
@@ -75,8 +76,16 @@ import { VotePercentageBarComponent } from '../components/vote-percentage-bar.co
           <div class="flex h-full items-center">
             <div class="basis-40 sm:grow md:basis-32">
               <div
-                class="h-[124px] w-[124px] overflow-hidden rounded-full bg-red-300"
-                [ngClass]="{ 'cmp-loading': !isLoaded }"></div>
+                class="relative h-[124px] w-[124px] overflow-hidden rounded-full"
+                [ngClass]="{ 'cmp-loading': !isLoaded }">
+                <div class="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center gap-y-1">
+                  <div class="text-sm text-light">投票率</div>
+                  <div class="ps-1 text-xl font-bold text-primary">
+                    {{ electionInfo ? (totalStatistics.TURNOUT_RATE || 0 | number: '1.2-2') + '%' : '暫無資料' }}
+                  </div>
+                </div>
+                <app-pip-chart class="block h-full w-full" [turnoutRate]="totalStatistics.TURNOUT_RATE" />
+              </div>
             </div>
             <div class="grid-col-1 grid grow-[5] auto-rows-fr gap-x-2 gap-y-4 sm:grid-cols-2">
               <div class="statistic-item" [ngClass]="{ 'cmp-loading after:max-w-[90%]': !isLoaded }">
