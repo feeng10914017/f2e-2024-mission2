@@ -32,7 +32,7 @@ import { BarGroupPointerEvent, DataPoint, GroupedBarChartComponent } from '../co
             (onPointer)="toggleVotesOverlay($event)" />
 
           @if (historicalVoteCounts.length === 0) {
-            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-10 text-base text-dark">暫無資料</div>
+            <div class="-translate-1/2 absolute left-1/2 top-1/2 text-base text-dark">暫無資料</div>
           }
         }
       </div>

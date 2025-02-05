@@ -166,7 +166,7 @@ export class PresidentialVotesComponent implements OnChanges {
             party: c.PARTY || '',
             voteCount: this.candidatesVotes[i].VOTE_COUNT || 0,
           }))
-        : [];
+        : [{ party: '', voteCount: 1 }];
     }
   }
 }

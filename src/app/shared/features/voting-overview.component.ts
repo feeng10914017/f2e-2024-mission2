@@ -155,13 +155,16 @@ export class VotingOverviewComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const { electionInfo } = changes;
-    if (!electionInfo || !electionInfo.currentValue) return;
+    if (!electionInfo) return;
 
     setTimeout(() => this._handleTableData(), 0);
   }
 
   private _handleTableData(): void {
-    if (!this.electionInfo) return;
+    if (!this.electionInfo) {
+      this.data = [];
+      return;
+    }
 
     this.data = this.electionInfo.ADMIN_COLLECTION.map((item: AdminCollection): TableItem => {
       const VOTE_PERCENTAGE: VotePercentage[] = this.candidateNoOrder

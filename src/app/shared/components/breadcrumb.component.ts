@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-breadcrumb',
   imports: [],
   template: `
-    <div class="flex gap-x-2 text-base leading-4 text-light">
+    <div class="flex h-full items-center gap-x-2 text-base leading-4 text-light">
       @for (item of breadcrumbList; track $index; let first = $first, last = $last) {
         @if (!first) {
           <span>/</span>

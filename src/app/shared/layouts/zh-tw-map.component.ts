@@ -70,20 +70,14 @@ export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
     }
 
     if (mapColorConfig && mapColorConfig.currentValue) {
-      const isCountyActive = this.regionCode === REGION_CODE.ALL;
       const defaultFillColor = '#ddd';
-      if (isCountyActive) {
-        this._container
-          .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
-          .attr('fill', (d) => this.mapColorConfig[this._getRegionCode(d)] || defaultFillColor);
-      } else {
-        if (this.districtCode === DISTRICT_CODE.ALL) {
-          this._container
-            .select(`.${D3ClassName.REGION_UID_PREFIX + this.regionCode}`)
-            .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
-            .attr('fill', (d) => this.mapColorConfig[this._getTownshipCode(d)] || defaultFillColor);
-        }
-      }
+      this._container
+        .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
+        .attr('fill', (d) => this.mapColorConfig[this._getRegionCode(d)] || defaultFillColor);
+      this._container
+        .select(`.${D3ClassName.REGION_UID_PREFIX + this.regionCode}`)
+        .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
+        .attr('fill', (d) => this.mapColorConfig[this._getTownshipCode(d)] || defaultFillColor);
     }
   }
 

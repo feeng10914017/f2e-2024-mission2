@@ -13,8 +13,9 @@ import { VotePercentage } from '../../core/types/vote-percentage.type';
       @for (item of votePercentage; track $index) {
         <div
           class="flex min-h-full items-center justify-center overflow-hidden text-sm leading-[18px] text-white"
+          [ngClass]="{ 'bg-gray-200': !POLITICAL_PARTIES[item.party] }"
           [style.flex-basis.%]="(item.voteCount / totalVote) * 100 + 1"
-          [style.background]="POLITICAL_PARTIES[item.party].REPRESENTATIVE_COLOR">
+          [style.background]="POLITICAL_PARTIES[item.party] ? POLITICAL_PARTIES[item.party].REPRESENTATIVE_COLOR : ''">
           @if (visibleDesc) {
             {{ (item.voteCount / totalVote) * 100 | number: '1.2-2' }}%
           }

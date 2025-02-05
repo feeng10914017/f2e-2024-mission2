@@ -5,6 +5,7 @@ import {
   debounceTime,
   distinctUntilChanged,
   forkJoin,
+  lastValueFrom,
   map,
   Observable,
   of,
@@ -89,7 +90,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
 
             <div>
               @if (breadcrumbList.length > 1) {
-                <app-breadcrumb class="mb-2 block" [breadcrumbList]="breadcrumbList" />
+                <app-breadcrumb [breadcrumbList]="breadcrumbList" />
               }
             </div>
 
@@ -187,7 +188,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
     gregorianYear: string,
     regionCode: REGION_CODE,
     districtCode: DISTRICT_CODE,
-  ): Observable<[string, REGION_CODE, DISTRICT_CODE, ElectionInfo[]]> {
+  ): Observable<[string, REGION_CODE, DISTRICT_CODE, (ElectionInfo | undefined)[]]> {
     const fetchObservables = this._commonService
       .getYearsSince1996()
       .map((year) => {
@@ -199,45 +200,73 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
           return this._apiService.fetchCentralVotesJson(year);
         }
       })
-      .map((obs) => obs.pipe(catchError(() => of(new ElectionInfo()))));
+      .map((obs) => obs.pipe(catchError(() => of(undefined))));
     return forkJoin(fetchObservables).pipe(map((list) => [gregorianYear, regionCode, districtCode, list]));
   }
 
-  private _renderVotingData(
+  private async _renderVotingData(
     gregorianYear: string,
     regionCode: REGION_CODE,
     districtCode: DISTRICT_CODE,
-    electionInfoList: ElectionInfo[],
-  ): void {
+    electionInfoList: (ElectionInfo | undefined)[],
+  ): Promise<void> {
+    // 當切換年份時清空地圖縣市的顏色設定
+    if (this.gregorianYear !== gregorianYear) {
+      this.mapColorConfig = {};
+
+      // 若非縣市維度，要同時更新地圖縣市的顏色
+      if (regionCode !== REGION_CODE.ALL) {
+        const centralApi = this._apiService.fetchCentralVotesJson(gregorianYear).pipe(catchError(() => of(undefined)));
+        const centralData = (await lastValueFrom(centralApi)) || new ElectionInfo();
+        this._updateMapColorConfig(centralData);
+      }
+    }
+
+    // 設定縣市下拉選單
+    if (this.regionOptions.length === 1) {
+      this.regionOptions =
+        this.regionFeatures
+          .map((region) => region.properties)
+          .map((prop) => this._commonService.convertOption(prop.COUNTYNAME, prop.COUNTYCODE as REGION_CODE))
+          .sort((a, b) => a.value.localeCompare(b.value) * -1) || [];
+    }
+
+    // 設定鄉鎮市下拉選單
+    if (regionCode === REGION_CODE.ALL) this.districtOptions = [];
+    if (regionCode !== REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
+      this.districtOptions =
+        this.districtFeatures
+          .map((district) => district.properties)
+          .filter((prop) => prop.COUNTYCODE === regionCode)
+          .map((prop) => this._commonService.convertOption(prop.TOWNNAME, prop.TOWNCODE as DISTRICT_CODE))
+          .sort((a, b) => a.value.localeCompare(b.value) * -1) || [];
+    }
+
     // 設定下拉選單值
     this.gregorianYear = gregorianYear;
     this.regionCode = regionCode;
     this.districtCode = districtCode;
 
     // 設定當前行政區資訊
-    const index = electionInfoList.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === gregorianYear);
-    this.electionInfo = index !== -1 ? electionInfoList[index] : new ElectionInfo();
+    const index = electionInfoList.findIndex((item) => item?.ELECTION_GREGORIAN_YEAR === gregorianYear);
+    this.electionInfo = electionInfoList[index];
 
-    // 設定頁面標題
-    const adminName = this.electionInfo.TOTAL_STATISTICS.ADMIN_NAME;
-    this.adminTitle = regionCode === REGION_CODE.ALL ? this.adminCentralTitle : adminName;
-
-    // 設定縣市下拉選單
-    if (regionCode === REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
-      this.regionOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
-        this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as REGION_CODE),
-      ).sort((a, b) => a.value.localeCompare(b.value) * -1);
-    }
-
-    // 設定鄉鎮市下拉選單
-    if (regionCode !== REGION_CODE.ALL && districtCode === DISTRICT_CODE.ALL) {
-      this.districtOptions = this.electionInfo.ADMIN_COLLECTION.map((admin) =>
-        this._commonService.convertOption(admin.ADMIN_NAME, admin.ADMIN_CODE as DISTRICT_CODE),
-      ).sort((a, b) => a.value.localeCompare(b.value) * -1);
+    // 設定頁面標題與麵包蟹
+    if (regionCode === REGION_CODE.ALL) {
+      this.adminTitle = this.adminCentralTitle;
+      this.breadcrumbList = [];
+    } else {
+      const activeRegionOption = this.regionOptions.find((op) => op.value === regionCode);
+      const regionLabel = activeRegionOption?.label || 'Unknown Region Code: ' + regionCode;
+      const activeDistrictOption = this.districtOptions.find((op) => op.value === districtCode);
+      const districtLabel = activeDistrictOption?.label || 'Unknown District Code: ' + districtCode;
+      this.adminTitle = districtCode === DISTRICT_CODE.ALL ? regionLabel : districtLabel;
+      this.breadcrumbList = [this.adminCentralTitle, regionLabel];
+      if (districtCode !== DISTRICT_CODE.ALL) this.breadcrumbList.push(districtLabel);
     }
 
     // 設定政黨排序
-    this.candidateNoOrder = [...this.electionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES]
+    this.candidateNoOrder = [...(this.electionInfo?.TOTAL_STATISTICS?.CANDIDATES_VOTES || [])]
       .sort((a, b) => (b.VOTE_COUNT || 0) - (a.VOTE_COUNT || 0))
       .map((item) => item.NO || 0);
 
@@ -248,14 +277,14 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       return acc;
     }, [] as IPoliticalParty[]);
     this._calculateHistoricalVotingData(this.activePartyOrder, electionInfoList);
-    this._updateMapColorConfig(this.electionInfo);
+    this._updateMapColorConfig(this.electionInfo || new ElectionInfo());
 
     this._commonService.scrollToTop();
     if (!this.isLoaded) this.isLoaded = true;
   }
 
   private _updateMapColorConfig(electionInfo: ElectionInfo): void {
-    this.mapColorConfig = electionInfo.ADMIN_COLLECTION.map((item) => {
+    const newColorConfig = electionInfo.ADMIN_COLLECTION.map((item) => {
       const maxCandidateVote = item.CANDIDATES_VOTES.reduce((max, cv) => {
         const maxCount = max.VOTE_COUNT ?? -Infinity;
         const itemCount = cv.VOTE_COUNT ?? -Infinity;
@@ -265,11 +294,21 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       const color = POLITICAL_PARTIES[electionInfo.CANDIDATES[index].PARTY]?.REPRESENTATIVE_COLOR || '';
       return { [item.ADMIN_CODE]: color };
     }).reduce((acc, item) => ({ ...acc, ...item }), {});
+    this.mapColorConfig = { ...this.mapColorConfig, ...newColorConfig };
   }
 
-  private _calculateHistoricalVotingData(partyOrder: IPoliticalParty[], electionInfoList: ElectionInfo[]): void {
+  private _calculateHistoricalVotingData(
+    partyOrder: IPoliticalParty[],
+    electionInfoList: (ElectionInfo | undefined)[],
+  ): void {
     const historicalVoteCounts: DataPoint[] = [];
     const historicalVoteRates: DataPoint[] = [];
+    if (electionInfoList.every((info) => info === undefined) || partyOrder.length === 0) {
+      this.historicalVoteCounts = historicalVoteCounts;
+      this.historicalVoteRates = historicalVoteRates;
+      return;
+    }
+
     this._commonService
       .getYearsSince1996()
       .map((year) => String(year))
@@ -281,8 +320,8 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
           return;
         }
 
-        const index = electionInfoList.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === year);
-        const activeElectionInfo = index !== -1 ? electionInfoList[index] : new ElectionInfo();
+        const index = electionInfoList.findIndex((item) => item?.ELECTION_GREGORIAN_YEAR === year);
+        const activeElectionInfo = electionInfoList[index] || new ElectionInfo();
         const candidates = activeElectionInfo.CANDIDATES;
         const candidatesVotes = activeElectionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES;
         partyOrder.forEach((p) => {
@@ -290,12 +329,12 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
           const targetCandidate = candidates.find((c) => c.PARTY === p.EN_SHORT_NAME);
           const targetCandidateVote = candidatesVotes.find((v) => v.NO == targetCandidate?.NO);
           countPoint.value = targetCandidateVote?.VOTE_COUNT || 0;
-          if (targetCandidate) historicalVoteCounts.push(countPoint);
+          historicalVoteCounts.push(countPoint);
 
           const ratePoint = { groupId: year, subgroupId: p.EN_SHORT_NAME, value: 0, color: p.REPRESENTATIVE_COLOR };
           const totalVotes = activeElectionInfo.TOTAL_STATISTICS.TOTAL_VOTES || 0;
           ratePoint.value = totalVotes ? countPoint.value / totalVotes : 0;
-          if (targetCandidate) historicalVoteRates.push(ratePoint);
+          historicalVoteRates.push(ratePoint);
         });
       });
     this.historicalVoteCounts = historicalVoteCounts;
