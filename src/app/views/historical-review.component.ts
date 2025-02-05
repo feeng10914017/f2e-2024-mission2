@@ -1,15 +1,28 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, debounceTime, forkJoin, map, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
+import {
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  forkJoin,
+  map,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+} from 'rxjs';
+import { POLITICAL_PARTIES } from '../core/constants/political-parties.const';
 import { DISTRICT_CODE } from '../core/enums/district-code.enum';
 import { REGION_CODE } from '../core/enums/region-code.enum';
 import { IDropdownOption } from '../core/interfaces/i-dropdown-option.interface';
-import { AdminCollection } from '../core/models/admin-collection.model';
+import { IPoliticalParty } from '../core/interfaces/i-political-party.interface';
 import { ElectionInfo } from '../core/models/election-info.model';
 import { ApiService } from '../core/services/api.service';
 import { CommonService } from '../core/services/common.service';
 import { GeoFeature } from '../core/types/geo-feature.type';
 import { BreadcrumbComponent } from '../shared/components/breadcrumb.component';
+import { DataPoint } from '../shared/components/grouped-bar-chart.component';
 import { ToTopButtonComponent } from '../shared/components/to-top-button.component';
 import { HistoricalPartyVoteCountsComponent } from '../shared/features/historical-party-vote-counts.component';
 import { HistoricalPartyVoteRatesComponent } from '../shared/features/historical-party-vote-rates.component';
@@ -85,9 +98,15 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
               [candidateNoOrder]="candidateNoOrder" />
           </div>
 
-          <app-historical-party-vote-counts />
+          <app-historical-party-vote-counts
+            [isLoaded]="isLoaded"
+            [activePartyOrder]="activePartyOrder"
+            [historicalVoteCounts]="historicalVoteCounts" />
 
-          <app-historical-party-vote-rates />
+          <app-historical-party-vote-rates
+            [isLoaded]="isLoaded"
+            [activePartyOrder]="activePartyOrder"
+            [historicalVoteRates]="historicalVoteRates" />
 
           <app-voting-overview
             class="2xl:col-span-2"
@@ -128,8 +147,10 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
   protected breadcrumbList: string[] = [];
 
   protected candidateNoOrder: number[] = [];
+  protected activePartyOrder: IPoliticalParty[] = [];
   protected electionInfo: ElectionInfo | undefined;
-  protected historicalStatistics: AdminCollection[] = [];
+  protected historicalVoteCounts: DataPoint[] = [];
+  protected historicalVoteRates: DataPoint[] = [];
 
   protected isLoaded = false;
 
@@ -140,6 +161,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this._destroy),
         debounceTime(100),
+        distinctUntilChanged((a, b) => JSON.stringify(a) === JSON.stringify(b)),
         switchMap((fetchArr) => this._fetchVotingData(...fetchArr)),
       )
       .subscribe((resArr) => this._renderVotingData(...resArr));
@@ -218,10 +240,50 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       .map((item) => item.NO || 0);
 
     // 設定歷屆政黨資訊
-    this.historicalStatistics = electionInfoList.map((item) => item.TOTAL_STATISTICS);
+    this.activePartyOrder = this.candidateNoOrder.reduce((acc, no) => {
+      const candidate = this.electionInfo?.CANDIDATES.find((item) => item.NO == no);
+      if (candidate) acc.push(POLITICAL_PARTIES[candidate.PARTY]);
+      return acc;
+    }, [] as IPoliticalParty[]);
+    this.calculateHistoricalVotingData(this.activePartyOrder, electionInfoList);
 
     this._commonService.scrollToTop();
     if (!this.isLoaded) this.isLoaded = true;
+  }
+
+  protected calculateHistoricalVotingData(partyOrder: IPoliticalParty[], electionInfoList: ElectionInfo[]): void {
+    const historicalVoteCounts: DataPoint[] = [];
+    const historicalVoteRates: DataPoint[] = [];
+    this._commonService
+      .getYearsSince1996()
+      .map((year) => String(year))
+      .forEach((year) => {
+        if (partyOrder.length === 0) {
+          const emptyDataPoint = { groupId: year, subgroupId: '', value: 0, color: '' };
+          historicalVoteCounts.push(emptyDataPoint);
+          historicalVoteRates.push(emptyDataPoint);
+          return;
+        }
+
+        const index = electionInfoList.findIndex((item) => item.ELECTION_GREGORIAN_YEAR === year);
+        const activeElectionInfo = index !== -1 ? electionInfoList[index] : new ElectionInfo();
+        const candidates = activeElectionInfo.CANDIDATES;
+        const candidatesVotes = activeElectionInfo.TOTAL_STATISTICS.CANDIDATES_VOTES;
+        partyOrder.forEach((p) => {
+          const countPoint = { groupId: year, subgroupId: p.EN_SHORT_NAME, value: 0, color: p.REPRESENTATIVE_COLOR };
+          const targetCandidate = candidates.find((c) => c.PARTY === p.EN_SHORT_NAME);
+          const targetCandidateVote = candidatesVotes.find((v) => v.NO == targetCandidate?.NO);
+          countPoint.value = targetCandidateVote?.VOTE_COUNT || 0;
+          if (targetCandidate) historicalVoteCounts.push(countPoint);
+
+          const ratePoint = { groupId: year, subgroupId: p.EN_SHORT_NAME, value: 0, color: p.REPRESENTATIVE_COLOR };
+          const totalVotes = activeElectionInfo.TOTAL_STATISTICS.TOTAL_VOTES || 0;
+          ratePoint.value = totalVotes ? countPoint.value / totalVotes : 0;
+          if (targetCandidate) historicalVoteRates.push(ratePoint);
+        });
+      });
+    this.historicalVoteCounts = historicalVoteCounts;
+    this.historicalVoteRates = historicalVoteRates;
   }
 
   protected changeGregorianYear(year: string): void {

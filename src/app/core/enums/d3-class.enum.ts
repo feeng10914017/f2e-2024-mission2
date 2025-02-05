@@ -11,4 +11,8 @@ export enum D3ClassName {
   INFO_TEXT = 'd3-info-text',
   COUNTY_NAME = 'd3-county-name',
   TOWNSHIP_NAME = 'd3-township-name',
+
+  CHART_LABEL = 'd3-chart-label',
+  CHART_X_LABEL = 'd3-chart-x-label',
+  CHART_DATA_GROUP = 'd3-chart-data-group',
 }

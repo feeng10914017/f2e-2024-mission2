@@ -85,13 +85,9 @@ export class PipChartComponent implements OnChanges, AfterViewInit, OnDestroy {
     this._updatePipRender(this.turnoutRate);
   }
 
-  private _updateSvgDimensions(): void {
+  private _updatePipLayout(): void {
     this._width = this._elementRef.nativeElement.clientWidth;
     this._height = this._elementRef.nativeElement.clientHeight;
-  }
-
-  private _updatePipLayout(): void {
-    this._updateSvgDimensions();
     this._svg.attr('viewBox', [0, 0, this._width, this._height]);
     this._g.attr('transform', 'translate(' + this._width / 2 + ',' + this._height / 2 + ')');
     this._background.attr('d', this._arc);

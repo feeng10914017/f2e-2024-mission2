@@ -15,7 +15,7 @@ import { VotePercentageBarComponent } from '../components/vote-percentage-bar.co
   template: `
     <div class="rounded-xl bg-gray-200 px-4 pb-4 pt-6">
       <h5 class="mb-4 text-xl font-bold text-dark">總統得票數</h5>
-      <div class="3xl:grid-cols-2 grid gap-4 xl:grid-flow-col xl:grid-cols-2 2xl:grid-cols-[3fr_2fr]">
+      <div class="grid gap-4 xl:grid-flow-col xl:grid-cols-2 2xl:grid-cols-[3fr_2fr] 3xl:grid-cols-2">
         <div class="grid gap-y-3 rounded-xl bg-white px-6 py-4 md:py-8">
           <div class="grid gap-y-2 md:grid-flow-col md:grid-cols-3">
             @for (item of candidates; track $index; let first = $first) {
@@ -43,10 +43,12 @@ import { VotePercentageBarComponent } from '../components/vote-percentage-bar.co
                   </div>
 
                   <div class="grid grid-flow-row gap-y-[2px]">
-                    <div class="text-sm text-light" [ngClass]="{ 'cmp-loading': !isLoaded }">
+                    <div class="text-sm text-light" [ngClass]="{ 'cmp-loading after:max-w-[90%]': !isLoaded }">
                       {{ POLITICAL_PARTIES[item.PARTY] ? POLITICAL_PARTIES[item.PARTY].CN_FULL_NAME : '暫無資料' }}
                     </div>
-                    <div class="flex items-center justify-start gap-x-1" [ngClass]="{ 'cmp-loading': !isLoaded }">
+                    <div
+                      class="flex items-center justify-start gap-x-1"
+                      [ngClass]="{ 'cmp-loading after:max-w-[90%]': !isLoaded }">
                       <div class="text-dark">{{ item.PRESIDENT || '暫無資料' }}</div>
                       @if (electionInfo && $first && !!candidatesVotes[$index].VOTE_COUNT) {
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +58,7 @@ import { VotePercentageBarComponent } from '../components/vote-percentage-bar.co
                         </svg>
                       }
                     </div>
-                    <div class="font-bold text-dark" [ngClass]="{ 'cmp-loading': !isLoaded }">
+                    <div class="font-bold text-dark" [ngClass]="{ 'cmp-loading after:max-w-[90%]': !isLoaded }">
                       {{ candidatesVotes[$index].VOTE_COUNT || 0 | number }}票
                     </div>
                   </div>

@@ -15,8 +15,8 @@ svg path.d3-township-path {
   stroke-width: 0.2;
 }
 
-svg text {
-  @apply pointer-events-none font-bold text-white;
+svg text.d3-info-text {
+  @apply pointer-events-none font-bold;
   fill: #fff;
   text-anchor: middle;
   text-shadow:
@@ -24,6 +24,12 @@ svg text {
     1px -1px 0 #334155,
     -1px 1px 0 #334155,
     1px 1px 0 #334155;
+}
+
+svg text.d3-chart-label {
+  @apply pointer-events-none text-sm;
+  fill: #334155;
+  text-anchor: middle;
 }
 
 @layer components {
