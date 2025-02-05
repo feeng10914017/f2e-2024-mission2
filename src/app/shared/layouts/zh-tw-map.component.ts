@@ -38,6 +38,7 @@ type OuterIslandCountySetting = {
 export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
   @Input({ required: true }) countyFeatures: GeoFeature[] = [];
   @Input({ required: true }) townshipFeatures: GeoFeature[] = [];
+  @Input({ required: true }) mapColorConfig: Record<string, string> = {};
 
   @Input({ required: true }) regionCode!: REGION_CODE;
   @Output() regionCodeChange = new EventEmitter<REGION_CODE>();
@@ -62,10 +63,28 @@ export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
   private readonly _destroy = new Subject<null>();
 
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    const { regionCode } = changes;
-    if (!regionCode) return;
+    const { regionCode, mapColorConfig } = changes;
 
-    this._handleRegionCodeChange(regionCode.currentValue);
+    if (regionCode) {
+      await this._handleRegionCodeChange(regionCode.currentValue);
+    }
+
+    if (mapColorConfig && mapColorConfig.currentValue) {
+      const isCountyActive = this.regionCode === REGION_CODE.ALL;
+      const defaultFillColor = '#ddd';
+      if (isCountyActive) {
+        this._container
+          .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.COUNTY_PATH}`)
+          .attr('fill', (d) => this.mapColorConfig[this._getRegionCode(d)] || defaultFillColor);
+      } else {
+        if (this.districtCode === DISTRICT_CODE.ALL) {
+          this._container
+            .select(`.${D3ClassName.REGION_UID_PREFIX + this.regionCode}`)
+            .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
+            .attr('fill', (d) => this.mapColorConfig[this._getTownshipCode(d)] || defaultFillColor);
+        }
+      }
+    }
   }
 
   ngAfterViewInit(): void {
@@ -262,18 +281,17 @@ export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
     this._container.selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`).remove();
     if (regionCode === REGION_CODE.ALL || !regionCode) return;
 
-    const townshipCode = (feature: GeoFeature) => feature.properties.TOWNCODE as DISTRICT_CODE;
     const filteredFeatures = this.townshipFeatures.filter((feature) => feature.properties.COUNTYCODE === regionCode);
     this._container
       .select<SVGGElement>(`.${D3ClassName.REGION_UID_PREFIX + regionCode}`)
       .selectAll<SVGPathElement, GeoFeature>(`.${D3ClassName.TOWNSHIP_PATH}`)
       .data(filteredFeatures)
       .join('path')
-      .attr('class', (d) => `${D3ClassName.TOWNSHIP_PATH} ${D3ClassName.PATH_UID_PREFIX + townshipCode(d)}`)
+      .attr('class', (d) => `${D3ClassName.TOWNSHIP_PATH} ${D3ClassName.PATH_UID_PREFIX + this._getTownshipCode(d)}`)
       .attr('d', (d) => this._getTargetPath(this._getRegionCode(d))(d))
       .on('mouseenter', (e: MouseEvent, d: GeoFeature) => this._renderHighlight(d, this._getTargetPath(regionCode)))
       .on('mouseleave', (e: MouseEvent) => this._renderHighlight(null, this._getTargetPath(regionCode)))
-      .on('click', (e: MouseEvent, d: GeoFeature) => this.districtCodeChange.emit(townshipCode(d)));
+      .on('click', (e: MouseEvent, d: GeoFeature) => this.districtCodeChange.emit(this._getTownshipCode(d)));
 
     this._renderPlaceNameLayer(filteredFeatures, D3ClassName.TOWNSHIP_NAME);
   }
@@ -289,6 +307,10 @@ export class ZhTwMapComponent implements OnChanges, AfterViewInit, OnDestroy {
   /** 獲取指定區域的區域代碼 */
   private _getRegionCode(feature: GeoFeature): REGION_CODE {
     return feature.properties.COUNTYCODE as REGION_CODE;
+  }
+
+  private _getTownshipCode(feature: GeoFeature): DISTRICT_CODE {
+    return feature.properties.TOWNCODE as DISTRICT_CODE;
   }
 
   /** 獲取指定區域的 D3 路徑生成器 */

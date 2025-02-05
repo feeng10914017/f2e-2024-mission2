@@ -4,15 +4,15 @@
 @tailwind utilities;
 
 svg path.d3-county-path {
-  fill: #f4a76f;
   stroke: transparent;
   stroke-width: 0;
+  transition: fill 0.3s;
 }
 
 svg path.d3-township-path {
-  fill: #ddd;
   stroke: #fff;
   stroke-width: 0.2;
+  transition: fill 0.3s;
 }
 
 svg text.d3-info-text {

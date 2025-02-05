@@ -62,6 +62,7 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
         @if (regionFeatures.length !== 0 && districtFeatures.length !== 0) {
           <app-zh-tw-map
             class="top:auto static block h-[148px] 2xl:sticky 2xl:top-[65px] 2xl:h-[calc(100dvh-65px)]"
+            [mapColorConfig]="mapColorConfig"
             [countyFeatures]="regionFeatures"
             [townshipFeatures]="districtFeatures"
             [regionCode]="regionCode"
@@ -138,6 +139,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
 
   protected regionFeatures: GeoFeature[] = [];
   protected districtFeatures: GeoFeature[] = [];
+  protected mapColorConfig: Record<string, string> = {};
 
   protected gregorianYear = '';
   protected regionCode = REGION_CODE.ALL;
@@ -245,13 +247,27 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
       if (candidate) acc.push(POLITICAL_PARTIES[candidate.PARTY]);
       return acc;
     }, [] as IPoliticalParty[]);
-    this.calculateHistoricalVotingData(this.activePartyOrder, electionInfoList);
+    this._calculateHistoricalVotingData(this.activePartyOrder, electionInfoList);
+    this._updateMapColorConfig(this.electionInfo);
 
     this._commonService.scrollToTop();
     if (!this.isLoaded) this.isLoaded = true;
   }
 
-  protected calculateHistoricalVotingData(partyOrder: IPoliticalParty[], electionInfoList: ElectionInfo[]): void {
+  private _updateMapColorConfig(electionInfo: ElectionInfo): void {
+    this.mapColorConfig = electionInfo.ADMIN_COLLECTION.map((item) => {
+      const maxCandidateVote = item.CANDIDATES_VOTES.reduce((max, cv) => {
+        const maxCount = max.VOTE_COUNT ?? -Infinity;
+        const itemCount = cv.VOTE_COUNT ?? -Infinity;
+        return itemCount > maxCount ? cv : max;
+      }, item.CANDIDATES_VOTES[0]);
+      const index: number = electionInfo.CANDIDATES.findIndex((c) => c.NO == maxCandidateVote.NO);
+      const color = POLITICAL_PARTIES[electionInfo.CANDIDATES[index].PARTY]?.REPRESENTATIVE_COLOR || '';
+      return { [item.ADMIN_CODE]: color };
+    }).reduce((acc, item) => ({ ...acc, ...item }), {});
+  }
+
+  private _calculateHistoricalVotingData(partyOrder: IPoliticalParty[], electionInfoList: ElectionInfo[]): void {
     const historicalVoteCounts: DataPoint[] = [];
     const historicalVoteRates: DataPoint[] = [];
     this._commonService
