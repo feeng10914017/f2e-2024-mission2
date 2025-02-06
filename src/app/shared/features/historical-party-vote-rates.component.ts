@@ -1,5 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Component, ComponentRef, inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { IPoliticalParty } from '../../core/interfaces/i-political-party.interface';
+import { ChartTooltipComponent } from '../components/chart-tooltip.component';
 import { BarGroupPointerEvent, DataPoint } from '../components/grouped-bar-chart.component';
 import { GroupedLineChartComponent } from '../components/grouped-line-chart.component';
 
@@ -13,8 +17,12 @@ import { GroupedLineChartComponent } from '../components/grouped-line-chart.comp
 
         <div class="flex items-center gap-x-1">
           @for (item of activePartyOrder; track $index) {
-            <div class="h-2 w-2 rounded-full" [style.background]="item.REPRESENTATIVE_COLOR"></div>
-            <div class="text-xs leading-5 text-dark">{{ item.CN_FULL_NAME }}</div>
+            <button type="button" class="flex items-center gap-x-1" (click)="onFilter($index)">
+              <div class="h-2 w-2 rounded-full" [style.background]="item.REPRESENTATIVE_COLOR"></div>
+              <div class="text-xs leading-5 text-dark" [class.line-through]="filterStateList[$index]">
+                {{ item.CN_FULL_NAME }}
+              </div>
+            </button>
           }
         </div>
       </div>
@@ -29,8 +37,8 @@ import { GroupedLineChartComponent } from '../components/grouped-line-chart.comp
         } @else {
           <app-grouped-line-chart
             class="block h-full"
-            [data]="historicalVoteRates"
-            (onPointer)="toggleVotesOverlay($event)" />
+            [data]="filteredRates"
+            (onPointer)="toggleTooltip$.next($event)" />
 
           @if (historicalVoteRates.length === 0) {
             <div class="-translate-1/2 absolute left-1/2 top-1/2 text-base text-dark">暫無資料</div>
@@ -41,14 +49,91 @@ import { GroupedLineChartComponent } from '../components/grouped-line-chart.comp
   `,
   styles: ``,
 })
-export class HistoricalPartyVoteRatesComponent {
+export class HistoricalPartyVoteRatesComponent implements OnChanges, OnInit, OnDestroy {
   @Input({ required: true }) isLoaded!: boolean;
   @Input({ required: true }) activePartyOrder: IPoliticalParty[] = [];
   @Input({ required: true }) historicalVoteRates: DataPoint[] = [];
 
-  protected toggleVotesOverlay(event: BarGroupPointerEvent): void {
-    // TODO: add material overlay functionality
+  private readonly _overlay = inject(Overlay);
+  private readonly _overlayPositionBuilder = inject(OverlayPositionBuilder);
+  private readonly _destroy = new Subject<void>();
+  private _overlayRef: OverlayRef | null = null;
+  private _tooltipRef: ComponentRef<ChartTooltipComponent> | null = null;
+
+  protected readonly toggleTooltip$ = new Subject<BarGroupPointerEvent>();
+  protected filterStateList: boolean[] = [];
+  protected originalRates: DataPoint[] = [];
+  protected filteredRates: DataPoint[] = [];
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const { activePartyOrder, historicalVoteRates } = changes;
+
+    if (activePartyOrder) {
+      const list = activePartyOrder.currentValue as IPoliticalParty[];
+      this.filterStateList = list.map(() => false);
+    }
+
+    if (historicalVoteRates) {
+      this.originalRates = historicalVoteRates.currentValue;
+      this.filteredRates = historicalVoteRates.currentValue;
+    }
   }
 
-  //TODO: add party filter functionality
+  ngOnInit(): void {
+    this.toggleTooltip$.pipe(takeUntil(this._destroy)).subscribe((e) => {
+      const isShowTooltip = e.event.type === 'pointerover';
+      isShowTooltip ? this._showTooltip(e) : this._hiddenTooltip(e);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this._overlayRef?.dispose();
+    this._destroy.next();
+    this._destroy.complete();
+  }
+
+  private _showTooltip(e: BarGroupPointerEvent): void {
+    const element = e.event.target as HTMLElement;
+    if (!document.body.contains(element)) return;
+
+    const positionStrategy = this._overlayPositionBuilder
+      .flexibleConnectedTo(element)
+      .withPush(false)
+      .withPositions([{ originX: 'center', originY: 'top', overlayX: 'center', overlayY: 'bottom' }]);
+
+    if (this._overlayRef === null) {
+      this._overlayRef = this._overlay.create({
+        positionStrategy,
+        scrollStrategy: this._overlay.scrollStrategies.reposition(),
+        panelClass: '!pointer-event-none',
+      });
+    }
+
+    if (this._tooltipRef === null) {
+      const portal = new ComponentPortal(ChartTooltipComponent);
+      this._tooltipRef = this._overlayRef.attach(portal);
+    }
+
+    this._tooltipRef.instance.title = e.data[0].groupId + '年得票率';
+    this._tooltipRef.instance.unit = '%';
+    this._tooltipRef.instance.dataList = e.data;
+    this._overlayRef.updatePositionStrategy(positionStrategy);
+    this._overlayRef.updatePosition();
+  }
+
+  private _hiddenTooltip(event: BarGroupPointerEvent): void {
+    if (this._overlayRef && this._overlayRef.hasAttached()) {
+      this._overlayRef.detach();
+      this._tooltipRef = null;
+    }
+  }
+
+  protected onFilter(index: number): void {
+    this.filterStateList[index] = !this.filterStateList[index];
+
+    const activeParties = this.activePartyOrder
+      .map((item) => item.EN_SHORT_NAME)
+      .filter((item, index) => !this.filterStateList[index]);
+    this.filteredRates = this.originalRates.filter((item) => activeParties.includes(item.subgroupId));
+  }
 }
