@@ -64,7 +64,7 @@ export class DialogService {
 
     const dialogRef = new DialogRef<D, R>(this._overlay, config);
     this.toggleScrollLock(dialogRef.id, !!config?.lockScroll);
-    dialogRef.afterClosed().subscribe(() => this.toggleScrollLock(dialogRef.id, false));
+    dialogRef.overlayRef.detachments().subscribe(() => this.toggleScrollLock(dialogRef.id, false));
 
     const injector = Injector.create({
       providers: [
