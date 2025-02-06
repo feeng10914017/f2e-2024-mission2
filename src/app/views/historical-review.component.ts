@@ -21,10 +21,16 @@ import { IPoliticalParty } from '../core/interfaces/i-political-party.interface'
 import { ElectionInfo } from '../core/models/election-info.model';
 import { ApiService } from '../core/services/api.service';
 import { CommonService } from '../core/services/common.service';
+import { DialogConfig, DialogService } from '../core/services/dialog.service';
 import { GeoFeature } from '../core/types/geo-feature.type';
 import { BreadcrumbComponent } from '../shared/components/breadcrumb.component';
 import { DataPoint } from '../shared/components/grouped-bar-chart.component';
 import { ToTopButtonComponent } from '../shared/components/to-top-button.component';
+import {
+  MobileMapSelectorComponent,
+  MobileMapSelectorData,
+  MobileMapSelectorResult,
+} from '../shared/dialogs/mobile-map-selector/mobile-map-selector.component';
 import { HistoricalPartyVoteCountsComponent } from '../shared/features/historical-party-vote-counts.component';
 import { HistoricalPartyVoteRatesComponent } from '../shared/features/historical-party-vote-rates.component';
 import { PresidentialVotesComponent } from '../shared/features/presidential-votes.component';
@@ -61,15 +67,50 @@ import { ZhTwMapComponent } from '../shared/layouts/zh-tw-map.component';
     <div class="grid grid-cols-1 2xl:grid-cols-[500px,1fr]">
       <div class="relative bg-[#E4FAFF]">
         @if (regionFeatures.length !== 0 && districtFeatures.length !== 0) {
-          <app-zh-tw-map
-            class="top:auto static block h-[148px] 2xl:sticky 2xl:top-[65px] 2xl:h-[calc(100dvh-65px)]"
-            [mapColorConfig]="mapColorConfig"
-            [countyFeatures]="regionFeatures"
-            [townshipFeatures]="districtFeatures"
-            [regionCode]="regionCode"
-            (regionCodeChange)="changeRegionCode($event)"
-            [districtCode]="districtCode"
-            (districtCodeChange)="changeDistrictCode($event)" />
+          <div class="top:auto static h-[148px] 2xl:sticky 2xl:top-[65px] 2xl:h-[calc(100dvh-65px)]">
+            <div class="absolute flex size-full items-center justify-center bg-[#49505799] 2xl:hidden">
+              <button
+                type="button"
+                class="rounded-md bg-primary px-4 py-2 text-sm text-white"
+                (click)="selectMobileMap()">
+                進入地圖
+              </button>
+            </div>
+
+            <div class="pointer-events-none size-full 2xl:pointer-events-auto">
+              @if (adminTitle !== adminCentralTitle) {
+                <div class="absolute left-6 top-6 z-10 hidden items-center rounded-[500px] bg-white p-1 2xl:flex">
+                  <button
+                    type="button"
+                    class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200"
+                    (click)="backToPreviousLevel()">
+                    <img src="images/icons/arrow_back.png" alt="arrow_back" class="pointer-events-none h-5 w-5" />
+                  </button>
+                  <div class="mx-2 text-base font-bold text-dark">返回</div>
+                </div>
+
+                @if (activePartyOrder.length > 0) {
+                  <div
+                    class="absolute bottom-4 left-4 z-10 hidden items-center gap-x-1 rounded-[500px] bg-white px-2 2xl:flex">
+                    @for (item of activePartyOrder; track $index) {
+                      <div class="h-2 w-2 rounded-full" [style.background]="item.REPRESENTATIVE_COLOR"></div>
+                      <div class="text-xs leading-5 text-dark">{{ item.CN_FULL_NAME }}</div>
+                    }
+                  </div>
+                }
+              }
+
+              <app-zh-tw-map
+                class="block size-full"
+                [mapColorConfig]="mapColorConfig"
+                [countyFeatures]="regionFeatures"
+                [townshipFeatures]="districtFeatures"
+                [regionCode]="regionCode"
+                (regionCodeChange)="changeRegionCode($event)"
+                [districtCode]="districtCode"
+                (districtCodeChange)="changeDistrictCode($event)" />
+            </div>
+          </div>
         }
       </div>
 
@@ -128,6 +169,7 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
   private readonly _route = inject(ActivatedRoute);
   private readonly _apiService = inject(ApiService);
   private readonly _commonService = inject(CommonService);
+  private readonly _dialogService = inject(DialogService);
   private readonly _destroy = new Subject<void>();
   private readonly _refetchVoteData$ = new Subject<[string, REGION_CODE, DISTRICT_CODE]>();
 
@@ -359,6 +401,26 @@ export class HistoricalReviewComponent implements OnInit, OnDestroy {
     } else if (this.districtCode === DISTRICT_CODE.ALL) {
       this.changeDistrictCode(code as DISTRICT_CODE);
     }
+  }
+
+  protected selectMobileMap(): void {
+    const data: MobileMapSelectorData = {
+      regionFeatures: this.regionFeatures,
+      districtFeatures: this.districtFeatures,
+      mapColorConfig: this.mapColorConfig,
+      gregorianYear: this.gregorianYear,
+    };
+    const dialogConfig: DialogConfig = { lockBackdrop: true, lockScroll: true };
+    this._dialogService
+      .open(MobileMapSelectorComponent, data, dialogConfig)
+      .afterClosed()
+      .pipe(map((result) => result as MobileMapSelectorResult | undefined))
+      .subscribe((result) => {
+        if (!result) return;
+
+        const { regionCode, districtCode } = result;
+        this._refetchVoteData$.next([this.gregorianYear, regionCode, districtCode]);
+      });
   }
 
   protected backToPreviousLevel(): void {
