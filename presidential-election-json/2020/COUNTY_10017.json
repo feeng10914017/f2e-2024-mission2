@@ -28,51 +28,51 @@
     "CANDIDATES_VOTES": [
       {
         "NO": 1,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 11878
       },
       {
         "NO": 2,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 99360
       },
       {
         "NO": 3,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 114966
       }
     ],
-    "VALID_VOTES": 0,
-    "INVALID_VOTES": 0,
-    "TOTAL_VOTES": 0,
+    "VALID_VOTES": 226204,
+    "INVALID_VOTES": 2458,
+    "TOTAL_VOTES": 228662,
     "UNRETURNED_BALLOTS": 6,
-    "TOTAL_ISSUED_BALLOTS": 0,
-    "UNUSED_BALLOTS": 0,
-    "ELIGIBLE_VOTERS": 0,
+    "TOTAL_ISSUED_BALLOTS": 228668,
+    "UNUSED_BALLOTS": 83133,
+    "ELIGIBLE_VOTERS": 311801,
     "TURNOUT_RATE": 73.3359
   },
   "ADMIN_COLLECTION": [
     {
       "ADMIN_NAME": "中正區",
-      "ADMIN_CODE": "63000050",
+      "ADMIN_CODE": "10017010",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1618
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 13887
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15540
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 31045,
       "INVALID_VOTES": 383,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 31428,
       "UNRETURNED_BALLOTS": 1,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 31429,
+      "UNUSED_BALLOTS": 12964,
+      "ELIGIBLE_VOTERS": 44393,
       "TURNOUT_RATE": 70.7949
     },
     {
@@ -81,24 +81,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1815
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 13618
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 17516
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 32949,
       "INVALID_VOTES": 337,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 33286,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 33286,
+      "UNUSED_BALLOTS": 11831,
+      "ELIGIBLE_VOTERS": 45117,
       "TURNOUT_RATE": 73.7771
     },
     {
@@ -107,24 +107,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1306
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 10660
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 11537
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 23503,
       "INVALID_VOTES": 276,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 23779,
       "UNRETURNED_BALLOTS": 3,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 23782,
+      "UNUSED_BALLOTS": 8659,
+      "ELIGIBLE_VOTERS": 32441,
       "TURNOUT_RATE": 73.2992
     },
     {
@@ -133,50 +133,50 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1305
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 10742
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 13701
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 25748,
       "INVALID_VOTES": 273,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 26021,
       "UNRETURNED_BALLOTS": 1,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 26022,
+      "UNUSED_BALLOTS": 9448,
+      "ELIGIBLE_VOTERS": 35470,
       "TURNOUT_RATE": 73.3606
     },
     {
       "ADMIN_NAME": "中山區",
-      "ADMIN_CODE": "63000040",
+      "ADMIN_CODE": "10017050",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1579
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 12468
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15032
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 29079,
       "INVALID_VOTES": 352,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 29431,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 29431,
+      "UNUSED_BALLOTS": 11079,
+      "ELIGIBLE_VOTERS": 40510,
       "TURNOUT_RATE": 72.6512
     },
     {
@@ -185,50 +185,50 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 2560
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 22200
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 25735
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 50495,
       "INVALID_VOTES": 509,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 51004,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 51004,
+      "UNUSED_BALLOTS": 17714,
+      "ELIGIBLE_VOTERS": 68718,
       "TURNOUT_RATE": 74.2222
     },
     {
       "ADMIN_NAME": "信義區",
-      "ADMIN_CODE": "63000020",
+      "ADMIN_CODE": "10017070",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1695
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15785
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15905
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 33385,
       "INVALID_VOTES": 328,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 33713,
       "UNRETURNED_BALLOTS": 1,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 33714,
+      "UNUSED_BALLOTS": 11438,
+      "ELIGIBLE_VOTERS": 45152,
       "TURNOUT_RATE": 74.6656
     }
   ]

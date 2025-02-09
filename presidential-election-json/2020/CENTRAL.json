@@ -28,24 +28,24 @@
     "CANDIDATES_VOTES": [
       {
         "NO": 1,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 608590
       },
       {
         "NO": 2,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 5522119
       },
       {
         "NO": 3,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 8170231
       }
     ],
-    "VALID_VOTES": 0,
-    "INVALID_VOTES": 0,
-    "TOTAL_VOTES": 0,
+    "VALID_VOTES": 14300940,
+    "INVALID_VOTES": 163631,
+    "TOTAL_VOTES": 14464571,
     "UNRETURNED_BALLOTS": 434,
-    "TOTAL_ISSUED_BALLOTS": 0,
-    "UNUSED_BALLOTS": 0,
-    "ELIGIBLE_VOTERS": 0,
+    "TOTAL_ISSUED_BALLOTS": 14465005,
+    "UNUSED_BALLOTS": 4846100,
+    "ELIGIBLE_VOTERS": 19311105,
     "TURNOUT_RATE": 74.9029
   },
   "ADMIN_COLLECTION": [
@@ -55,24 +55,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 70769
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 685830
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 875854
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 1632453,
+      "INVALID_VOTES": 21381,
+      "TOTAL_VOTES": 1653834,
       "UNRETURNED_BALLOTS": 143,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1653977,
+      "UNUSED_BALLOTS": 513287,
+      "ELIGIBLE_VOTERS": 2167264,
       "TURNOUT_RATE": 76.3098
     },
     {
@@ -81,24 +81,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 112620
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 959631
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1393936
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 2466187,
+      "INVALID_VOTES": 28041,
+      "TOTAL_VOTES": 2494228,
       "UNRETURNED_BALLOTS": 71,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 2494299,
+      "UNUSED_BALLOTS": 827160,
+      "ELIGIBLE_VOTERS": 3321459,
       "TURNOUT_RATE": 75.0943
     },
     {
@@ -107,24 +107,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 63132
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 529749
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 718260
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 1311141,
+      "INVALID_VOTES": 14066,
+      "TOTAL_VOTES": 1325207,
       "UNRETURNED_BALLOTS": 55,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1325262,
+      "UNUSED_BALLOTS": 455493,
+      "ELIGIBLE_VOTERS": 1780755,
       "TURNOUT_RATE": 74.4183
     },
     {
@@ -133,24 +133,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 84800
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 646366
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 967304
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 1698470,
+      "INVALID_VOTES": 20550,
+      "TOTAL_VOTES": 1719020,
       "UNRETURNED_BALLOTS": 33,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1719053,
+      "UNUSED_BALLOTS": 532011,
+      "ELIGIBLE_VOTERS": 2251064,
       "TURNOUT_RATE": 76.3648
     },
     {
@@ -159,24 +159,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 41075
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 339702
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 786471
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 1167248,
+      "INVALID_VOTES": 12341,
+      "TOTAL_VOTES": 1179589,
       "UNRETURNED_BALLOTS": 22,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1179611,
+      "UNUSED_BALLOTS": 377234,
+      "ELIGIBLE_VOTERS": 1556845,
       "TURNOUT_RATE": 75.7679
     },
     {
@@ -185,24 +185,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 55309
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 610896
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1097621
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 1763826,
+      "INVALID_VOTES": 17006,
+      "TOTAL_VOTES": 1780832,
       "UNRETURNED_BALLOTS": 12,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1780844,
+      "UNUSED_BALLOTS": 518714,
+      "ELIGIBLE_VOTERS": 2299558,
       "TURNOUT_RATE": 77.4424
     },
     {
@@ -211,24 +211,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 18435
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 154224
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 152380
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 325039,
+      "INVALID_VOTES": 3970,
+      "TOTAL_VOTES": 329009,
       "UNRETURNED_BALLOTS": 2,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 329011,
+      "UNUSED_BALLOTS": 109038,
+      "ELIGIBLE_VOTERS": 438049,
       "TURNOUT_RATE": 75.1078
     },
     {
@@ -237,24 +237,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15222
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 164345
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 147034
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 326601,
+      "INVALID_VOTES": 3578,
+      "TOTAL_VOTES": 330179,
       "UNRETURNED_BALLOTS": 7,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 330186,
+      "UNUSED_BALLOTS": 117236,
+      "ELIGIBLE_VOTERS": 447422,
       "TURNOUT_RATE": 73.7959
     },
     {
@@ -263,24 +263,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 35060
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 291835
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 436336
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 763231,
+      "INVALID_VOTES": 10277,
+      "TOTAL_VOTES": 773508,
       "UNRETURNED_BALLOTS": 13,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 773521,
+      "UNUSED_BALLOTS": 261986,
+      "ELIGIBLE_VOTERS": 1035507,
       "TURNOUT_RATE": 74.6985
     },
     {
@@ -289,24 +289,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 13315
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 133791
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 152046
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 299152,
+      "INVALID_VOTES": 3555,
+      "TOTAL_VOTES": 302707,
       "UNRETURNED_BALLOTS": 13,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 302720,
+      "UNUSED_BALLOTS": 110765,
+      "ELIGIBLE_VOTERS": 413485,
       "TURNOUT_RATE": 73.2087
     },
     {
@@ -315,24 +315,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 15331
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 138341
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 246116
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 399788,
+      "INVALID_VOTES": 5203,
+      "TOTAL_VOTES": 404991,
       "UNRETURNED_BALLOTS": 6,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 404997,
+      "UNUSED_BALLOTS": 160272,
+      "ELIGIBLE_VOTERS": 565269,
       "TURNOUT_RATE": 71.6457
     },
     {
@@ -341,24 +341,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 11138
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 98810
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 197342
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 307290,
+      "INVALID_VOTES": 3748,
+      "TOTAL_VOTES": 311038,
       "UNRETURNED_BALLOTS": 10,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 311048,
+      "UNUSED_BALLOTS": 117592,
+      "ELIGIBLE_VOTERS": 428640,
       "TURNOUT_RATE": 72.5639
     },
     {
@@ -367,24 +367,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 14021
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 179353
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 317676
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 511050,
+      "INVALID_VOTES": 4992,
+      "TOTAL_VOTES": 516042,
       "UNRETURNED_BALLOTS": 17,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 516059,
+      "UNUSED_BALLOTS": 172734,
+      "ELIGIBLE_VOTERS": 688793,
       "TURNOUT_RATE": 74.9198
     },
     {
@@ -393,24 +393,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 10739
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 90010
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 173657
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 274406,
+      "INVALID_VOTES": 3029,
+      "TOTAL_VOTES": 277435,
       "UNRETURNED_BALLOTS": 4,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 277439,
+      "UNUSED_BALLOTS": 98169,
+      "ELIGIBLE_VOTERS": 375608,
       "TURNOUT_RATE": 73.8629
     },
     {
@@ -419,24 +419,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 6869
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 111834
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 66509
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 185212,
+      "INVALID_VOTES": 2081,
+      "TOTAL_VOTES": 187293,
       "UNRETURNED_BALLOTS": 7,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 187300,
+      "UNUSED_BALLOTS": 82258,
+      "ELIGIBLE_VOTERS": 269558,
       "TURNOUT_RATE": 69.4815
     },
     {
@@ -445,24 +445,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 4163
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 67413
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 44092
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 115668,
+      "INVALID_VOTES": 1119,
+      "TOTAL_VOTES": 116787,
       "UNRETURNED_BALLOTS": 1,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 116788,
+      "UNUSED_BALLOTS": 62748,
+      "ELIGIBLE_VOTERS": 179536,
       "TURNOUT_RATE": 65.0493
     },
     {
@@ -471,24 +471,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 2583
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 20911
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 27410
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 50904,
       "INVALID_VOTES": 644,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 51548,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 51548,
+      "UNUSED_BALLOTS": 36884,
+      "ELIGIBLE_VOTERS": 88432,
       "TURNOUT_RATE": 58.2911
     },
     {
@@ -497,24 +497,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 11878
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 99360
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 114966
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 226204,
+      "INVALID_VOTES": 2458,
+      "TOTAL_VOTES": 228662,
       "UNRETURNED_BALLOTS": 6,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 228668,
+      "UNUSED_BALLOTS": 83133,
+      "ELIGIBLE_VOTERS": 311801,
       "TURNOUT_RATE": 73.3359
     },
     {
@@ -523,24 +523,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 14103
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 102725
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 144274
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 261102,
+      "INVALID_VOTES": 3423,
+      "TOTAL_VOTES": 264525,
       "UNRETURNED_BALLOTS": 8,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 264533,
+      "UNUSED_BALLOTS": 80812,
+      "ELIGIBLE_VOTERS": 345345,
       "TURNOUT_RATE": 76.5973
     },
     {
@@ -549,24 +549,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 6204
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 56269
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 99265
         }
       ],
-      "VALID_VOTES": 0,
-      "INVALID_VOTES": 0,
-      "TOTAL_VOTES": 0,
+      "VALID_VOTES": 161738,
+      "INVALID_VOTES": 1664,
+      "TOTAL_VOTES": 163402,
       "UNRETURNED_BALLOTS": 4,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 163406,
+      "UNUSED_BALLOTS": 51649,
+      "ELIGIBLE_VOTERS": 215055,
       "TURNOUT_RATE": 75.9815
     },
     {
@@ -575,24 +575,24 @@
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1636
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 35948
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 10456
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 48040,
       "INVALID_VOTES": 423,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 48463,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 48463,
+      "UNUSED_BALLOTS": 72258,
+      "ELIGIBLE_VOTERS": 120721,
       "TURNOUT_RATE": 40.1446
     },
     {
@@ -605,20 +605,20 @@
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 4776
         },
         {
           "NO": 3,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 1226
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 6190,
       "INVALID_VOTES": 82,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 6272,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 6272,
+      "UNUSED_BALLOTS": 4667,
+      "ELIGIBLE_VOTERS": 10939,
       "TURNOUT_RATE": 57.3361
     }
   ]

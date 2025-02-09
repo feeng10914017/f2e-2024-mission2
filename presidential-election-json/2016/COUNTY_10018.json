@@ -51,7 +51,7 @@
   "ADMIN_COLLECTION": [
     {
       "ADMIN_NAME": "東區",
-      "ADMIN_CODE": "66000020",
+      "ADMIN_CODE": "10018010",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
@@ -77,7 +77,7 @@
     },
     {
       "ADMIN_NAME": "北區",
-      "ADMIN_CODE": "66000050",
+      "ADMIN_CODE": "10018020",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,

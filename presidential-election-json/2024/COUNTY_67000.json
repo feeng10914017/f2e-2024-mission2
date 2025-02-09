@@ -701,7 +701,7 @@
     },
     {
       "ADMIN_NAME": "北區",
-      "ADMIN_CODE": "66000050",
+      "ADMIN_CODE": "67000340",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
@@ -857,7 +857,7 @@
     },
     {
       "ADMIN_NAME": "南區",
-      "ADMIN_CODE": "66000030",
+      "ADMIN_CODE": "67000330",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,
@@ -883,7 +883,7 @@
     },
     {
       "ADMIN_NAME": "東區",
-      "ADMIN_CODE": "66000020",
+      "ADMIN_CODE": "67000320",
       "CANDIDATES_VOTES": [
         {
           "NO": 1,

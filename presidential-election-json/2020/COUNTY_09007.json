@@ -32,20 +32,20 @@
       },
       {
         "NO": 2,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 4776
       },
       {
         "NO": 3,
-        "VOTE_COUNT": 0
+        "VOTE_COUNT": 1226
       }
     ],
-    "VALID_VOTES": 0,
+    "VALID_VOTES": 6190,
     "INVALID_VOTES": 82,
-    "TOTAL_VOTES": 0,
+    "TOTAL_VOTES": 6272,
     "UNRETURNED_BALLOTS": 0,
-    "TOTAL_ISSUED_BALLOTS": 0,
-    "UNUSED_BALLOTS": 0,
-    "ELIGIBLE_VOTERS": 0,
+    "TOTAL_ISSUED_BALLOTS": 6272,
+    "UNUSED_BALLOTS": 4667,
+    "ELIGIBLE_VOTERS": 10939,
     "TURNOUT_RATE": 57.3361
   },
   "ADMIN_COLLECTION": [
@@ -59,20 +59,20 @@
         },
         {
           "NO": 2,
-          "VOTE_COUNT": 0
+          "VOTE_COUNT": 2875
         },
         {
           "NO": 3,
           "VOTE_COUNT": 784
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 3773,
       "INVALID_VOTES": 53,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 3826,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 3826,
+      "UNUSED_BALLOTS": 2431,
+      "ELIGIBLE_VOTERS": 6257,
       "TURNOUT_RATE": 61.1475
     },
     {
@@ -92,13 +92,13 @@
           "VOTE_COUNT": 201
         }
       ],
-      "VALID_VOTES": 0,
+      "VALID_VOTES": 1109,
       "INVALID_VOTES": 14,
-      "TOTAL_VOTES": 0,
+      "TOTAL_VOTES": 1123,
       "UNRETURNED_BALLOTS": 0,
-      "TOTAL_ISSUED_BALLOTS": 0,
-      "UNUSED_BALLOTS": 0,
-      "ELIGIBLE_VOTERS": 0,
+      "TOTAL_ISSUED_BALLOTS": 1123,
+      "UNUSED_BALLOTS": 1066,
+      "ELIGIBLE_VOTERS": 2189,
       "TURNOUT_RATE": 51.302
     },
     {
@@ -124,7 +124,7 @@
       "UNRETURNED_BALLOTS": 0,
       "TOTAL_ISSUED_BALLOTS": 641,
       "UNUSED_BALLOTS": 733,
-      "ELIGIBLE_VOTERS": 0,
+      "ELIGIBLE_VOTERS": 1374,
       "TURNOUT_RATE": 46.6521
     },
     {
@@ -150,7 +150,7 @@
       "UNRETURNED_BALLOTS": 0,
       "TOTAL_ISSUED_BALLOTS": 682,
       "UNUSED_BALLOTS": 437,
-      "ELIGIBLE_VOTERS": 0,
+      "ELIGIBLE_VOTERS": 1119,
       "TURNOUT_RATE": 60.9473
     }
   ]
