@@ -1,59 +1,83 @@
-# F2e2024Mission2
+# The F2E 2023 - Mission 2 總統即時開票全台地圖
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+![](public/images/readme-demo.png)
 
-## Development server
+DEMO：https://feeng10914017.github.io/f2e-2024-mission2/portal
 
-To start a local development server, run:
+F2E 2023 官網：https://2023.thef2e.com/
 
-```bash
-ng serve
+## UI 設計作品
+
+The F2E 2023 - Mission 2 總統即時開票全台地圖
+
+- 標題：台灣歷年總統 都幾？
+- 作者：jhen
+- 連結：https://2023.thef2e.com/users/12061579704041679194?week=2
+
+## 系統說明
+
+專案安裝
+
+```
+npm i
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+專案啟動
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+專案打包
 
-```bash
-ng generate --help
+```
+npm run build
 ```
 
-## Building
+## 使用技術
 
-To build the project run:
+- npm (v22.11.0)
+- Angular (v 19.0.2)
+  - Stanealone
+  - Material cdk
+  - Reactive Form
+- CSS
+  - TailwindCSS (v3.4.15)
+  - RWD
+- 其他
+  - D3.js
+  - TopoJSON
 
-```bash
-ng build
+## 資料夾說明
+
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+├── public
+|  ├── favicon_io
+|  ├── images
+|  |  ├── 3d-president
+|  |  └── icons
+|  ├── map-topo-json                  // 台灣地圖資料
+|  └── presidential-election-json     // 總統選舉資料
+|     ├── 2008
+|     ├── 2012
+|     ├── 2016
+|     ├── 2020
+|     └── 2024
+└── src
+   └── app
+      ├── core
+      |  ├── constants
+      |  ├── enums
+      |  ├── guards
+      |  ├── interceptors
+      |  ├── interfaces
+      |  ├── models
+      |  ├── services
+      |  └── types
+      ├── shared                      // 共用渲染元件
+      |  ├── components               // 基礎功能元件
+      |  ├── dialogs                  // 彈窗元件
+      |  ├── features                 // 頁面功能元件
+      |  └── layouts                  // 佈局元件
+      └── views                       // 路由頁面
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
