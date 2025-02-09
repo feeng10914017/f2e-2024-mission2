@@ -12,7 +12,8 @@ export class CommonService {
 
   /** 取得自 1996 年以來的年份 */
   getYearsSince1996(): string[] {
-    const startYear = 1996;
+    // const startYear = 1996;
+    const startYear = 2008;
     const currentYear = new Date().getFullYear();
     return Array(currentYear - startYear)
       .fill(startYear)

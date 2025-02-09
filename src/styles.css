@@ -58,7 +58,7 @@ svg text.d3-chart-label {
   }
 
   .cmp-dropdown ul {
-    @apply absolute -bottom-1 left-0 z-10 max-h-[min(496px,calc(100dvh_-_65px))] w-full translate-y-full overflow-y-auto rounded-lg border border-solid border-gray-300 bg-white py-2;
+    @apply absolute -bottom-1 left-0 z-20 max-h-[min(496px,calc(100dvh_-_65px))] w-full translate-y-full overflow-y-auto rounded-lg border border-solid border-gray-300 bg-white py-2;
   }
 
   .cmp-dropdown li {
